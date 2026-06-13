@@ -1,0 +1,17 @@
+.hero-custom {
+  min-height: 90vh;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: -40px;
+  filter: blur(100px);
+}
+
+.collection-hover {
+  transition: all 0.3s ease;
+}
+
+.collection-hover:hover {
+  transform: translateY(-8px);
+}
