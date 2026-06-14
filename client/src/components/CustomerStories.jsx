@@ -86,7 +86,7 @@ function CustomerStories() {
           {stories.map((story) => (
             <article
               key={story.name}
-              className="premium-card p-8"
+            className="premium-card testimonial-card p-8"
             >
               <p className="font-heading text-4xl text-accent">
                 "

@@ -34,7 +34,8 @@ import { Section, Button } from "../layout/shared";
 function CustomOrderCTA() {
   return (
     <Section className="px-5 py-20 lg:py-28">
-      <div className="container-premium overflow-hidden rounded-[2.5rem] bg-espresso px-6 py-16 text-center text-white shadow-premium sm:px-12 lg:py-20">
+      <div className="container-premium cta-glow overflow-hidden rounded-[2.5rem] bg-espresso
+       px-6 py-16 text-center text-white shadow-premium sm:px-12 lg:py-20">
 
         <p className="eyebrow text-[#d7c4a8]">
           Make it memorable

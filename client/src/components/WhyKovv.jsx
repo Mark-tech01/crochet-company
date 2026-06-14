@@ -73,7 +73,7 @@ function WhyKovv() {
               <motion.div
                 key={title}
                 whileHover={{ y: -6 }}
-                className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-7"
+                className="premium-card rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-7"
               >
                 <h3 className="font-heading text-2xl font-bold">
                   {title}

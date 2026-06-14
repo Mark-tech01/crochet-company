@@ -54,22 +54,22 @@ import { Section } from "../layout/shared";
 const collectionsData = [
   {
     title: "Crochet Flowers",
-    copy: "Elegant handmade flowers that never fade.",
+    copy: "Forever-blooming flowers handcrafted to preserve meaningful moments.",
     href: "/collections/flowers",
   },
   {
     title: "Bouquets",
-    copy: "Luxury crochet bouquets crafted for special occasions.",
+    copy: "Statement bouquets designed for life's most memorable celebrations.",
     href: "/collections/bouquets",
   },
   {
     title: "Amigurumi",
-    copy: "Cute handcrafted characters and keepsakes.",
+    copy: "Playful handcrafted companions created with exceptional detail.",
     href: "/collections/amigurumi",
   },
   {
     title: "Custom Gifts",
-    copy: "Personalized creations designed around your story.",
+    copy: "Bespoke crochet creations inspired by the people and memories you cherish.",
     href: "/collections/custom",
   },
 ];
@@ -109,13 +109,26 @@ function Collections() {
             >
               <Link
                 to={collection.href}
-                className="premium-card block h-full p-7"
+              className="
+              premium-card
+              block
+              h-full
+              rounded-[28px]
+              border
+              border-[#e7dbce]
+              bg-white
+              p-8
+              shadow-[0_20px_60px_rgba(0,0,0,0.05)]
+              transition-all
+              duration-300
+              hover:-translate-y-2
+              "
               >
                 <span className="text-sm font-bold text-accent">
-                  0{index + 1}
+                  Collection {index + 1}
                 </span>
 
-                <h3 className="mt-8 font-heading text-3xl font-bold text-ink">
+                <h3 className="mt-8 font-heading text-[2rem] font-bold text-ink">
                   {collection.title}
                 </h3>
 
@@ -124,7 +137,7 @@ function Collections() {
                 </p>
 
                 <p className="mt-8 text-sm font-bold text-espresso">
-                  Explore collection →
+                  Discover More →
                 </p>
               </Link>
             </motion.div>

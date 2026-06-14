@@ -5,7 +5,7 @@ function BrandStory() {
     <Section className="py-20 lg:py-28">
       <div className="container-premium grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
 
-        <div className="premium-card p-4">
+      <div className="premium-card premium-story-card p-4"> 
           <div className="min-h-[420px] rounded-[1.7rem] bg-gradient-to-br from-[#efe4d8] via-white/60 to-[#cbb596] p-8">
 
             <div className="h-full rounded-[1.4rem] border border-white/70 bg-linen/45 p-7 backdrop-blur">

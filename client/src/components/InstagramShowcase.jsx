@@ -56,7 +56,8 @@ function InstagramShowcase() {
             <motion.div
               key={tile}
               whileHover={{ scale: 1.03 }}
-              className={`flex aspect-square items-end rounded-[1.5rem] bg-gradient-to-br p-4 shadow-soft ${
+              className={`instagram-tile flex aspect-square
+                items-end rounded-[1.5rem] bg-gradient-to-br p-4 shadow-soft ${
                 index % 2 === 0
                   ? "from-white to-[#d9c8af]"
                   : "from-[#eee5da] to-white"

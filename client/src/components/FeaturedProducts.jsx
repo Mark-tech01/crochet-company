@@ -91,7 +91,7 @@ const products = [
 
 function FeaturedProducts() {
   return (
-    <Section className="bg-sand/45 py-20 lg:py-28">
+    <Section className="bg-[#f6f1ea] py-24 lg:py-32">
       <div className="container-premium">
 
         <div className="text-center">
@@ -99,9 +99,9 @@ function FeaturedProducts() {
             Best sellers
           </p>
 
-          <h2 className="section-title mx-auto mt-4 max-w-3xl">
-            KOVV Signature Pieces.
-          </h2>
+      <h2 className="section-title mx-auto mt-4 max-w-4xl">
+            Handmade Keepsakes Designed To Last Forever.
+    </h2>   
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -110,8 +110,17 @@ function FeaturedProducts() {
             <motion.article
               key={product.title}
               whileHover={{ y: -8 }}
-              className="premium-card overflow-hidden p-4"
+          className="
+            premium-card
+            overflow-hidden
+            border
+            border-[#e8ddd0]
+            bg-white
+            p-5
+            shadow-[0_20px_60px_rgba(0,0,0,0.06)]
+            " 
             >
+              
               <PlaceholderArtwork
                 label={product.title}
                 tone={product.tone}
@@ -120,7 +129,7 @@ function FeaturedProducts() {
               <div className="p-4">
                 <div className="flex items-start justify-between gap-4">
 
-                  <h3 className="font-heading text-2xl font-bold text-ink">
+                  <h3 className="font-heading text-[1.75rem] font-bold text-ink">
                     {product.title}
                   </h3>
 
@@ -138,7 +147,7 @@ function FeaturedProducts() {
                   href="/custom-orders"
                   className="mt-5 w-full"
                 >
-                  Order Now
+                View Details
                 </Button>
               </div>
             </motion.article>
