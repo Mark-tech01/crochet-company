@@ -1,0 +1,523 @@
+/* ==========================================================
+   KOVV HERO - LUXURY EDITORIAL SPECIFICATION
+   Editorial Hero v9.5 (Luxury Art Direction Edition)
+========================================================== */
+
+:root {
+    --bg-warm-canvas: #FAF9F6;                  
+    --text-primary: #9E7B5C;        
+    --text-secondary: #6B6259;      
+    --accent-gold: #9E7B5C;              
+    --paper-white: #FCFAF7;
+    --paper-beige: #F4F2EB;
+    
+    /* Decelerating Easing Curve */
+    --hero-bezier: cubic-bezier(0.25, 1, 0.3, 1);
+    --hero-transition: 600ms var(--hero-bezier);
+}
+
+/* ==========================================================
+   HERO OUTER CONTAINER
+========================================================== */
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-warm-canvas);
+    min-height: 95vh;               
+    padding-top: 7rem;              
+    display: flex;
+    align-items: center;
+    isolation: isolate;             
+    box-sizing: border-box;
+
+    /* Lerp loop properties */
+    --mouse-x: 0;
+    --mouse-y: 0;
+    --cursor-x: 50%;
+    --cursor-y: 50%;
+}
+
+/* 
+   Subtle Natural Afternoon Sunlight Shift
+   - Blends split panel and image into a single continuous composition.
+   - Applies an atmospheric vignette around the viewport edges.
+*/
+@keyframes sunlightShift {
+    0% { background-position: 55% 42%; }
+    50% { background-position: 62% 46%; }
+    100% { background-position: 55% 42%; }
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Soft vignette combined with warm afternoon lighting */
+    background: 
+        radial-gradient(circle, transparent 45%, rgba(118, 96, 70, 0.05) 100%),
+        radial-gradient(circle at 60% 40%, rgba(224, 185, 131, 0.035) 0%, rgba(118, 96, 70, 0.015) 100%);
+    background-size: 100% 100%, 150% 150%; 
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 5;
+    animation: sunlightShift 25s ease-in-out infinite; 
+}
+
+/* ----------------------------------------------------------
+   CURSOR LIGHT
+   An elegant warm reflection of natural sunlight
+---------------------------------------------------------- */
+.hero-cursor-glow {
+    position: absolute;
+    left: var(--cursor-x);
+    top: var(--cursor-y);
+    width: 450px;
+    height: 450px;
+    background: var(--accent-gold);
+    border-radius: 50%;
+    filter: blur(200px);            
+    opacity: 0.035;                 
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 6; 
+}
+
+/* ----------------------------------------------------------
+   DIAGONAL OVERLAPPING SPLIT
+========================================================== */
+.hero-split-bg-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    filter: drop-shadow(4px 0 35px rgba(118, 96, 70, 0.03)); 
+    pointer-events: none;
+    will-change: transform;
+
+    /* Parallax: White content panel moves exactly 2px */
+    transform: translate(
+        calc(var(--mouse-x) * 2px), 
+        calc(var(--mouse-y) * 2px)
+    ) !important;
+}
+
+.hero .hero-split-bg {
+    width: 100% !important;
+    height: 100% !important;
+    background-color: var(--paper-beige) !important; 
+    
+    /* 
+       Refined Left Panel Background:
+       Combines an extremely subtle vertical warm gradient with soft cardstock paper fibers
+    */
+    background-image: 
+        linear-gradient(to bottom, var(--paper-white) 0%, var(--paper-beige) 100%),
+        radial-gradient(rgba(142, 124, 104, 0.02) 1px, transparent 0),
+        radial-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 0);
+    background-size: 100% 100%, 8px 8px, 16px 16px;
+    clip-path: polygon(0 0, 53% 0, 45% 100%, 0 100%) !important; 
+
+    /* Parallax: Background paper texture moves exactly 1px */
+    transform: translate(
+        calc(var(--mouse-x) * 1px), 
+        calc(var(--mouse-y) * 1px)
+    ) !important;
+    will-change: transform;
+}
+
+/* Soft lighting variation along the split edge */
+.hero-split-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(142, 124, 104, 0.01) 0%, rgba(142, 124, 104, 0.06) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ----------------------------------------------------------
+   5. GALLERY MAT-BOARD FRAMES (Bespoke Sizing System)
+========================================================== */
+.hero-bg-image-container {
+    position: absolute;
+    top: -20px;                      
+    right: 30px;                     /* Bridging split */
+    left: auto;
+    width: 72%;                      
+    height: calc(100% + 20px);       
+    overflow: hidden;
+    z-index: -2 !important;
+    will-change: transform;
+
+    /* Parallax: Bouquet image container moves exactly 5.5px */
+    transform: scale(1.03) translate(
+        calc(var(--mouse-x) * -5.5px), 
+        calc(var(--mouse-y) * -5.5px)
+    ) !important;
+    
+    transition: transform 2.4s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
+    pointer-events: none;
+}
+
+/* Subtle vignette overlaid directly over image to pull focus to center bouquet */
+.hero-bg-image-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 45% 45%, transparent 40%, rgba(42, 39, 37, 0.08) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Imperceptible vertical breathing float animation on the bouquet */
+@keyframes floatBreathing {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-3px); } 
+    100% { transform: translateY(0); }
+}
+
+.hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    object-position: 54% center !important; /* Visual focal placement in right-upper third */
+    
+    /* Warm sunlight color grading filter */
+    filter: sepia(0.06) contrast(1.02) brightness(0.98); 
+    
+    animation: floatBreathing 11s ease-in-out infinite; 
+    user-select: none;
+}
+
+/* ----------------------------------------------------------
+   CONTAINER & VERTICAL BREATHING RHYTHM
+---------------------------------------------------------- */
+.hero-container {
+    width: 100%;
+    max-width: 1720px;
+    margin: 0 auto;
+    padding-left: 80px;
+    padding-right: 0;
+    display: grid;
+    grid-template-columns: 48% 52%; /* Widened left column from 42% 58% */
+    align-items: center;
+    min-height: calc(95vh - 7rem);
+    position: relative; 
+}
+
+.hero-left {
+    position: relative;
+    max-width: 650px;                /* Expanded from 540px to resolve wrapping issues */
+    padding-top: 20px;
+}
+
+/* ----------------------------------------------------------
+   TYPOGRAPHY
+---------------------------------------------------------- */
+.hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--accent-gold);
+    font-size: .82rem;               
+    font-weight: 600;
+    letter-spacing: 0.38em;           
+    text-transform: uppercase;
+    margin-bottom: 2.25rem;
+}
+
+.hero-label::before,
+.hero-label::after {
+    content: "";
+    width: 48px;
+    height: 1px;
+    background: var(--accent-gold);
+    opacity: 0.30;
+}
+
+.hero-title {
+    font-family: "Cormorant Garamond", serif;
+    /* Refined fluid scaling to keep "The moment doesn't." strictly on a single line */
+    font-size: clamp(5.6rem, 7.2vw, 8.2rem) !important;
+    font-weight: 300;
+    line-height: 0.90 !important; 
+    letter-spacing: -0.035em;
+    color: #9E7B5C !important; /* Coppery gold */
+    margin-bottom: 42px;             
+
+    /* Parallax: Heading moves exactly 2px */
+    transform: translate(
+        calc(var(--mouse-x) * 2px), 
+        calc(var(--mouse-y) * 2px)
+    );
+}
+
+.hero-description {
+    max-width: 38ch;                /* Restrained line-length for luxury catalog look */
+    color: var(--text-secondary);
+    font-size: 1.08rem;
+    line-height: 1.9;
+    letter-spacing: 0.01em;
+    margin-bottom: 56px;             
+    will-change: transform;
+
+    /* Parallax: Description moves exactly 2px */
+    transform: translate(
+        calc(var(--mouse-x) * 2px), 
+        calc(var(--mouse-y) * 2px)
+    );
+}
+
+/* ----------------------------------------------------------
+   REFINED CTA BUTTON
+---------------------------------------------------------- */
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 52px !important;   
+    border: 1px solid var(--accent-gold) !important; 
+    border-radius: 4px !important;   /* Aligned with button core radius system */          
+    background: transparent !important;
+    color: var(--accent-gold) !important;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;           
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 44px;             
+    will-change: transform;
+
+    /* Parallax: Button moves exactly 3px */
+    transform: translate(
+        calc(var(--mouse-x) * 3px), 
+        calc(var(--mouse-y) * 3px)
+    );
+    
+    transition: 
+        background-color var(--hero-transition),
+        color var(--hero-transition),
+        letter-spacing var(--hero-transition),
+        box-shadow var(--hero-transition),
+        transform var(--hero-transition) !important;
+}
+
+/* Hover scales: Soft typographic tracking expansion matching the layout system */
+.hero-button:hover {
+    background: var(--accent-gold) !important;      
+    color: var(--bg-warm-canvas) !important;                 
+    letter-spacing: 0.22em !important;
+    transform: translate(
+        calc(var(--mouse-x) * 3px), 
+        calc(var(--mouse-y) * 3px)
+    ) translateY(-2px) !important;
+    box-shadow: 0 10px 30px rgba(158, 123, 92, 0.08) !important;
+}
+
+/* Bottom signature tagline */
+.hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: .92rem;
+    letter-spacing: .01em;
+    opacity: 0.7;                    
+}
+
+.hero-trust-icon {
+    color: var(--accent-gold);
+}
+
+.hero-right-spacer {
+    height: 100%;
+}
+
+/* ----------------------------------------------------------
+   ENTRANCE STAGGERED SEQUENCE
+========================================================== */
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes imgEntryFade {
+    from { 
+        opacity: 0; 
+        transform: scale(0.95) translateY(16px);
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1.03) translate(
+            calc(var(--mouse-x) * -5.5px), 
+            calc(var(--mouse-y) * -5.5px)
+        );
+    }
+}
+
+/* Sequential stagger curve loading */
+.hero-label {
+    opacity: 0;
+    animation: heroFadeUp 0.9s var(--hero-bezier) forwards;
+    animation-delay: 0.14s;          
+}
+
+.hero-title {
+    opacity: 0;
+    animation: heroFadeUp 0.9s var(--hero-bezier) forwards;
+    animation-delay: 0.21s;          
+}
+
+.hero-description {
+    opacity: 0;
+    animation: heroFadeUp 0.9s var(--hero-bezier) forwards;
+    animation-delay: 0.28s;          
+}
+
+.hero-button {
+    opacity: 0;
+    animation: heroFadeUp 0.9s var(--hero-bezier) forwards;
+    animation-delay: 0.35s;          
+}
+
+.hero-trust {
+    opacity: 0;
+    animation: heroFadeUp 0.9s var(--hero-bezier) forwards;
+    animation-delay: 0.42s;          
+}
+
+.hero-bg-image-container {
+    opacity: 0;
+    animation: imgEntryFade 0.9s var(--hero-bezier) forwards;
+    animation-delay: 0.49s;          
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE RESET
+========================================================== */
+@media (max-width: 1200px) {
+    .hero {
+        min-height: auto;
+        padding: 90px 0;
+    }
+
+    .hero .hero-split-bg {
+        clip-path: none !important;
+        background-image: none !important;
+        background-color: var(--bg-warm-canvas) !important;
+        z-index: -1 !important;
+        transform: none !important;
+    }
+
+    .hero-split-bg-wrap {
+        transform: none !important;
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            180deg,
+            rgba(250, 249, 246, 0.95) 0%,
+            rgba(250, 249, 246, 0.80) 50%,
+            rgba(250, 249, 246, 0.30) 100%
+        );
+        z-index: -1;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 70px;
+        padding: 0 40px;
+        min-height: auto;
+    }
+
+    .hero-left {
+        text-align: center;
+        margin: auto;
+        max-width: 700px;
+        padding-top: 0;
+        transform: none !important;
+    }
+
+    .hero-title,
+    .hero-description,
+    .hero-button {
+        transform: none !important;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-trust {
+        justify-content: center;
+    }
+
+    .hero-right-spacer {
+        height: 0;
+        display: none;
+    }
+
+    .hero-bg-image-container {
+        top: 0 !important;
+        right: 0 !important;
+        z-index: -2 !important;
+        transform: none !important;
+        animation: heroFadeUp 1.2s var(--hero-bezier) forwards !important;
+        animation-delay: 0.7s !important;
+        width: 100%;
+        height: 100% !important;
+    }
+
+    .hero-bg-image {
+        object-position: center !important;
+    }
+
+    .hero:hover .hero-bg-image-container {
+        transform: scale(1.03) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero-container {
+        padding: 0 24px;
+        gap: 50px;
+    }
+
+    .hero-title {
+        /* Prevents desktop size from breaking mobile layout */
+        font-size: clamp(3.8rem, 11vw, 5rem) !important; 
+        line-height: 0.95 !important;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.85;
+    }
+
+    .hero-button {
+        width: 100%;
+        max-width: 290px;
+    }
+
+    .hero-trust {
+        margin-top: 28px;
+        justify-content: center;
+        text-align: center;
+    }
+}

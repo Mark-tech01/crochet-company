@@ -1,0 +1,231 @@
+/* ==========================================
+   INSTAGRAM SHOWCASE
+========================================== */
+
+.insta-showcase-section {
+  background: #FFFFFF;
+
+  padding: 120px 0;
+
+  border-bottom: 1px solid rgba(28, 28, 28, 0.03);
+}
+
+.insta-showcase-container {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 0 2.5rem;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.insta-showcase-header {
+  text-align: center;
+
+  max-width: 720px;
+
+  margin: 0 auto 6rem;
+}
+
+.insta-showcase-subtitle {
+  display: block;
+
+  margin-bottom: 1.25rem;
+
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  color: #B89A6A;
+}
+
+.insta-showcase-title {
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+
+  font-weight: 300;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.02em;
+
+  color: #1C1C1C;
+
+  margin-bottom: 1.5rem;
+}
+
+.insta-showcase-lead {
+  font-size: 1rem;
+
+  font-weight: 300;
+
+  line-height: 1.9;
+
+  color: #6B6B6B;
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.insta-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 1.5rem;
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.insta-grid-item {
+  display: block;
+
+  text-decoration: none;
+}
+
+.insta-image-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background: #F2EEE8;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.03),
+    0 1px 1px rgba(0, 0, 0, 0.02);
+}
+
+.insta-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.insta-grid-item:hover .insta-image {
+  transform: scale(1.08);
+}
+
+/* ==========================================
+   OVERLAY
+========================================== */
+
+.insta-hover-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(28, 28, 28, 0.35);
+
+  opacity: 0;
+
+  transition: opacity 0.4s ease;
+}
+
+.insta-grid-item:hover .insta-hover-overlay {
+  opacity: 1;
+}
+
+.insta-hover-text {
+  color: #FFFFFF;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  border-bottom: 1px solid rgba(255,255,255,0.8);
+
+  padding-bottom: 0.3rem;
+}
+
+/* ==========================================
+   FOOTER CTA
+========================================== */
+
+.insta-footer-callout {
+  text-align: center;
+
+  margin-top: 5rem;
+}
+
+.insta-handle-link {
+  color: #1C1C1C;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  border-bottom: 1px solid rgba(28,28,28,0.15);
+
+  padding-bottom: 0.4rem;
+
+  transition: all 0.3s ease;
+}
+
+.insta-handle-link:hover {
+  color: #B89A6A;
+
+  border-color: #B89A6A;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1024px) {
+
+  .insta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+  .insta-showcase-section {
+    padding: 80px 0;
+  }
+
+  .insta-showcase-container {
+    padding: 0 1.5rem;
+  }
+
+  .insta-showcase-header {
+    margin-bottom: 4rem;
+  }
+
+  .insta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .insta-footer-callout {
+    margin-top: 4rem;
+  }
+}

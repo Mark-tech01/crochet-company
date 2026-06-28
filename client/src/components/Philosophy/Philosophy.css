@@ -1,0 +1,448 @@
+/* ==========================================================
+   KOVV PHILOSOPHY - EDITORIAL LUXURY DESIGN SYSTEM
+========================================================== */
+
+:root {
+  --bg-oat-cream: #F4EFE6;
+  --text-dark: #1C1B19;
+  --text-muted: #5C5248;
+  --accent-gold: #8E7C68;
+  --mat-board-white: #FCFAF7;
+  
+  /* Precision Luxury Easing (Slow, fluid deceleration) */
+  --luxury-bezier: cubic-bezier(0.25, 1, 0.2, 1);
+  --luxury-transition-slow: 1200ms var(--luxury-bezier);
+  --luxury-transition-fast: 600ms var(--luxury-bezier);
+}
+
+/* ----------------------------------------------------------
+   1. MAIN SECTION WRAPPER & CANVAS
+---------------------------------------------------------- */
+.philosophy {
+    position: relative;
+    padding: 16rem 0 18rem;         /* Expanded padding for spatial scale */
+    background-color: var(--bg-oat-cream) !important;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Multi-layered tactile cotton paper fibers overlay */
+.philosophy::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(rgba(142, 124, 104, 0.02) 1px, transparent 0),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(142, 124, 104, 0.01) 100%);
+    background-size: 8px 8px, 100% 100%;
+    opacity: 0.98;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ambient shadow-play projecting on the top-left */
+.philosophy::after {
+    content: "";
+    position: absolute;
+    top: -8%;
+    left: -8%;
+    width: 55%;
+    height: 65%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' opacity='0.03'%3E%3Cpath d='M100,100 C150,50 220,130 250,150 C300,180 320,100 400,200 C450,280 380,350 300,300 C220,250 180,380 120,300 C60,220 50,150 100,100 Z M500,200 C580,180 620,250 700,300 C780,350 720,450 650,420 C580,390 520,480 480,400 C440,320 420,220 500,200 Z' fill='%236e5943'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.philosophy-container {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    max-width: 1080px;              
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+/* ----------------------------------------------------------
+   2. EDITORIAL INTRO
+---------------------------------------------------------- */
+.philosophy-intro {
+    text-align: center;
+    margin-bottom: 14rem;           /* Expanded to push the grid further down */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 
+        opacity var(--luxury-transition-slow), 
+        transform var(--luxury-transition-slow);
+}
+
+.philosophy-intro.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.philosophy-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--accent-gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.4em;           
+    text-transform: uppercase;
+    margin-bottom: 2.25rem;
+}
+
+.philosophy-label::before,
+.philosophy-label::after {
+    content: "";
+    width: 56px;
+    height: 1px;
+    background: var(--accent-gold);
+    opacity: 0.25;
+}
+
+.philosophy-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.6rem, 4.5vw, 3.8rem); 
+    font-weight: 500;              
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 2rem;           
+}
+
+.philosophy-description {
+    max-width: 44ch;               /* Clean reading line-length */
+    margin: 0 auto;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    letter-spacing: 0.01em;
+}
+
+/* ----------------------------------------------------------
+   3. TORN PAPER (DECKLE-EDGE) DIVIDER
+---------------------------------------------------------- */
+.philosophy-deckle-divider {
+    width: 100%;
+    height: 28px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 28' preserveAspectRatio='none'%3E%3Cpath d='M0,15 Q35,12 72,18 T145,14 Q180,19 218,13 T290,16 Q325,11 362,17 T435,12 Q470,18 508,13 T580,15 Q615,11 652,18 T725,12 Q760,19 798,14 T870,16 Q905,12 942,17 T1015,13 Q1050,19 1088,14 T1160,16 Q1195,11 1232,17 T1305,12 Q1340,18 1378,13 T1440,15 L1440,28 L0,28 Z' fill='%23FAF9F6'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    margin-bottom: 10rem;            
+    position: relative;
+    z-index: 5;
+    filter: drop-shadow(0 -4px 4px rgba(118, 96, 70, 0.03)); 
+}
+
+/* ----------------------------------------------------------
+   4. ASYMMETRICAL CARD PANELS & LAYOUTS
+---------------------------------------------------------- */
+.philosophy-values {
+    display: flex;
+    flex-direction: column;
+    gap: 18rem;                     /* Massive space to represent print spreads */
+}
+
+.philosophy-value {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr; 
+    gap: 8rem;
+    align-items: center;
+    background: none !important;    
+    border: none !important;        
+    padding: 0 !important;          
+    box-shadow: none !important;    
+    box-sizing: border-box;
+    
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 
+        opacity var(--luxury-transition-slow),
+        transform var(--luxury-transition-slow);
+}
+
+.philosophy-value.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Asymmetric Column Alternations */
+.philosophy-value.reverse {
+    grid-template-columns: 0.85fr 1.15fr; 
+}
+
+.philosophy-value.reverse .value-image-wrapper {
+    order: 2;
+}
+
+.philosophy-value.reverse .value-content-wrapper {
+    order: 1;
+}
+
+/* Whisper-quiet gold hairline split between values */
+.philosophy-value::after {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: -9rem;                  
+    height: 1px;
+    background: radial-gradient(circle, rgba(142, 124, 104, 0.15) 0%, transparent 80%);
+}
+
+.philosophy-value:last-child::after {
+    display: none;
+}
+
+/* ----------------------------------------------------------
+   5. GALLERY MAT-BOARD FRAMES (Bespoke Bevel-Cut System)
+---------------------------------------------------------- */
+.value-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;             
+    background-color: var(--mat-board-white);      
+    padding: 14px;                  /* Generous mat board boundaries */
+    border: 1px solid rgba(142, 124, 104, 0.08); 
+    box-shadow: 
+        0 16px 40px rgba(118, 96, 70, 0.015),
+        inset 0 0 25px rgba(118, 96, 70, 0.01);
+    
+    opacity: 0;
+    transform: scale(0.97);
+    transition: 
+        opacity var(--luxury-transition-slow),
+        transform var(--luxury-transition-slow), 
+        box-shadow var(--luxury-transition-fast);
+}
+
+/* Simulated Bevel Cut: Secondary inner boundary */
+.value-image-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 0.5px solid rgba(142, 124, 104, 0.12);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.philosophy-value.is-revealed .value-image-wrapper {
+    opacity: 1;
+    transform: scale(1);            
+}
+
+/* Bespoke Dimension Offsets per spread */
+
+/* Spread 01 (Made by Hand) - Landscape */
+.philosophy-value:nth-child(1) .value-image-wrapper {
+    height: 450px;                  
+    width: 100%;
+    transform: translateY(2.5rem) scale(0.97); 
+}
+.philosophy-value:nth-child(1).is-revealed .value-image-wrapper {
+    transform: translateY(2.5rem) scale(1);
+}
+
+/* Spread 02 (Made for Someone) - Portrait */
+.philosophy-value.reverse .value-image-wrapper {
+    height: 530px;                  
+    width: 92%;                     
+    margin-left: auto;              
+    transform: translateY(-1.5rem) scale(0.97); 
+}
+.philosophy-value.reverse.is-revealed .value-image-wrapper {
+    transform: translateY(-1.5rem) scale(1);
+}
+
+/* Spread 03 (Made to Last) - Balanced Square */
+.philosophy-value:nth-child(3) .value-image-wrapper {
+    height: 490px;                  
+    width: 102%;                    
+    transform: translateY(1.5rem) scale(0.97);
+}
+.philosophy-value:nth-child(3).is-revealed .value-image-wrapper {
+    transform: translateY(1.5rem) scale(1);
+}
+
+.value-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1px;
+    filter: sepia(0.04) contrast(1.01) brightness(0.99); 
+    transition: 
+        transform 1.2s var(--luxury-bezier), 
+        filter 1.2s var(--luxury-bezier);
+}
+
+/* Slow, liquid hover states */
+.value-image-wrapper:hover .value-image {
+    transform: scale(1.02);
+    filter: sepia(0.06) contrast(1.03) saturate(1.05) brightness(0.99); 
+}
+
+/* ----------------------------------------------------------
+   6. COLUMN CONTENT & TYPOGRAPHY WATERMARKS
+---------------------------------------------------------- */
+.value-content-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;           
+    width: 100%;
+    max-width: 480px;               
+}
+
+/* Hand-drawn copper foliage overlay */
+.philosophy-value:not(.reverse) .value-content-wrapper::after {
+    content: "";
+    position: absolute;
+    right: 25px;
+    bottom: -15px;
+    width: 75px;
+    height: 105px;
+    opacity: 0.05;                  
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150' fill='none' stroke='%239E7B5C' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M50,130 C48,100 42,75 35,50 C32,40 28,30 38,20 C42,10 52,15 48,25 C45,35 38,45 50,60' /%3E%3Cpath d='M42,95 C30,90 25,75 35,68 C42,62 48,70 45,80' /%3E%3Cpath d='M46,75 C58,70 65,55 55,48 C48,42 42,50 45,60' /%3E%3Cpath d='M38,40 C30,30 35,15 45,22 C50,28 42,38 40,42' /%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+/* Classic Roman Watermarks with smooth entrance translate */
+.value-number {
+    position: absolute;
+    top: -4.5rem;                   
+    left: -2.5rem;                    
+    font-family: "Didot", "Bodoni MT", "Playfair Display", "Garamond", serif;
+    font-size: 8.5rem;                
+    font-weight: 300;
+    color: var(--accent-gold);
+    opacity: 0;                     
+    line-height: 1;
+    letter-spacing: -0.05em;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;                     
+    transform: translateY(15px);
+    
+    transition: 
+        opacity var(--luxury-transition-slow),
+        transform var(--luxury-transition-slow);
+    transition-delay: 0.4s;        
+}
+
+.philosophy-value.is-revealed .value-number {
+    opacity: 0.05;                  
+    transform: translateY(0);
+}
+
+.value-content {
+    position: relative;
+    z-index: 2;                     
+    max-width: 480px;               
+    
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 
+        opacity var(--luxury-transition-slow),
+        transform var(--luxury-transition-slow);
+    transition-delay: 0.15s;        
+}
+
+.philosophy-value.is-revealed .value-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.value-content h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.8rem;
+    font-weight: 500;               
+    letter-spacing: -0.015em;
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.value-content p {
+    color: var(--text-muted);
+    line-height: 1.95;
+    font-size: 1.05rem;
+    letter-spacing: 0.015em;
+    max-width: 40ch;               /* Soft line length restriction */
+}
+
+/* ----------------------------------------------------------
+   7. RESPONSIVE RESET
+---------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .philosophy {
+        padding: 10rem 0 11rem;
+    }
+    .philosophy-value,
+    .philosophy-value:nth-child(1),
+    .philosophy-value.reverse,
+    .philosophy-value:nth-child(3) {
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 3.5rem;
+        padding: 24px;
+        transform: none !important;
+    }
+    .philosophy-values {
+        gap: 8rem;
+    }
+    .value-image-wrapper {
+        height: 340px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .philosophy-container {
+        padding: 0 24px;
+    }
+
+    .philosophy-value {
+        grid-template-columns: 1fr !important; 
+        gap: 3rem;
+        padding: 0;
+    }
+
+    .philosophy-values {
+        gap: 6rem;
+    }
+
+    .philosophy-value.reverse .value-image-wrapper,
+    .philosophy-value.reverse .value-content-wrapper {
+        order: unset;
+    }
+    
+    .philosophy-value.reverse.is-revealed {
+        transform: none;
+    }
+
+    .value-number {
+        position: relative;
+        top: 0;
+        left: 0;
+        font-size: 4.5rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.15 !important;
+    }
+
+    .philosophy-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .value-content-wrapper {
+        max-width: 100%;
+        padding-inline: 0;
+    }
+}

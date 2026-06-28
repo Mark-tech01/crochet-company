@@ -1,0 +1,104 @@
+/* ======================================================
+KOVV UTILITIES
+Version 1.0
+====================================================== */
+
+/* ==========================================
+CONTAINERS
+========================================== */
+
+.container {
+width: min(var(--container-width), calc(100% - 64px));
+margin-inline: auto;
+}
+
+.container-md {
+width: min(980px, calc(100% - 64px));
+margin-inline: auto;
+}
+
+.container-sm {
+width: min(720px, calc(100% - 64px));
+margin-inline: auto;
+}
+
+/* ==========================================
+SECTION SPACING
+========================================== */
+
+.section {
+padding-block: var(--space-120);
+}
+
+.section-lg {
+padding-block: var(--space-160);
+}
+
+.section-sm {
+padding-block: var(--space-80);
+}
+
+/* ==========================================
+DISPLAY
+========================================== */
+
+.block {
+display: block;
+}
+
+.inline-block {
+display: inline-block;
+}
+
+.hidden {
+display: none;
+}
+
+/* ==========================================
+FLEX
+========================================== */
+
+.flex {
+display: flex;
+}
+
+.flex-center {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.flex-between {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.flex-column {
+display: flex;
+flex-direction: column;
+}
+
+/* ==========================================
+GAP
+========================================== */
+
+.gap-8 {
+gap: var(--space-8);
+}
+
+.gap-16 {
+gap: var(--space-16);
+}
+
+.gap-24 {
+gap: var(--space-24);
+}
+
+.gap-32 {
+gap: var(--space-32);
+}
+
+.gap-48 {
+gap: var(--space-48);
+}

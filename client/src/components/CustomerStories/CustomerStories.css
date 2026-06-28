@@ -1,0 +1,233 @@
+/* ==========================================
+   CUSTOMER STORIES
+========================================== */
+
+.cust-stories-section {
+  position: relative;
+
+  background: #F2EEE8;
+
+  padding: 120px 0;
+
+  border-bottom: 1px solid rgba(28, 28, 28, 0.03);
+}
+
+.cust-stories-container {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 0 2.5rem;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.cust-stories-header {
+  text-align: center;
+
+  max-width: 720px;
+
+  margin: 0 auto 6.5rem;
+}
+
+.cust-stories-subtitle {
+  display: block;
+
+  margin-bottom: 1.25rem;
+
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  color: #B89A6A;
+}
+
+.cust-stories-title {
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  font-weight: 300;
+
+  color: #1C1C1C;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.02em;
+
+  margin-bottom: 1.5rem;
+}
+
+.cust-stories-lead {
+  font-size: 1rem;
+  font-weight: 300;
+
+  line-height: 1.9;
+
+  color: #6B6B6B;
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.cust-stories-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 2rem;
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.cust-story-card {
+  background: #FAF8F5;
+
+  border-radius: 24px;
+
+  padding: 2.75rem;
+
+  border: 1px solid rgba(28, 28, 28, 0.04);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.03),
+    0 1px 1px rgba(0, 0, 0, 0.02);
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.cust-story-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.05),
+    0 2px 2px rgba(0, 0, 0, 0.02);
+}
+
+/* ==========================================
+   META
+========================================== */
+
+.cust-story-meta-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 1.25rem;
+
+  margin-bottom: 1.5rem;
+
+  border-bottom: 1px solid rgba(28, 28, 28, 0.05);
+}
+
+.story-timeframe {
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  color: #B89A6A;
+}
+
+.story-category {
+  font-size: 0.65rem;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: #6B6B6B;
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.cust-story-card-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  color: #1C1C1C;
+
+  margin-bottom: 1rem;
+}
+
+.cust-story-card-quote {
+  flex-grow: 1;
+
+  font-size: 0.95rem;
+  font-weight: 300;
+
+  line-height: 1.8;
+
+  color: #6B6B6B;
+
+  margin-bottom: 2rem;
+}
+
+/* ==========================================
+   AUTHOR
+========================================== */
+
+.cust-story-author-details {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  font-size: 0.8rem;
+}
+
+.author-name {
+  font-weight: 600;
+  color: #1C1C1C;
+}
+
+.author-location {
+  color: #6B6B6B;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1024px) {
+
+  .cust-stories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+  .cust-stories-section {
+    padding: 80px 0;
+  }
+
+  .cust-stories-container {
+    padding: 0 1.5rem;
+  }
+
+  .cust-stories-header {
+    margin-bottom: 4rem;
+  }
+
+  .cust-stories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cust-story-card {
+    padding: 2rem;
+  }
+}

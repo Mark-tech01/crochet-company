@@ -1,0 +1,58 @@
+/* ======================================================
+   KOVV TEXT SYSTEM
+   Version 1.0
+====================================================== */
+
+.kovv-text{
+    margin:0;
+    font-family:"Manrope",sans-serif;
+    color:var(--color-text-light);
+}
+
+/* Large */
+
+.kovv-text-body-large{
+
+    font-size:1.2rem;
+
+    line-height:1.9;
+
+}
+
+/* Default */
+
+.kovv-text-body{
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+}
+
+/* Small */
+
+.kovv-text-small{
+
+    font-size:.9rem;
+
+    line-height:1.7;
+
+    color:var(--color-text-muted);
+
+}
+
+/* Label */
+
+.kovv-text-label{
+
+    font-size:.78rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:.18em;
+
+    font-weight:700;
+
+    color:var(--color-accent);
+
+}

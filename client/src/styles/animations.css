@@ -1,0 +1,212 @@
+/* ======================================================
+KOVV
+ANIMATIONS
+Version 1.0
+====================================================== */
+
+/* ======================================================
+TRANSITIONS
+====================================================== */
+
+.transition-fast {
+transition: all var(--transition-fast);
+}
+
+.transition-normal {
+transition: all var(--transition-normal);
+}
+
+/* ======================================================
+FADE IN
+====================================================== */
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+}
+
+to {
+opacity: 1;
+}
+}
+
+.fade-in {
+animation: fadeIn .8s ease forwards;
+}
+
+/* ======================================================
+FADE UP
+====================================================== */
+
+@keyframes fadeUp {
+
+from {
+opacity: 0;
+transform: translateY(40px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+
+}
+
+.fade-up {
+animation: fadeUp .8s ease forwards;
+}
+
+/* ======================================================
+FADE LEFT
+====================================================== */
+
+@keyframes fadeLeft {
+
+from {
+opacity: 0;
+transform: translateX(-40px);
+}
+
+to {
+opacity: 1;
+transform: translateX(0);
+}
+
+}
+
+.fade-left {
+animation: fadeLeft .8s ease forwards;
+}
+
+/* ======================================================
+FADE RIGHT
+====================================================== */
+
+@keyframes fadeRight {
+
+from {
+opacity: 0;
+transform: translateX(40px);
+}
+
+to {
+opacity: 1;
+transform: translateX(0);
+}
+
+}
+
+.fade-right {
+animation: fadeRight .8s ease forwards;
+}
+
+/* ======================================================
+SCALE IN
+====================================================== */
+
+@keyframes scaleIn {
+
+from {
+opacity: 0;
+transform: scale(.95);
+}
+
+to {
+opacity: 1;
+transform: scale(1);
+}
+
+}
+
+.scale-in {
+animation: scaleIn .7s ease forwards;
+}
+
+/* ======================================================
+HOVER LIFT
+====================================================== */
+
+.hover-lift {
+transition: transform .35s ease,
+box-shadow .35s ease;
+}
+
+.hover-lift:hover {
+
+transform: translateY(-6px);
+
+box-shadow: var(--shadow-md);
+
+}
+
+/* ======================================================
+IMAGE ZOOM
+====================================================== */
+
+.image-zoom {
+
+overflow: hidden;
+
+}
+
+.image-zoom img {
+
+transition: transform .8s ease;
+
+}
+
+.image-zoom:hover img {
+
+transform: scale(1.06);
+
+}
+
+/* ======================================================
+BUTTON HOVER
+====================================================== */
+
+.button-hover {
+
+transition:
+transform .3s ease,
+background .3s ease,
+color .3s ease,
+box-shadow .3s ease;
+
+}
+
+.button-hover:hover {
+
+transform: translateY(-2px);
+
+box-shadow: var(--shadow-sm);
+
+}
+
+/* ======================================================
+STAGGER DELAYS
+====================================================== */
+
+.delay-1 {
+
+animation-delay: .1s;
+
+}
+
+.delay-2 {
+
+animation-delay: .2s;
+
+}
+
+.delay-3 {
+
+animation-delay: .3s;
+
+}
+
+.delay-4 {
+
+animation-delay: .4s;
+
+}

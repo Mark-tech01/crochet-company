@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Editorial Luxury Palette */
+  --bg-gradient-start: #FAF8F5;
+  --bg-gradient-end: #F2EBE0;
+  
+  /* Soft Premium Paper Finishes */
+  --bg-card-light: #EFECE6;
+  --bg-card-light-hover: #F5F3EF;
+  --bg-card-dark-start: #231C18;
+  --bg-card-dark-end: #130D0B;
+  --bg-card-dark-hover: #29211C;
+  
+  --text-dark: #2C211A;
+  --text-light: #FBF9F6;
+  --text-muted-dark: #5C4F44;
+  --text-muted-light: #BCAF9E;
+  --accent-gold: #B69A71;
+  --champagne-glow: rgba(182, 154, 113, 0.15);
+  --champagne-glow-hover: rgba(182, 154, 113, 0.45);
+  
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Slow, Graceful Deceleration Timing (Luxury Standard) */
+  --premium-transition: 700ms cubic-bezier(0.25, 1, 0.3, 1);
+}
+
+/* ==========================================
+   COLLECTIONS SECTION
+========================================== */
+.collections-section {
+  position: relative;
+  background: radial-gradient(circle at center, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  padding: 180px 0 140px; /* Generous breathing room */
+  overflow: hidden;
+}
+
+.collections-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* Floating background organic details */
+.decor-leaf {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+  animation: leafFloat 10s ease-in-out infinite alternate;
+}
+
+.leaf-top-left {
+  top: -30px;
+  left: -30px;
+}
+
+.leaf-top-right {
+  top: -30px;
+  right: -30px;
+  animation-delay: 5s;
+}
+
+@keyframes leafFloat {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(12px, 16px) rotate(4deg); }
+}
+
+/* ==========================================
+   HEADER SECTION (PRINT METRICS)
+========================================== */
+.collections-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 8rem; /* Increased vertical gap to first card */
+}
+
+.collections-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.35em; /* Expanded typography rhythm */
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.collections-subtitle::before,
+.collections-subtitle::after {
+  content: '';
+  width: 50px;
+  height: 0.5px;
+  background-color: rgba(182, 154, 113, 0.25);
+}
+
+.collections-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5.5vw, 4.5rem);
+  font-weight: 300;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.collections-divider {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.collections-lead {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-muted-dark);
+  max-width: 48ch; /* Framed line length */
+  margin: 0 auto;
+}
+
+/* ==========================================
+   CARDS & ASYMMETRIC GRID
+========================================== */
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3.5rem 3rem; /* Expanded gaps to establish visual calmness */
+}
+
+.collection-card {
+  position: relative;
+  display: flex;
+  border-radius: 16px; /* Softly refined radius */
+  overflow: hidden;
+  border: 1px solid rgba(182, 154, 113, 0.08);
+  
+  /* Layered fine-art shadow composition */
+  box-shadow: 
+    0 4px 20px rgba(62, 47, 37, 0.02),
+    0 12px 35px rgba(62, 47, 37, 0.03);
+
+  /* Clean transitions for all elements */
+  transition: 
+    transform var(--premium-transition),
+    box-shadow var(--premium-transition),
+    background-color var(--premium-transition),
+    border-color var(--premium-transition);
+}
+
+/* Fine-Paper Texture Overlay & Inset Champagne Border */
+.collection-card::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--champagne-glow);
+  border-radius: 14px;
+  pointer-events: none;
+  z-index: 3;
+  transition: border-color var(--premium-transition);
+}
+
+.collection-card:hover {
+  transform: translateY(-7px); /* Lifted within luxury tolerance */
+  box-shadow: 
+    0 10px 24px rgba(62, 47, 37, 0.04),
+    0 18px 45px rgba(62, 47, 37, 0.06);
+}
+
+.collection-card:hover::after {
+  border-color: var(--champagne-glow-hover);
+}
+
+/* ==========================================
+   TYPOGRAPHY RHYTHM & CARD INTERNALS
+========================================== */
+.collection-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.5rem 4.5rem; /* Generous internal breathing space */
+  flex: 1.1;
+  position: relative;
+  z-index: 4;
+}
+
+.collection-item-tag {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.3em; /* Clean structural tracking */
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 1.5rem; /* Separated from title */
+}
+
+.collection-item-title {
+  font-family: var(--font-serif);
+  font-size: 2.35rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem; /* Enhanced spacing below titles */
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.collection-item-description {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.85; /* Highly readable comfortable line-height */
+  color: var(--text-muted-dark);
+  margin-bottom: 2.5rem; /* Keeps CTA isolated and clean */
+  max-width: 34ch; /* Restrained width for optimal reading rhythm */
+}
+
+/* ==========================================
+   EDITORIAL CTA
+========================================== */
+.collection-item-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: fit-content;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 6px;
+  transition: color var(--premium-transition);
+}
+
+/* Elegant growing left-to-right underline */
+.collection-item-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width var(--premium-transition);
+}
+
+.collection-card:hover .collection-item-link::after {
+  width: 100%;
+}
+
+.link-arrow {
+  font-size: 1rem;
+  font-style: normal;
+  display: inline-block;
+  transition: transform var(--premium-transition);
+}
+
+.collection-card:hover .link-arrow {
+  transform: translateX(6px); /* Smooth understated slide */
+}
+
+/* ==========================================
+   IMAGE FRAME & CINEMATIC TRANSITIONS
+========================================== */
+.collection-image-frame {
+  flex: 1.3;
+  padding: 2rem; /* Framing margin acts like passport art mounting */
+  display: flex;
+  position: relative;
+}
+
+.image-vignette {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.collection-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  
+  /* Base state: Soft warmth & sharpness */
+  filter: sepia(0.06) contrast(1) brightness(0.97);
+  transition: 
+    transform var(--premium-transition),
+    filter var(--premium-transition);
+}
+
+/* Cinematic zoom and warmth shift */
+.collection-card:hover .collection-image {
+  transform: scale(1.04);
+  filter: sepia(0.12) contrast(1.04) brightness(1.02);
+}
+
+/* ==========================================
+   LAYOUT MATTE & COLOR SURFACES
+========================================== */
+
+/* 1. Wide Dark layout */
+.card-wide-dark {
+  grid-column: span 12;
+  background: linear-gradient(135deg, var(--bg-card-dark-start) 0%, var(--bg-card-dark-end) 100%);
+  color: var(--text-light);
+}
+
+.card-wide-dark .collection-item-title { color: var(--text-light); }
+.card-wide-dark .collection-item-description { color: var(--text-muted-light); }
+.card-wide-dark:hover { background: var(--bg-card-dark-hover); }
+
+/* Soft Paper Grain Emulation for Light Cards */
+.card-tall-light,
+.card-medium-light,
+.card-wide-light-flipped,
+.card-small-light {
+  background-color: var(--bg-card-light);
+  color: var(--text-dark);
+  
+  /* Micro Paper Texture */
+  background-image: 
+    radial-gradient(rgba(182, 154, 113, 0.05) 0.5px, transparent 0),
+    radial-gradient(rgba(182, 154, 113, 0.05) 0.5px, transparent 0);
+  background-size: 24px 24px;
+  background-position: 0 0, 6px 6px;
+  
+  transition: 
+    background-color var(--premium-transition),
+    transform var(--premium-transition),
+    box-shadow var(--premium-transition),
+    border-color var(--premium-transition);
+}
+
+.card-tall-light:hover,
+.card-medium-light:hover,
+.card-wide-light-flipped:hover,
+.card-small-light:hover {
+  background-color: var(--bg-card-light-hover);
+  color: #120B07; /* Darkens text slightly on hover */
+}
+
+/* 2. Tulip Garden (Tall Light Layout) */
+.card-tall-light {
+  grid-column: span 4;
+  grid-row: span 2;
+  flex-direction: column;
+}
+
+.card-tall-light .collection-content {
+  padding: 4rem 3rem 3rem;
+  order: 2;
+}
+
+.card-tall-light .collection-image-frame {
+  order: 1;
+  padding: 3rem 3rem 0;
+  flex: 1.8;
+}
+
+/* 3. Medium Layouts (Couple Dolls & Plush Companions) */
+.card-medium-light {
+  grid-column: span 8;
+}
+
+.card-medium-light .collection-content { padding: 4.5rem 3.5rem; }
+
+.card-medium-dark {
+  grid-column: span 8;
+  background: linear-gradient(135deg, var(--bg-card-dark-start) 0%, var(--bg-card-dark-end) 100%);
+  color: var(--text-light);
+}
+
+.card-medium-dark .collection-item-title { color: var(--text-light); }
+.card-medium-dark .collection-item-description { color: var(--text-muted-light); }
+.card-medium-dark .collection-content { padding: 4.5rem 3.5rem; }
+.card-medium-dark:hover { background: var(--bg-card-dark-hover); }
+
+/* 4. Wide Light Flipped (Sunflowers) */
+.card-wide-light-flipped {
+  grid-column: span 12;
+  flex-direction: row-reverse;
+}
+
+/* 5. Bottom Row Cards */
+.card-small-light {
+  grid-column: span 4;
+  flex-direction: column;
+}
+
+.card-small-light .collection-content {
+  padding: 4rem 3rem 1.5rem;
+  order: 1;
+}
+
+.card-small-light .collection-image-frame {
+  order: 2;
+  aspect-ratio: 1.1 / 1;
+  padding: 0 3rem 3rem;
+}
+
+/* ==========================================
+   SECTION FOOTER
+========================================== */
+.collections-section-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 8rem; /* Spacious context framing */
+  border-top: 0.5px solid rgba(182, 154, 113, 0.2);
+  padding-top: 3.5rem;
+}
+
+.footer-icon {
+  display: flex;
+  align-items: center;
+}
+
+.footer-message {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--text-muted-dark);
+  letter-spacing: 0.03em;
+}
+
+/* ==========================================
+   RESPONSIVENESS (GRID PRESERVATION)
+========================================== */
+@media (max-width: 1024px) {
+  .collections-section {
+    padding: 130px 0 100px;
+  }
+
+  .collections-grid {
+    gap: 2rem;
+  }
+
+  .card-tall-light {
+    grid-column: span 6;
+    grid-row: span 1;
+  }
+
+  .card-medium-light,
+  .card-medium-dark {
+    grid-column: span 6;
+    flex-direction: column;
+  }
+
+  .card-medium-light .collection-image-frame,
+  .card-medium-dark .collection-image-frame {
+    aspect-ratio: 1.3 / 1;
+    padding: 0 3rem 3rem;
+  }
+
+  .card-small-light {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 768px) {
+  .collections-section {
+    padding: 100px 0 80px;
+  }
+
+  .decor-leaf {
+    width: 130px;
+    height: 130px;
+  }
+
+  .collections-header {
+    margin-bottom: 5rem;
+  }
+
+  .collections-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .collection-card {
+    grid-column: span 12 !important;
+    grid-row: span 1 !important;
+    flex-direction: column !important;
+  }
+
+  .collection-card::after {
+    inset: 10px;
+    border-radius: 12px;
+  }
+
+  .collection-content {
+    padding: 4rem 2.5rem 2rem !important;
+  }
+
+  .collection-image-frame {
+    aspect-ratio: 1.3 / 1 !important;
+    padding: 0 2.5rem 2.5rem !important;
+    width: auto !important;
+  }
+
+  .collections-section-footer {
+    margin-top: 5rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+}

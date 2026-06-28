@@ -1,0 +1,86 @@
+/* ======================================================
+KOVV DESIGN TOKENS
+Version 1.0
+====================================================== */
+
+:root {
+
+/* ===================================================
+COLORS
+=================================================== */
+
+--color-background: #F8F5F1;
+--color-surface: #FFFFFF;
+--color-surface-alt: #F2EEE8;
+
+--color-text: #1F1F1F;
+--color-text-light: #5F5A55;
+--color-text-muted: #8A847F;
+
+--color-border: #E7E0D7;
+
+--color-accent: #B99867;
+--color-accent-dark: #9A7B4E;
+--color-accent-light: #D8C3A5;
+
+--color-success: #4D7C5B;
+--color-warning: #C89A3D;
+--color-error: #B14B4B;
+
+/* ===================================================
+SPACING
+=================================================== */
+
+--space-4: 4px;
+--space-8: 8px;
+--space-12: 12px;
+--space-16: 16px;
+--space-20: 20px;
+--space-24: 24px;
+--space-32: 32px;
+--space-40: 40px;
+--space-48: 48px;
+--space-64: 64px;
+--space-80: 80px;
+--space-96: 96px;
+--space-120: 120px;
+--space-160: 160px;
+
+/* ===================================================
+BORDER RADIUS
+=================================================== */
+
+--radius-sm: 8px;
+--radius-md: 14px;
+--radius-lg: 22px;
+--radius-xl: 32px;
+--radius-pill: 999px;
+
+/* ===================================================
+SHADOWS
+=================================================== */
+
+--shadow-sm:
+0 4px 12px rgba(0,0,0,.04);
+
+--shadow-md:
+0 10px 30px rgba(0,0,0,.08);
+
+--shadow-lg:
+0 20px 60px rgba(0,0,0,.12);
+
+/* ===================================================
+CONTAINER
+=================================================== */
+
+--container-width: 1320px;
+
+/* ===================================================
+TRANSITIONS
+=================================================== */
+
+--transition-fast: .25s ease;
+
+--transition-normal: .45s ease;
+
+}

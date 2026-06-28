@@ -1,0 +1,64 @@
+/* ======================================================
+   KOVV HEADING SYSTEM
+   Version 1.0
+====================================================== */
+
+.kovv-heading{
+    margin:0;
+    color:var(--color-text);
+    font-family:"Cormorant Garamond",serif;
+    font-weight:600;
+    letter-spacing:-0.03em;
+}
+
+/* ===========================
+   H1
+=========================== */
+
+.kovv-heading-1{
+
+    font-size:clamp(3.8rem,8vw,6.5rem);
+
+    line-height:.95;
+
+}
+
+/* ===========================
+   H2
+=========================== */
+
+.kovv-heading-2{
+
+    font-size:clamp(2.7rem,5vw,4rem);
+
+    line-height:1;
+
+}
+
+/* ===========================
+   H3
+=========================== */
+
+.kovv-heading-3{
+
+    font-size:clamp(2rem,4vw,2.8rem);
+
+    line-height:1.1;
+
+}
+
+/* ===========================
+   H4
+=========================== */
+
+.kovv-heading-4{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:1.35rem;
+
+    font-weight:700;
+
+    line-height:1.3;
+
+}

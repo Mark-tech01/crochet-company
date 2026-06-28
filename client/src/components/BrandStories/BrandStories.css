@@ -1,0 +1,195 @@
+/* src/components/BrandStories/BrandStories.css */
+
+.stories-section {
+  background-color: #FAF8F5; /* Soft Editorial Paper Tone */
+  padding: 120px 0;
+  border-bottom: 1px solid rgba(28, 28, 28, 0.03);
+}
+
+.stories-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* Editorial Section Header */
+.stories-header 
+{
+    .stories-intro {
+  max-width: 700px;
+  margin: 1.5rem auto 0;
+
+  font-size: 1rem;
+  font-weight: 300;
+
+  line-height: 1.8;
+
+  color: #6B6B6B;
+}
+  text-align: center;
+  margin-bottom: 7rem; /* Generous separation from stories */
+}
+
+.stories-subtitle {
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #B89A6A;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.stories-title {
+  font-family: inherit; /* Display Font */
+  font-size: 2.6rem;
+  font-weight: 300;
+  color: #1C1C1C;
+  letter-spacing: -0.01em;
+}
+
+/* Vignette Containers */
+.story-vignette {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Asymmetrical grid */
+  gap: 6rem;
+  align-items: center;
+  margin-bottom: 9rem; /* Deep spacing between different stories */
+}
+
+/* Alternating Alignment Rule */
+.story-vignette.reverse {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.story-vignette.reverse .story-image-wrapper {
+  order: 2; /* Pushes image to the right on desktop */
+}
+
+.story-vignette.reverse .story-text-wrapper {
+  order: 1; /* Pulls text to the left on desktop */
+}
+
+/* Last Vignette needs no bottom margin */
+.story-vignette:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Image Wrapper and Frame */
+.story-image-wrapper {
+  position: relative;
+  width: 100%;
+
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+
+  background-color: #F2EEE8;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.03),
+    0 1px 1px rgba(0, 0, 0, 0.02);
+}
+.story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.15) sepia(0.05); /* Soft, nostalgic filter */
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-image-wrapper:hover .story-image {
+  transform: scale(1.03); /* Subtle, quiet movement */
+}
+
+/* Story Narrative Typography */
+.story-text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-meta {
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #B89A6A;
+  margin-bottom: 1.5rem;
+}
+
+.story-quote {
+  font-family: inherit; /* Display Font */
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #1C1C1C;
+  margin-bottom: 1.75rem;
+  position: relative;
+  font-style: italic;
+}
+
+.story-body {
+  font-family: inherit; /* Body Font */
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #6B6B6B;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .stories-title {
+    font-size: 2.2rem;
+  }
+
+  .story-vignette,
+  .story-vignette.reverse {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .story-vignette.reverse .story-image-wrapper {
+    order: 0; /* Restores normal block ordering on tablets */
+  }
+
+  .story-vignette.reverse .story-text-wrapper {
+    order: 0;
+  }
+
+  .story-image-wrapper {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 768px) {
+  .stories-section {
+    padding: 80px 0;
+  }
+
+  .stories-container {
+    padding: 0 1.5rem;
+  }
+
+  .stories-header {
+    margin-bottom: 4rem;
+  }
+
+  .story-vignette {
+    margin-bottom: 6rem;
+  }
+
+.story-quote {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+.story-vignette {
+  transition: transform 0.5s ease;
+}
+
+.story-vignette:hover {
+  transform: translateY(-4px);
+}
+}

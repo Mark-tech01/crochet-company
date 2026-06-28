@@ -1,0 +1,615 @@
+/* ==========================================================
+   KOVV NAVBAR - CLEAN ARCHITECTURE
+========================================================== */
+
+/* ----------------------------------------------------------
+   1. VARIABLES & RESET
+---------------------------------------------------------- */
+:root {
+    --bg-warm-cream: #F3ECE2;
+    --logo-bronze: #735F49;
+    --text-charcoal: #2A2725;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ==========================================================
+   KOVV NAVBAR - REFINED ART DIRECTION
+========================================================== */
+
+/* ----------------------------------------------------------
+   1. MAIN NAVIGATION CONTAINER
+---------------------------------------------------------- */
+.navbar {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 1000;
+
+    width: 100%;
+    height: 96px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #F3ECE2; 
+    border-bottom: 1px solid rgba(118, 96, 70, 0.12);
+
+    transition:
+        background-color 0.4s cubic-bezier(0.15, 0.85, 0.35, 1),
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        height 0.45s cubic-bezier(0.15, 0.85, 0.35, 1);
+}
+
+/* Subtle linen weave texture overlay */
+.navbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    
+    background-image: 
+        linear-gradient(90deg, rgba(118, 96, 70, 0.05) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(118, 96, 70, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.25) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.25) 1px, transparent 1px);
+        
+    background-size: 3px 100%, 100% 3px, 6px 100%, 100% 6px;
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Container override for seamless UI spacing */
+.navbar > :first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* ----------------------------------------------------------
+   2. LAYOUT GRID
+---------------------------------------------------------- */
+.navbar-inner {
+    position: relative;
+    z-index: 2; 
+    width: 100%;
+    max-width: 1680px;
+    margin: 0 auto;
+    height: 100%;
+    
+    display: grid;
+    grid-template-columns: 280px 1fr 280px; /* Locked columns keep navigation exactly centered */
+    align-items: center;
+    
+    padding-inline: 4rem; 
+    box-sizing: border-box;
+}
+
+/* ----------------------------------------------------------
+   3. LOGO
+---------------------------------------------------------- */
+.navbar-logo {
+    justify-self: start; 
+    position: relative;
+    z-index: 2;
+    white-space: nowrap; 
+
+    font-family: "Cinzel", "Didot", "Garamond", "Times New Roman", serif;
+    font-size: 3.15rem; 
+    font-weight: 500;
+    letter-spacing: 0.18em;
+
+    /* 
+       Refined logo bronze shade (#55412E) deepens contrast and anchors visual weight
+    */
+    color: #55412E; 
+    text-decoration: none;
+    
+    transition: color 0.35s ease, letter-spacing 0.35s ease;
+}
+
+/* ----------------------------------------------------------
+   4. NAVIGATION LINKS
+---------------------------------------------------------- */
+.navbar-nav {
+    justify-self: center; 
+    display: flex;
+    align-items: center;
+    gap: 6.5rem;                   /* Expanded link gap to 104px to breathe horizontally */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0;
+    text-decoration: none;
+    white-space: nowrap;
+
+    font-family: "Inter", "Montserrat", -apple-system, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: none; 
+
+    color: #2A2725;
+    opacity: 0.85;
+    
+    transition: 
+        color 0.3s cubic-bezier(0.15, 0.85, 0.35, 1), 
+        opacity 0.3s ease, 
+        transform 0.3s cubic-bezier(0.15, 0.85, 0.35, 1);
+}
+
+/* Underline growing smoothly from the center */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0;
+    height: 1px;
+    background-color: #735F49;
+    transform: translateX(-50%);
+    transition: width 0.3s cubic-bezier(0.15, 0.85, 0.35, 1); 
+}
+
+.nav-link:hover {
+    color: #735F49; 
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: #735F49;
+    opacity: 1;
+}
+
+/* ----------------------------------------------------------
+   5. CTA BUTTON
+---------------------------------------------------------- */
+.navbar-cta {
+    justify-self: end; 
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    white-space: nowrap;
+    background: none;
+    border: none;
+    padding: 0;
+
+    font-family: "Inter", "Montserrat", -apple-system, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: none;
+
+    color: #2A2725;
+    transition: color 0.3s ease;
+}
+
+.navbar-cta .cta-arrow {
+    display: inline-block;
+    font-family: inherit;
+    font-size: 1.1rem;
+    transition: transform 0.3s cubic-bezier(0.15, 0.85, 0.35, 1);
+}
+
+.navbar-cta:hover {
+    color: #735F49;
+}
+
+.navbar-cta:hover .cta-arrow {
+    transform: translateX(5px);
+}
+
+/* ----------------------------------------------------------
+   6. SCROLL COGNIZANCE
+---------------------------------------------------------- */
+.navbar-scrolled {
+    height: 76px;
+    background-color: rgba(243, 236, 226, 0.98); 
+    border-bottom: 1px solid rgba(118, 96, 70, 0.08);
+    box-shadow: 0 8px 32px rgba(118, 96, 70, 0.04); 
+}
+
+.navbar-scrolled .navbar-logo {
+    font-size: 2.85rem;
+}
+
+/* ----------------------------------------------------------
+   7. MOBILE TOGGLE & SYSTEM ADAPTATION
+---------------------------------------------------------- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 1.5px;
+    background-color: #2A2725;
+    transition: 
+        transform 0.35s cubic-bezier(0.15, 0.85, 0.35, 1), 
+        background-color 0.35s ease;
+}
+
+.menu-toggle.open span:first-child {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.open span:last-child {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Entrance fade-in sequence */
+@keyframes navbarFade {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Logo and navigation links reveal sequence */
+.navbar-logo {
+    opacity: 0;
+    animation: navbarFade 0.9s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+    animation-delay: 0s;             /* Starts sequence instantly */
+}
+
+.navbar-nav, .navbar-cta {
+    opacity: 0;
+    animation: navbarFade 0.9s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+    animation-delay: 0.07s;          /* Secondary staggered delay */
+}
+
+@media (max-width: 1400px) {
+    .navbar-nav {
+        gap: 4rem; 
+    }
+}
+
+@media (max-width: 1200px) {
+    .navbar-inner {
+        padding-inline: 2.5rem;
+        grid-template-columns: 1fr auto 1fr; /* Relaxes grid boundaries for standard responsive collapse */
+    }
+    .navbar-nav {
+        gap: 2.5rem;
+    }
+    .navbar-logo {
+        font-size: 2.75rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-nav,
+    .navbar-cta {
+        display: none; 
+    }
+    
+    .menu-toggle {
+        display: flex; 
+    }
+}
+
+/* ----------------------------------------------------------
+   3. CONTAINER HELPER
+   Overrides parent UI containers dynamically to ensure full width
+---------------------------------------------------------- */
+.navbar > :first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* ----------------------------------------------------------
+   4. LAYOUT GRID
+---------------------------------------------------------- */
+.navbar-inner {
+    position: relative;
+    z-index: 2; 
+    width: 100%;
+    max-width: 1680px;
+    margin: 0 auto;
+    height: 100%;
+    
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Distinct boundaries prevent overlaps */
+    align-items: center;
+    
+    padding-inline: 4rem; 
+    box-sizing: border-box;
+}
+
+/* ----------------------------------------------------------
+   5. LOGO
+---------------------------------------------------------- */
+
+/* ==========================================================
+   KOVV NAVBAR - LOGO UPDATE ONLY
+========================================================== */
+
+.navbar-logo {
+    justify-self: start; 
+    position: relative;
+    z-index: 2;
+    white-space: nowrap; 
+
+    font-family: "Cinzel", "Didot", "Garamond", "Times New Roman", serif;
+    font-size: 3.15rem; 
+    font-weight: 500;
+    letter-spacing: 0.18em;
+
+    /* 
+       Refined logo bronze shade (#604D38) deepens color contrast by 8%
+       for prominent branding presence on organic paper background
+    */
+    color: #604D38; 
+    text-decoration: none;
+    
+    transition: color 0.35s ease, letter-spacing 0.35s ease;
+}
+
+/* ----------------------------------------------------------
+   6. NAVIGATION
+---------------------------------------------------------- */
+.navbar-nav {
+    justify-self: center; 
+    display: flex;
+    align-items: center;
+    gap: 5.5rem; /* Spacious luxury alignment */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0;
+    text-decoration: none;
+    white-space: nowrap;
+
+    font-family: "Inter", "Montserrat", -apple-system, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: none; 
+
+    color: var(--text-charcoal);
+    opacity: 0.85;
+    
+    transition: 
+        color 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+        opacity 0.35s ease, 
+        transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ----------------------------------------------------------
+   7. CTA (Custom Order)
+---------------------------------------------------------- */
+.navbar-cta {
+    justify-self: end; 
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    white-space: nowrap;
+    background: none;
+    border: none;
+    padding: 0;
+
+    font-family: "Inter", "Montserrat", -apple-system, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: none;
+
+    color: var(--text-charcoal);
+    transition: color 0.35s ease;
+}
+
+.navbar-cta .cta-arrow {
+    display: inline-block;
+    font-family: inherit;
+    font-size: 1.1rem;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ----------------------------------------------------------
+   8. HOVER STATES
+---------------------------------------------------------- */
+/* Nav link hover effects */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1px;
+    background-color: var(--logo-bronze);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-link:hover {
+    color: var(--logo-bronze);
+    opacity: 1;
+    transform: translateY(-1.5px); /* Gentle lift styling */
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-link.active {
+    color: var(--logo-bronze);
+    opacity: 1;
+}
+
+/* CTA hover effects */
+.navbar-cta:hover {
+    color: var(--logo-bronze);
+}
+
+.navbar-cta:hover .cta-arrow {
+    transform: translateX(6px); /* Clean sliding arrow effect */
+}
+
+/* ----------------------------------------------------------
+   9. SCROLL STATE
+---------------------------------------------------------- */
+.navbar-scrolled {
+    height: 76px;
+    background-color: rgba(243, 236, 226, 0.98); /* Balanced solid-glass styling */
+    border-bottom: 1px solid rgba(118, 96, 70, 0.08);
+    box-shadow: 0 8px 32px rgba(118, 96, 70, 0.05); /* Softer shadow */
+}
+
+.navbar-scrolled .navbar-logo {
+    font-size: 2.85rem;
+}
+
+/* ----------------------------------------------------------
+   10. MOBILE TOGGLE
+---------------------------------------------------------- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--text-charcoal);
+    transition: 
+        transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+        background-color 0.35s ease;
+}
+
+.menu-toggle.open span:first-child {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.open span:last-child {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ----------------------------------------------------------
+   11. MOBILE MENU
+---------------------------------------------------------- */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-warm-cream);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.mobile-menu.show {
+    transform: translateX(0);
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.mobile-link {
+    font-family: "Inter", "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-charcoal);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.mobile-link:hover,
+.mobile-link.active {
+    color: var(--logo-bronze);
+}
+
+.mobile-button {
+    margin-top: 1.5rem;
+}
+
+/* ----------------------------------------------------------
+   12. RESPONSIVE BREAKPOINTS
+---------------------------------------------------------- */
+@media (max-width: 1400px) {
+    .navbar-nav {
+        gap: 4rem; /* Tighten navigation gap as screen reduces */
+    }
+}
+
+@media (max-width: 1200px) {
+    .navbar-inner {
+        padding-inline: 2.5rem;
+    }
+    .navbar-nav {
+        gap: 2.5rem;
+    }
+    .navbar-logo {
+        font-size: 2.75rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-nav,
+    .navbar-cta {
+        display: none; /* Safely hides desktop nav components */
+    }
+    
+    .menu-toggle {
+        display: flex; /* Activates clean mobile toggle */
+    }
+}

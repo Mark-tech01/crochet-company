@@ -1,0 +1,212 @@
+/* ======================================================
+   KOVV BUTTON SYSTEM
+   Version 1.1
+====================================================== */
+
+/* ===========================
+   BASE
+=========================== */
+
+.kovv-btn {
+  position: relative;
+  overflow: hidden;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: var(--space-8);
+
+  padding: var(--space-16) var(--space-32);
+
+  border: none;
+  border-radius: var(--radius-pill);
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  transition:
+    background-color .35s ease,
+    color .35s ease,
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+
+.kovv-btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===========================
+   PRIMARY
+=========================== */
+
+.kovv-btn--primary {
+  background: var(--color-text);
+  color: var(--color-surface);
+  border: 1px solid var(--color-text);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.kovv-btn--primary::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: var(--color-accent);
+
+  transform: translateY(100%);
+
+  transition: transform .45s ease;
+
+  z-index: 1;
+}
+
+.kovv-btn--primary:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-md);
+}
+
+.kovv-btn--primary:hover::before {
+
+  transform: translateY(0);
+
+}
+
+/* ===========================
+   SECONDARY
+=========================== */
+
+.kovv-btn--secondary {
+
+  background: transparent;
+
+  color: var(--color-text);
+
+  border: 1px solid var(--color-border);
+
+}
+
+.kovv-btn--secondary:hover {
+
+  background: var(--color-text);
+
+  color: var(--color-surface);
+
+  border-color: var(--color-text);
+
+}
+
+/* ===========================
+   GHOST
+=========================== */
+
+.kovv-btn--ghost {
+
+  background: transparent;
+
+  color: white;
+
+  border: 1px solid rgba(255,255,255,.45);
+
+}
+
+.kovv-btn--ghost:hover {
+
+  background: rgba(255,255,255,.08);
+
+  border-color: white;
+
+}
+
+/* ===========================
+   TEXT
+=========================== */
+
+.kovv-btn--text {
+
+  background: transparent;
+
+  color: var(--color-text);
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 0;
+
+  box-shadow: none;
+
+}
+
+.kovv-btn--text::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -3px;
+
+  width: 0;
+
+  height: 1px;
+
+  background: var(--color-accent);
+
+  transition: width .35s ease;
+
+}
+
+.kovv-btn--text:hover::after {
+
+  width: 100%;
+
+}
+
+/* ===========================
+   STATES
+=========================== */
+
+.kovv-btn:hover {
+
+  text-decoration: none;
+
+}
+
+.kovv-btn:focus-visible {
+
+  outline: 2px solid var(--color-accent);
+
+  outline-offset: 4px;
+
+}
+
+.kovv-btn:disabled {
+
+  opacity: .5;
+
+  cursor: not-allowed;
+
+}
+
+.kovv-btn--full {
+
+  width: 100%;
+
+}
