@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-craft-start: #FAF6F1;
+  --bg-craft-end: #EFE6DB;
+  --mat-board-white: #FCFAF7;
+  
+  --text-dark: #3F3025;
+  --text-muted: #6B5B50;
+  --accent-gold: #B89A6A;
+  --champagne-glow: rgba(184, 154, 106, 0.12);
+  --champagne-glow-hover: rgba(184, 154, 106, 0.45);
+  
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif;
+  
+  --luxury-bezier: cubic-bezier(0.25, 1, 0.2, 1);
+  --luxury-transition: 1200ms var(--luxury-bezier);
+}
+
+/* ==========================================
+   CRAFTSMENS SECTION BASE
+========================================== */
+.craft-sec {
+  position: relative;
+  background: radial-gradient(circle at center, var(--bg-craft-start) 0%, var(--bg-craft-end) 100%);
+  padding: 180px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(184, 154, 106, 0.12);
+}
+
+/* Tactile cotton paper fibers overlay with mouse parallax */
+.craft-sec::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background-image: 
+    radial-gradient(rgba(182, 154, 113, 0.03) 1px, transparent 0),
+    radial-gradient(rgba(182, 154, 113, 0.03) 1px, transparent 0);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+  opacity: 0.98;
+  pointer-events: none;
+  z-index: 1;
+
+  /* 3px Mouse Parallax */
+  transform: translate(
+    calc(var(--mouse-x, 0) * 3px), 
+    calc(var(--mouse-y) * 3px)
+  );
+  will-change: transform;
+  transition: transform var(--luxury-transition);
+}
+
+.craft-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ------------------------------------------
+   REVEAL STAGGERED SYSTEM (Scroll animations)
+========================================== */
+.craft-text-col, 
+.craft-image-col {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: 
+    opacity var(--luxury-transition), 
+    transform var(--luxury-transition);
+}
+
+.craft-text-col.is-revealed,
+.craft-image-col.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   ASYNMMETRICAL GRID SPREAD
+========================================== */
+.craft-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr; /* Image-dominant column split */
+  gap: 7rem;
+  align-items: center;
+}
+
+/* ------------------------------------------
+   LEFT COLUMN: MUSEUM PORTRAIT FRAME
+------------------------------------------ */
+.craft-image-col {
+  display: flex;
+  width: 100%;
+}
+
+.craft-image-passpartout {
+  position: relative;
+  width: 100%;
+  background-color: var(--mat-board-white);
+  padding: 14px; /* Mat padding */
+  border-radius: 4px; /* Refined sharp rectangle */
+  border: 1px solid var(--champagne-glow);
+  box-shadow: 
+    0 16px 40px rgba(118, 96, 70, 0.015),
+    inset 0 0 25px rgba(118, 96, 70, 0.01);
+  overflow: hidden;
+}
+
+.craft-image-passpartout::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 0.5px solid var(--champagne-glow);
+  pointer-events: none;
+  z-index: 2;
+  transition: border-color var(--luxury-transition);
+}
+
+.craft-image-col:hover .craft-image-passpartout::before {
+  border-color: var(--champagne-glow-hover);
+}
+
+.craft-spread-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.25 / 1; 
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+  filter: sepia(0.05) contrast(1.01) brightness(0.99);
+  transition: transform var(--luxury-transition), filter var(--luxury-transition);
+}
+
+.craft-image-col:hover .craft-spread-img {
+  transform: scale(1.025); /* Slow, liquid zoom */
+  filter: sepia(0.1) contrast(1.03) brightness(1.01);
+}
+
+/* ------------------------------------------
+   RIGHT COLUMN: POETIC TEXT GROUPS
+------------------------------------------ */
+.craft-text-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Soft background watermark */
+.craft-watermark {
+  position: absolute;
+  bottom: -30px;
+  right: -20px;
+  width: 160px;
+  height: 160px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.craft-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.craft-subtitle svg {
+  color: rgba(184, 154, 106, 0.3);
+}
+
+.craft-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.craft-title-divider {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.craft-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 1.55;
+  color: var(--text-dark);
+  margin: 0 0 1.75rem 0;
+  border-left: 1px solid rgba(184, 154, 106, 0.3);
+  padding-left: 1.5rem;
+  max-width: 38ch;
+}
+
+.craft-desc {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.85; /* Effortless spacing */
+  color: var(--text-muted);
+  max-width: 40ch; /* Symmetrical margin boundaries */
+  margin-bottom: 2.25rem;
+}
+
+.craft-heart-stamp {
+  display: flex;
+  color: var(--accent-gold);
+}
+
+/* ==========================================
+   RESPONSIVENESS (FLUID COLLAPSE)
+========================================== */
+@media (max-width: 1024px) {
+  .craft-sec {
+    padding: 120px 0;
+  }
+
+  .craft-grid {
+    grid-template-columns: 1fr;
+    gap: 4.5rem;
+  }
+
+  .craft-image-col {
+    order: 1; /* Standard stack on tablets */
+  }
+
+  .craft-text-col {
+    order: 2;
+    align-items: center;
+    text-align: center;
+  }
+
+  .craft-quote {
+    border-left: none;
+    padding-left: 0;
+    max-width: 100%;
+  }
+
+  .craft-title-divider {
+    justify-content: center;
+  }
+
+  .craft-heart-stamp {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .craft-sec {
+    padding: 100px 0 80px;
+  }
+
+  .craft-container {
+    padding: 0 1.5rem;
+  }
+}

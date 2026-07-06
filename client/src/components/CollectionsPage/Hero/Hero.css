@@ -1,0 +1,352 @@
+/* components/CollectionsPage/Hero/Hero.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap');
+
+:root {
+  --kovv-canvas-linen: #f3eee9;    /* Soft, low-contrast workbench linen backdrop */
+  --kovv-solid-paper: #fffcf8;
+  --kovv-ink-dark: #2C211A;      /* Rich high-contrast editorial charcoal */
+  --kovv-gold-muted: #9A7E64;    /* Muted gold with warm terracotta undertones */
+  --kovv-text-muted: #4E4239;    /* Refined description hazel */
+  --kovv-slow-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-serif-display: 'Cormorant Garamond', serif;
+  --font-sans-editorial: 'Montserrat', sans-serif;
+}
+
+/* Scoped root wrapper */
+.kovv-collections-hero {
+  --kovv-mouse-x: 0;
+  --kovv-mouse-y: 0;
+  --kovv-cursor-x: 50%;
+  --kovv-cursor-y: 50%;
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  
+  /* Covering the absolute full height of the viewport */
+  height: 100vh;                 
+  min-height: 100vh;             
+  
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: var(--kovv-canvas-linen);
+  
+  /* Keeps the comfortable visual offset down from your navigation bar */
+  padding-top: clamp(6rem, 9vw, 8.5rem); 
+}
+
+/* Mimics soft window shadows across the flat-lay composition */
+.kovv-collections-hero .kovv-studio-lighting {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, rgba(255, 252, 247, 0.2) 0%, rgba(34, 26, 21, 0.02) 65%, rgba(0, 0, 0, 0.05) 100%),
+    radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.12) 0%, transparent 60%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.kovv-collections-hero .kovv-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0.11;                 
+  background-image:
+    radial-gradient(rgba(82, 63, 48, 0.06) 0.6px, transparent 0.6px),
+    radial-gradient(rgba(255, 255, 255, 0.25) 0.7px, transparent 0.7px);
+  background-position: 0 0, 6px 8px;
+  background-size: 14px 14px, 18px 18px;
+}
+
+/* Soft, slow-moving glow */
+.kovv-collections-hero .kovv-cursor-glow {
+  position: absolute;
+  left: var(--kovv-cursor-x);
+  top: var(--kovv-cursor-y);
+  width: 46rem;
+  height: 46rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(225, 184, 136, 0.08), transparent 72%);
+  filter: blur(95px);
+  opacity: 0.12;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.kovv-collections-hero .kovv-bg-image-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+  transform: scale(1.015) translate(calc(var(--kovv-mouse-x) * -2.5px), calc(var(--kovv-mouse-y) * -2.5px));
+  will-change: transform;
+}
+
+.kovv-collections-hero .kovv-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: sepia(0.02) saturate(0.96) contrast(1.02) brightness(1);
+  user-select: none;
+}
+
+/* Horizontal Centering container */
+.kovv-collections-hero .kovv-container {
+  position: relative;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: center;       
+  width: min(100%, 1720px);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 6rem);
+  box-sizing: border-box;
+}
+
+/* Consolidated typography block */
+.kovv-collections-hero .kovv-content {
+  max-width: 680px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 0;
+  transform: translate(calc(var(--kovv-mouse-x) * 1px), calc(var(--kovv-mouse-y) * 1px));
+  will-change: transform;
+}
+
+/* 1. Botanical Eyebrow elements */
+.kovv-collections-hero .kovv-eyebrow-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 18px;           
+}
+
+.kovv-collections-hero .kovv-botanical-stem {
+  color: var(--kovv-gold-muted);
+  margin-bottom: 12px;
+}
+
+.kovv-collections-hero .kovv-eyebrow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.kovv-collections-hero .kovv-eyebrow-line {
+  height: 1px;
+  background-color: var(--kovv-gold-muted);
+  width: 65px;
+  opacity: 0.3;
+}
+
+.kovv-collections-hero .kovv-eyebrow-text {
+  font-family: var(--font-sans-editorial);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  font-weight: 400;
+  color: var(--kovv-ink-dark);
+  margin: 0 14px 0 calc(14px + 0.28em);
+  text-transform: uppercase;
+}
+
+/* 2. Headline: Increased display scale, tight leading */
+.kovv-collections-hero .kovv-title {
+  font-family: var(--font-serif-display);
+  font-size: clamp(3.5rem, 6.2vw, 5.2rem); 
+  font-weight: 300;
+  color: var(--kovv-ink-dark);
+  margin: 0;
+  line-height: 1.05;             
+  letter-spacing: -0.012em;
+  text-transform: none;
+}
+
+.kovv-collections-hero .kovv-title-line {
+  display: block;
+}
+
+/* 3. Decorative Heart Line Divider */
+.kovv-collections-hero .kovv-heart-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0;                
+}
+
+.kovv-collections-hero .kovv-line {
+  height: 1px;
+  background-color: var(--kovv-gold-muted);
+  width: 40px;
+  opacity: 0.3;
+}
+
+.kovv-collections-hero .kovv-heart-icon {
+  margin: 0 10px;
+  color: var(--kovv-gold-muted);
+  opacity: 0.7;
+}
+
+/* 4. Supporting Description (Comfortable reading lines) */
+.kovv-collections-hero .kovv-description-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;                     
+  max-width: 540px;              
+  width: 100%;
+  margin-bottom: 38px;           
+}
+
+.kovv-collections-hero .kovv-description {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem); 
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--kovv-text-muted);
+  margin: 0;
+  letter-spacing: 0.015em;
+}
+
+/* 5. Minimal Scroll Indicator */
+.kovv-collections-hero .kovv-scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kovv-collections-hero .kovv-scroll-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--kovv-ink-dark);
+  transition: transform 0.6s var(--kovv-slow-ease);
+}
+
+.kovv-collections-hero .kovv-scroll-link:hover {
+  transform: translateY(3px);
+}
+
+.kovv-collections-hero .kovv-scroll-circle {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--kovv-gold-muted);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--kovv-gold-muted);
+  margin-bottom: 8px;
+  transition: all 0.5s var(--kovv-slow-ease);
+}
+
+.kovv-collections-hero .kovv-scroll-link:hover .kovv-scroll-circle {
+  background-color: var(--kovv-gold-muted);
+  color: var(--kovv-solid-paper);
+}
+
+.kovv-collections-hero .kovv-scroll-text {
+  font-family: var(--font-sans-editorial);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 400;
+  color: var(--kovv-text-muted);
+  margin-left: 0.18em;
+}
+
+/* Sequential museum-style animations */
+@keyframes kovvFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kovv-collections-hero .kovv-eyebrow-wrapper,
+.kovv-collections-hero .kovv-title,
+.kovv-collections-hero .kovv-heart-divider,
+.kovv-collections-hero .kovv-description-wrapper,
+.kovv-collections-hero .kovv-scroll-indicator {
+  opacity: 0;
+  animation: kovvFadeUp 1.2s var(--kovv-slow-ease) forwards;
+}
+
+.kovv-collections-hero .kovv-eyebrow-wrapper { animation-delay: 0.12s; }
+.kovv-collections-hero .kovv-title { animation-delay: 0.28s; }
+.kovv-collections-hero .kovv-heart-divider { animation-delay: 0.4s; }
+.kovv-collections-hero .kovv-description-wrapper { animation-delay: 0.52s; }
+.kovv-collections-hero .kovv-scroll-indicator { animation-delay: 0.68s; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .kovv-collections-hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 0 50px;
+  }
+
+  .kovv-collections-hero .kovv-container {
+    padding: 0 1rem;
+  }
+  
+  /* Protective layout panel card on mobile touch screens */
+  .kovv-collections-hero .kovv-content {
+    background-color: rgba(247, 244, 239, 0.94);
+    padding: 36px 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    max-width: 90%;
+    margin-top: 0;
+  }
+  
+  .kovv-collections-hero .eyebrow-line {
+    width: 40px;
+  }
+  
+  .kovv-collections-hero .kovv-title {
+    font-size: 2.85rem;
+  }
+  
+  .kovv-collections-hero .kovv-description {
+    font-size: 1.05rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kovv-collections-hero::after,
+  .kovv-collections-hero .kovv-bg-image,
+  .kovv-collections-hero .kovv-eyebrow-wrapper,
+  .kovv-collections-hero .kovv-title,
+  .kovv-collections-hero .kovv-heart-divider,
+  .kovv-collections-hero .kovv-description-wrapper,
+  .kovv-collections-hero .kovv-scroll-indicator {
+    animation: none;
+  }
+
+  .kovv-collections-hero .kovv-eyebrow-wrapper,
+  .kovv-collections-hero .kovv-title,
+  .kovv-collections-hero .kovv-heart-divider,
+  .kovv-collections-hero .kovv-description-wrapper,
+  .kovv-collections-hero .kovv-scroll-indicator {
+    opacity: 1;
+  }
+}

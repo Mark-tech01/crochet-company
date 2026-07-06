@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Mrs+Saint+Delafield&display=swap');
+
+:root {
+  --bg-stories-canvas: #FAF7F2;
+  --bg-stories-end: #EFE6DB;
+  --mat-board-white: #FCFAF7;
+  
+  --text-dark: #3F3025;
+  --text-muted: #6B5B50;
+  --accent-gold: #B89A6A;
+  
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif; /* Humanist clean sans-serif */
+  --font-signature: 'Mrs Saint Delafield', cursive; /* Tall handwritten ink signature */
+  
+  --luxury-bezier: cubic-bezier(0.25, 1, 0.2, 1);
+  --luxury-transition: 1200ms var(--luxury-bezier);
+}
+
+/* ==========================================
+   SECTION CANVAS & TEXTURES
+========================================== */
+.stories-section {
+  position: relative;
+  background: radial-gradient(circle at center, var(--bg-stories-canvas) 0%, var(--bg-stories-end) 100%);
+  padding: 160px 0 120px; /* Refined editorial padding */
+  overflow: hidden;
+}
+
+/* Tactile cotton paper fibers overlay */
+.stories-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(182, 154, 113, 0.03) 1px, transparent 0),
+    radial-gradient(rgba(182, 154, 113, 0.03) 1px, transparent 0);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+  opacity: 0.98;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.stories-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ------------------------------------------
+   REVEAL STAGGERED SYSTEM (Scroll animations)
+------------------------------------------ */
+.story-hero-block, 
+.story-matrix-col, 
+.story-promise-block,
+.stories-closing-quote {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: 
+    opacity var(--luxury-transition), 
+    transform var(--luxury-transition);
+}
+
+.story-hero-block.is-revealed,
+.story-matrix-col.is-revealed,
+.story-promise-block.is-revealed,
+.stories-closing-quote.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   PART 1: HERO CONTAINER SPREAD
+========================================== */
+.story-hero-block {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr; /* Asymmetric layout split */
+  gap: 7rem;
+  align-items: center;
+  margin-bottom: 5.5rem; /* Reduced from 12rem to flow tightly into the divider */
+}
+
+.story-hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-hero-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.story-hero-subtitle svg {
+  color: rgba(184, 154, 106, 0.3);
+}
+
+.story-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.story-hero-desc {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.85; /* Effortless typography spacing */
+  color: var(--text-muted);
+  max-width: 36ch; /* Shorter line length for clean look */
+  margin-bottom: 1.75rem;
+}
+
+.story-hero-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.45rem;
+  font-weight: 300;
+  color: var(--accent-gold);
+  margin-bottom: 1.75rem;
+}
+
+.story-hero-heart {
+  display: flex;
+  color: var(--accent-gold);
+}
+
+/* Museum Double Bevel-Cut Photo Frame (Hero) */
+.story-hero-image-frame {
+  position: relative;
+  background-color: var(--mat-board-white);
+  padding: 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(182, 154, 113, 0.12);
+  box-shadow: 
+    0 16px 40px rgba(118, 96, 70, 0.015),
+    inset 0 0 25px rgba(118, 96, 70, 0.01);
+  overflow: hidden;
+}
+
+.story-hero-image-frame::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 0.5px solid rgba(182, 154, 113, 0.12);
+  pointer-events: none;
+  z-index: 2;
+  transition: border-color var(--luxury-transition);
+}
+
+.story-hero-block:hover .story-hero-image-frame::before {
+  border-color: rgba(182, 154, 113, 0.4);
+}
+
+.story-hero-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.45 / 1;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+  filter: sepia(0.05) contrast(1.01) brightness(0.99);
+  transition: transform var(--luxury-transition), filter var(--luxury-transition);
+}
+
+.story-hero-block:hover .story-img {
+  transform: scale(1.025);
+  filter: sepia(0.1) contrast(1.03) brightness(1.01);
+}
+
+/* ==========================================
+   PART 2: DECKLE PAPER TRANSITION & 4-COLUMN MATRIX
+========================================== */
+.stories-deckle-divider {
+  width: 100%;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q35,8 70,12 T140,9 Q175,13 210,8 T280,10 Q315,7 350,11 T420,8 Q455,12 490,9 T560,10 Q595,7 630,12 T700,8 Q735,13 770,9 T840,11 Q875,8 910,12 T980,9 Q1015,13 1050,8 T1120,10 Q1155,7 1190,11 T1260,8 Q1295,12 1330,9 T1400,10 L1440,10 L1440,20 L0,20 Z' fill='%23FAF7F2'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  margin-bottom: 4rem; /* Tightened from 8rem */
+  filter: drop-shadow(0 -4px 4px rgba(118, 96, 70, 0.03));
+}
+
+.story-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3.5rem; /* Spacious gaps between matrix cards */
+  margin-bottom: 8.5rem; /* Tightened from 16rem to stay physically connected */
+}
+
+/* Step Card */
+.story-matrix-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.matrix-image-passpartout {
+  position: relative;
+  width: 100%;
+  background-color: var(--mat-board-white);
+  padding: 8px; 
+  border-radius: 4px;
+  border: 1px solid rgba(184, 154, 106, 0.08);
+  box-shadow: 0 10px 30px rgba(62, 47, 37, 0.02);
+  overflow: hidden;
+  transition: transform var(--luxury-transition), box-shadow var(--luxury-transition);
+}
+
+.matrix-image-passpartout::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 0.5px solid rgba(184, 154, 106, 0.1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.story-matrix-col:hover .matrix-image-passpartout {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px rgba(62, 47, 37, 0.05);
+}
+
+.matrix-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.15 / 1; /* Beautiful slight horizontal landscape crop */
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+/* Step text content */
+.matrix-content {
+  padding: 1.5rem 0.5rem 0.5rem; /* Expanded paddings inside block */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.matrix-num {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: var(--accent-gold);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.matrix-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.25;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.015em;
+  transition: transform var(--luxury-transition);
+}
+
+/* 4px Dior upward text shift */
+.story-matrix-col:hover .matrix-title {
+  transform: translateY(-4px);
+}
+
+.matrix-desc {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.matrix-icon {
+  display: flex;
+  color: var(--accent-gold);
+  margin-top: auto;
+}
+
+/* ==========================================
+   PART 3: THE PROMISE SPREAD
+========================================== */
+.story-promise-block {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Asymmetric grid */
+  gap: 7rem;
+  align-items: center;
+}
+
+/* Double Bevel-Cut Photo Frame (Promise) */
+.story-promise-image-frame {
+  position: relative;
+  background-color: var(--mat-board-white);
+  padding: 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(182, 154, 113, 0.12);
+  box-shadow: 
+    0 16px 40px rgba(118, 96, 70, 0.015),
+    inset 0 0 25px rgba(118, 96, 70, 0.01);
+  overflow: hidden;
+}
+
+.story-promise-image-frame::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 0.5px solid rgba(182, 154, 113, 0.12);
+  pointer-events: none;
+  z-index: 2;
+  transition: border-color var(--luxury-transition);
+}
+
+.story-promise-block:hover .story-promise-image-frame::before {
+  border-color: rgba(182, 154, 113, 0.4);
+}
+
+.story-promise-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.45 / 1;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+  filter: sepia(0.05) contrast(1.01) brightness(0.99);
+  transition: transform var(--luxury-transition), filter var(--luxury-transition);
+}
+
+.story-promise-block:hover .story-promise-img {
+  transform: scale(1.025);
+  filter: sepia(0.1) contrast(1.03) brightness(1.01);
+}
+
+/* Promise Text Group */
+.story-promise-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Soft background foliage watermark */
+.promise-watermark {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.promise-title {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.15;
+  margin-top: 0;
+  margin-bottom: 1.5rem; /* Expanded title spacing */
+  letter-spacing: -0.015em;
+  position: relative;
+  z-index: 2;
+}
+
+.promise-divider {
+  display: flex;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.promise-desc {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--text-muted);
+  max-width: 38ch;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.promise-signature-block {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.promise-signature-lead {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 0.15rem;
+}
+
+.promise-signature-cursive {
+  font-family: var(--font-signature); /* Tall signature script */
+  font-size: 4rem; /* Hand-signed letter presence */
+  color: var(--accent-gold);
+  line-height: 1;
+  margin: 0;
+  padding-left: 0.5rem;
+}
+
+/* ==========================================
+   PART 4: UNFORGETTABLE CLOSING STAMP
+========================================== */
+.stories-closing-quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 6.5rem; /* Tightened from 10rem to match the layout compression */
+  border-top: 0.5px solid rgba(184, 154, 106, 0.2);
+  padding-top: 4.5rem;
+}
+
+.closing-quote-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+  line-height: 1.5;
+  color: var(--text-dark);
+  margin: 0 0 1.5rem 0;
+}
+
+.closing-quote-heart {
+  display: flex;
+  color: var(--accent-gold);
+}
+
+.desktop-only {
+  display: block;
+}
+
+/* ==========================================
+   RESPONSIVENESS
+========================================== */
+@media (max-width: 1024px) {
+  .stories-section {
+    padding: 120px 0;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .story-hero-block,
+  .story-promise-block {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .story-promise-block .story-promise-image-frame {
+    order: 2; /* Spreads block elements cleanly on tablet */
+  }
+
+  .story-promise-block .story-promise-content {
+    order: 1;
+  }
+
+  .story-matrix-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-bottom: 6rem; /* Tightened from 12rem on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .stories-section {
+    padding: 100px 0 80px;
+  }
+
+  .stories-container {
+    padding: 0 1.5rem;
+  }
+
+  .stories-deckle-divider {
+    margin-bottom: 4rem;
+  }
+
+  .story-matrix-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .stories-closing-quote {
+    margin-top: 5rem;
+  }
+}

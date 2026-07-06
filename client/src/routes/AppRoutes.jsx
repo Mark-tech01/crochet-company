@@ -5,6 +5,8 @@ import Shop from "../pages/Shop";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import CustomOrder from "../pages/CustomOrder";
+import Collections from "../pages/Collections";
+
 
 function AppRoutes() {
   return (
@@ -13,6 +15,7 @@ function AppRoutes() {
       <Route path="/shop" element={<Shop />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/collections" element={<Collections />} />
       <Route path="/custom-order" element={<CustomOrder />} />
     </Routes>
   );

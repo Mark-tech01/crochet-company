@@ -1,0 +1,667 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-faq-start: #FAF6F1;
+  --bg-faq-end: #EFE6DB;
+  --bg-card-paper: #FAF8F5;
+  --bg-card-expanded: #FCFAF7;
+  --mat-board-white: #FCFAF7;
+  
+  --text-dark: #3F3025;
+  --text-muted: #6B5B50;
+  --accent-gold: #B89A6A;
+  --card-border: 1px solid rgba(184, 154, 106, 0.15);
+  
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-signature: 'Mrs Saint Delafield', cursive;
+  
+  --luxury-bezier: cubic-bezier(0.25, 1, 0.3, 1);
+  --luxury-transition: 1200ms var(--luxury-bezier);
+}
+
+/* ==========================================
+   FAQ SECTION BASE CANVASES
+========================================== */
+.faq-section {
+  position: relative;
+  background: radial-gradient(circle at center, var(--bg-faq-start) 0%, var(--bg-faq-end) 100%);
+  padding: 160px 0 120px;
+  overflow: hidden;
+}
+
+/* Tactile cotton paper fibers overlay */
+.faq-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(182, 154, 113, 0.03) 1px, transparent 0),
+    radial-gradient(rgba(182, 154, 113, 0.03) 1px, transparent 0);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+  opacity: 0.98;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.faq-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ------------------------------------------
+   REVEAL STAGGERED SYSTEM (Scroll animations)
+========================================== */
+.faq-intro-col, 
+.faq-accordion-container, 
+.faq-bottom-banner {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: 
+    opacity var(--luxury-transition), 
+    transform var(--luxury-transition);
+}
+
+.faq-intro-col.is-revealed,
+.faq-accordion-container.is-revealed,
+.faq-bottom-banner.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   PART 1: TWO-COLUMN SPREAD GRID
+========================================== */
+.faq-grid-split {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr; /* Elegant asymmetric visual balance */
+  gap: 7rem;
+  align-items: flex-start;
+  margin-bottom: 8rem;
+}
+
+/* ------------------------------------------
+   LEFT INTRO COLUMN & COLLAGE
+------------------------------------------ */
+.faq-intro-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.subtitle-heart {
+  display: flex;
+  color: var(--accent-gold);
+  margin-top: 0.15rem;
+}
+
+.faq-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.title-serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.faq-title-divider {
+  display: flex;
+  margin-bottom: 1.75rem;
+}
+
+.faq-lead {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 36ch;
+  margin-bottom: 3.5rem;
+}
+
+/* Double Bevel-Cut Polaroid Collage Photo Frame */
+.faq-collage-frame {
+  position: relative;
+  background-color: var(--mat-board-white);
+  padding: 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(182, 154, 113, 0.12);
+  box-shadow: 
+    0 16px 40px rgba(118, 96, 70, 0.015),
+    inset 0 0 25px rgba(118, 96, 70, 0.01);
+  overflow: hidden;
+}
+
+.faq-collage-frame::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 0.5px solid rgba(182, 154, 113, 0.12);
+  pointer-events: none;
+  z-index: 2;
+  transition: border-color var(--luxury-transition);
+}
+
+.faq-intro-col:hover .faq-collage-frame::before {
+  border-color: rgba(182, 154, 113, 0.4);
+}
+
+.faq-collage-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1.05; /* Clean portrait aspect ratio */
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+  filter: sepia(0.04) contrast(1.01) brightness(0.99);
+  transition: transform var(--luxury-transition), filter var(--luxury-transition);
+}
+
+.faq-intro-col:hover .faq-collage-img {
+  transform: scale(1.02);
+  filter: sepia(0.08) contrast(1.03) brightness(1.01);
+}
+
+/* ------------------------------------------
+   RIGHT COLUMN: ACCORDION CHASSIS
+------------------------------------------ */
+.faq-accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Spacious margins between closed categories */
+  width: 100%;
+}
+
+.faq-accordion-item {
+  position: relative;
+  background-color: var(--bg-card-paper);
+  border-radius: 12px;
+  border: var(--card-border);
+  box-shadow: 0 8px 25px rgba(62, 47, 37, 0.015);
+  transition: 
+    background-color var(--luxury-transition), 
+    box-shadow var(--luxury-transition);
+}
+
+.faq-accordion-item:hover {
+  box-shadow: 0 12px 30px rgba(62, 47, 37, 0.03);
+}
+
+/* Expanded Card Canvas Color Shift */
+.faq-accordion-item.is-expanded {
+  background-color: var(--bg-card-expanded);
+  box-shadow: 0 15px 35px rgba(62, 47, 37, 0.04);
+}
+
+/* Accordion Trigger Button */
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  padding: 1.75rem 2rem;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  z-index: 5;
+}
+
+.accordion-icon-bullet {
+  color: var(--accent-gold);
+  display: flex;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  transition: transform var(--luxury-transition);
+}
+
+.accordion-trigger:hover .accordion-icon-bullet {
+  transform: scale(1.1);
+}
+
+.accordion-question {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  flex-grow: 1;
+  padding-right: 1.5rem;
+}
+
+/* Toggle Circle Button (+ / -) */
+.accordion-toggle-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 154, 106, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  flex-shrink: 0;
+  position: relative;
+  transition: background-color var(--luxury-transition), color var(--luxury-transition);
+}
+
+.accordion-trigger:hover .accordion-toggle-circle {
+  background-color: var(--accent-gold);
+  color: #FFFFFF;
+}
+
+/* Plus/Minus Symbol */
+.toggle-symbol {
+  position: relative;
+  width: 12px;
+  height: 12px;
+}
+
+.toggle-symbol::before,
+.toggle-symbol::after {
+  content: '';
+  position: absolute;
+  background-color: currentColor;
+  transition: transform var(--luxury-transition);
+}
+
+/* Horizontal Line */
+.toggle-symbol::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  transform: translateY(-50%);
+}
+
+/* Vertical Line (rotates away when open) */
+.toggle-symbol::after {
+  top: 0;
+  left: 50%;
+  width: 1.5px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+/* Rotates the vertical line when expanded to form a minus (-) */
+.faq-accordion-item.is-expanded .toggle-symbol::after {
+  transform: translateX(-50%) rotate(90deg);
+  opacity: 0;
+}
+
+/* ------------------------------------------
+   PURE-CSS ACCORDION PANEL SIZING
+------------------------------------------ */
+.accordion-content-panel {
+  display: grid;
+  grid-template-rows: 0fr; /* Collapsed by default */
+  transition: grid-template-rows var(--luxury-transition);
+}
+
+.faq-accordion-item.is-expanded .accordion-content-panel {
+  grid-template-rows: 1fr; /* Expands dynamically to natural content size */
+}
+
+.panel-inner-wrapper {
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Expanded Text styling */
+.standard-answer-text {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-muted);
+  padding: 0 2rem 2.25rem 5.25rem; /* Margins align with question text */
+  margin: 0;
+}
+
+/* Custom Profile Layout for first expanded accordion */
+.custom-expanded-layout {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 2rem;
+  padding: 0 2rem 2.25rem 5.25rem;
+}
+
+.expanded-image-passpartout {
+  position: relative;
+  background-color: var(--mat-board-white);
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(184, 154, 106, 0.08);
+  box-shadow: 0 8px 20px rgba(62, 47, 37, 0.02);
+}
+
+.expanded-profile-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+.expanded-text-block {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.expanded-answer-text {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin: 0;
+  padding-right: 1.5rem;
+}
+
+.expanded-heart-stamp {
+  display: flex;
+  color: var(--accent-gold);
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+/* ==========================================
+   PART 2: BOTTOM DECKLE-EDGE CONNECTIVE BANNER (SINGLE ROW FLOW)
+========================================== */
+.faq-bottom-banner {
+  position: relative;
+  display: grid;
+  /* Left Text (2.2fr) | Line | Chat (1fr) | Line | Email (1fr) | Line | Clock (1.1fr) | Line | Right CTA (2.3fr) */
+  grid-template-columns: 2.2fr auto 1fr auto 1fr auto 1.1fr auto 2.3fr;
+  align-items: center;
+  background-color: rgba(184, 154, 106, 0.06); /* Sheer warm wash backing */
+  border-radius: 20px;
+  border: var(--card-border);
+  padding: 4rem 2.5rem; /* Expanded spatial horizontal spread */
+  margin-top: 10rem; /* Spacious breathing separation */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Horizontal deckle torn paper edge on top border of banner */
+.faq-bottom-banner::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 12' preserveAspectRatio='none'%3E%3Cpath d='M0,6 Q35,4 70,8 T140,5 Q175,9 210,4 T280,6 Q315,3 350,7 T420,4 Q455,8 490,5 T560,6 Q595,3 630,8 T700,4 Q735,9 770,5 T840,7 Q875,4 910,8 T980,5 Q1015,9 1050,4 T1120,6 Q1155,3 1190,7 T1260,4 Q1295,8 1330,5 T1400,6 L1440,6 L1440,12 L0,12 L0,6 Z' fill='%23FAF6F1'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+/* Clean coppery vertical dividing lines */
+.banner-divider-line {
+  width: 1px;
+  height: 70px; /* Aligns vertically centered */
+  background-color: rgba(184, 154, 106, 0.25);
+}
+
+/* Left Column Content Block */
+.banner-left-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+  padding-right: 1rem;
+}
+
+.banner-title {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.banner-cursive-tagline {
+  font-family: var(--font-signature); /* Mrs Saint Delafield */
+  font-size: 3.8rem;
+  color: var(--accent-gold);
+  line-height: 1;
+  margin: 0 0 1.5rem 0;
+}
+
+.banner-heart-stamp {
+  display: flex;
+  color: var(--accent-gold);
+}
+
+/* Contact Cards (Flat layout in grid, no right-borders needed) */
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: transform var(--luxury-transition);
+  padding: 0 1rem;
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+}
+
+.contact-icon {
+  display: flex;
+  color: var(--accent-gold);
+}
+
+.contact-text h5 {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  margin: 0 0 0.15rem 0;
+}
+
+.contact-text p {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Creative Bottom-Right CTA block */
+.banner-creations-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-end;
+  text-align: right;
+  padding-left: 1rem;
+}
+
+.cta-cursive-lead {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.banner-shop-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: #AF7A6A; /* Vintage warm rose-caramel */
+  color: #FAF8F5;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  padding: 1.1rem 2.4rem;
+  text-decoration: none;
+  width: fit-content;
+  border: 1px solid #AF7A6A;
+  box-shadow: 0 4px 15px rgba(175, 122, 106, 0.15);
+  transition: 
+    background-color var(--luxury-transition),
+    border-color var(--luxury-transition),
+    letter-spacing var(--luxury-transition),
+    box-shadow var(--luxury-transition);
+}
+
+.banner-shop-btn:hover {
+  background-color: #936254; 
+  border-color: #936254;
+  color: #FAF8F5;
+  letter-spacing: 0.18em;
+  box-shadow: 0 6px 20px rgba(175, 122, 106, 0.25);
+}
+
+.btn-heart-stamp {
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================================
+   RESPONSIVENESS (FLUID WRAPPING SYSTEM)
+========================================== */
+@media (max-width: 1024px) {
+  .faq-grid-split {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .faq-intro-col {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+  }
+
+  .faq-title-divider {
+    justify-content: center;
+  }
+
+  .faq-lead {
+    max-width: 100%;
+  }
+
+  .faq-collage-frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  /* Footer Banner Tablet wrapping */
+  .faq-bottom-banner {
+    display: flex !important; /* Collapses flat grid to flex-column stacking safely */
+    flex-direction: column !important;
+    gap: 3.5rem;
+    padding: 3.5rem 2rem;
+    margin-top: 6rem;
+  }
+
+  .banner-divider-line {
+    display: none !important; /* Hides horizontal dividers on stacked layout */
+  }
+
+  .banner-left-content,
+  .banner-right-content {
+    align-items: center;
+    text-align: center;
+    width: 100% !important;
+  }
+
+  .contact-methods {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 100px 0 80px;
+  }
+
+  .faq-container {
+    padding: 0 1.5rem;
+  }
+
+  .faq-collage-frame {
+    aspect-ratio: 1.1 / 1;
+  }
+
+  /* Reset accordion inner margins on mobile screens */
+  .standard-answer-text {
+    padding: 0 1.5rem 1.75rem 1.5rem;
+  }
+
+  .custom-expanded-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1.5rem 1.75rem 1.5rem;
+  }
+
+  .expanded-image-passpartout {
+    max-width: 140px;
+  }
+
+  /* Banner Mobile Stacking */
+  .banner-right-content {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .contact-methods {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding-left: 2rem;
+  }
+
+  .contact-card:not(.borderless) {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .banner-creations-cta {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .banner-shop-btn {
+    width: 100%;
+    max-width: 290px;
+  }
+}

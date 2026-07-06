@@ -6,8 +6,8 @@ import { NavLink } from "react-router-dom";
 
 import "./Navbar.css";
 
-import Container from "../../components/Container/Container";
-import Button from "../../components/Button/Button";
+import Button from "../../components/Shared/Button/Button";
+import Container from "../../components/Shared/Container/Container";
 
 const navItems = [
   {

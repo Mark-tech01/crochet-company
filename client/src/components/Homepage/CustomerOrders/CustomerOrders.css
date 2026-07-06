@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-custom-start: #FAF6F1;
+  --bg-custom-end: #EFE6DB;
+  --bg-card-paper: #EFECE6;
+  --bg-card-paper-hover: #F5F3EF;
+  --mat-board-white: #FCFAF7;
+  
+  --text-dark: #3F3025;
+  --text-muted: #6B5B50;
+  --accent-gold: #B89A6A;
+  --champagne-glow: rgba(184, 154, 106, 0.12);
+  --champagne-glow-hover: rgba(184, 154, 106, 0.45);
+  
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-signature: 'Mrs Saint Delafield', cursive;
+  
+  --luxury-bezier: cubic-bezier(0.25, 1, 0.2, 1);
+  --luxury-transition: 800ms var(--luxury-bezier);
+}
+
+/* ==========================================
+   CUSTOM CREATIONS CANVASES
+========================================== */
+.customer-order-sec {
+  position: relative;
+  background: radial-gradient(circle at center, var(--bg-custom-start) 0%, var(--bg-custom-end) 100%);
+  padding: 160px 0 120px;
+  overflow: hidden;
+}
+
+/* Tactile cotton paper fibers overlay */
+.customer-order-sec::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(182, 154, 113, 0.03) 1px, transparent 0),
+    radial-gradient(rgba(182, 154, 113, 0.03) 1px, transparent 0);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+  opacity: 0.98;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.customer-order-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ------------------------------------------
+   REVEAL STAGGERED SYSTEM (Scroll animations)
+------------------------------------------ */
+.order-hero-card, 
+.process-header, 
+.process-card, 
+.customer-order-footer {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: 
+    opacity var(--luxury-transition), 
+    transform var(--luxury-transition);
+}
+
+.order-hero-card.is-revealed,
+.process-header.is-revealed,
+.process-card.is-revealed,
+.customer-order-footer.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   PART 1: HERO CONTAINER SPREAD
+========================================== */
+.order-hero-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 600px; 
+  background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE6 100%); /* Soft paper wash */
+  border-radius: 20px;
+  border: 1px solid rgba(182, 154, 113, 0.18);
+  overflow: hidden;
+  box-shadow: 
+    0 4px 15px rgba(62, 47, 37, 0.01),
+    0 25px 55px rgba(62, 47, 37, 0.04),
+    inset 0 1px 0 #FFFFFF;
+  margin-bottom: 8rem;
+}
+
+/* Inset stationery line border overlay */
+.order-hero-card::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(182, 154, 113, 0.12);
+  border-radius: 14px;
+  pointer-events: none;
+  z-index: 4;
+  transition: border-color var(--luxury-transition);
+}
+
+.order-hero-card:hover::after {
+  border-color: rgba(182, 154, 113, 0.35);
+}
+
+/* Content spacing & alignment */
+.order-hero-content {
+  width: 42%;
+  flex: 0 0 42%; 
+  padding: 4.5rem 3.5rem; /* Generous print-magazine margins */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 3;
+}
+
+.order-emblem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.emblem-icon {
+  display: flex;
+  color: var(--accent-gold);
+}
+
+.emblem-heart {
+  display: flex;
+  color: var(--accent-gold);
+  margin-top: 0.25rem;
+}
+
+.order-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+}
+
+.order-hero-title {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.order-hero-desc {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 36ch; /* Constrained for comfort reading */
+  margin: 1rem 0;
+}
+
+/* Premium Gold-Caramel Button */
+.order-shop-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--accent-gold); /* Rich golden-caramel */
+  color: #FFFFFF;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  padding: 1.1rem 2.4rem;
+  text-decoration: none;
+  width: fit-content;
+  border: 1px solid var(--accent-gold);
+  box-shadow: 0 4px 15px rgba(184, 154, 106, 0.15);
+  transition: 
+    background-color var(--luxury-transition),
+    border-color var(--luxury-transition),
+    letter-spacing var(--luxury-transition),
+    box-shadow var(--luxury-transition);
+}
+
+.order-shop-btn:hover {
+  background-color: #A38456; 
+  border-color: #A38456;
+  color: #FFFFFF;
+  letter-spacing: 0.2em; /* Understated typographic expansion */
+  box-shadow: 0 6px 20px rgba(184, 154, 106, 0.25);
+}
+
+.btn-heart {
+  display: flex;
+  align-items: center;
+}
+
+.btn-arrow {
+  font-size: 1rem;
+}
+
+/* Image containment */
+.order-hero-image-frame {
+  width: 58%;
+  flex: 0 0 58%; 
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.order-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: sepia(0.04) contrast(1.01) brightness(0.99);
+  transition: transform var(--luxury-transition), filter var(--luxury-transition);
+}
+
+.order-hero-card:hover .order-hero-img {
+  transform: scale(1.025);
+  filter: sepia(0.08) contrast(1.03) brightness(1.01);
+}
+
+/* ==========================================
+   PART 2: THE 5-COLUMN CHRONOLOGY GRID
+========================================== */
+.process-header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 5.5rem;
+}
+
+.process-subtitle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--accent-gold);
+}
+
+.process-subtitle svg {
+  color: rgba(184, 154, 106, 0.3);
+}
+
+.process-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 8rem;
+}
+
+/* Chronology Step Card */
+.process-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Double Bevel-Cut Photo Frame (Process) */
+.process-image-passpartout {
+  position: relative;
+  width: 100%;
+  background-color: var(--mat-board-white);
+  padding: 8px; /* Inset mat frame padding */
+  border-radius: 4px;
+  border: 1px solid rgba(184, 154, 106, 0.08);
+  box-shadow: 0 10px 30px rgba(62, 47, 37, 0.02);
+  overflow: visible; /* Allows process arrow indicators to float outside card boundaries */
+}
+
+.process-image-passpartout::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 0.5px solid rgba(184, 154, 106, 0.10);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.process-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.15 / 1; /* Beautiful slight landscape crop */
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+/* Circular connection arrows sitting directly on the image boundaries */
+.process-arrow-indicator {
+  position: absolute;
+  right: -21px; /* Centers the circle precisely on the gap */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 154, 106, 0.15);
+  background-color: #FAF8F5;
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(62, 47, 37, 0.05);
+}
+
+/* Process Card Text Group */
+.process-content {
+  padding: 1.5rem 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.process-num-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.process-num {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent-gold);
+  border: 1px solid rgba(184, 154, 106, 0.3);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.process-line-spacer {
+  flex-grow: 1;
+  height: 0.5px;
+  background-color: rgba(184, 154, 106, 0.15);
+}
+
+.process-card-title {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-dark);
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.process-card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ==========================================
+   PART 3: EMBLEMATIC CORE FOOTER
+========================================== */
+.customer-order-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: 0.5px solid rgba(184, 154, 106, 0.2);
+  padding-top: 4.5rem;
+}
+
+.footer-line-upper {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 0.4rem;
+}
+
+.footer-line-cursive {
+  font-family: var(--font-signature); /* Mrs Saint Delafield */
+  font-size: 4.5rem;
+  color: var(--accent-gold);
+  line-height: 0.9;
+  margin: 0 0 1.5rem 0;
+}
+
+.footer-heart-icon {
+  display: flex;
+  color: var(--accent-gold);
+}
+
+/* ==========================================
+   RESPONSIVENESS (FLUID WRAPPING SYSTEM)
+========================================== */
+@media (max-width: 1024px) {
+  .custom-hero-card {
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  .custom-hero-content {
+    width: 100%;
+    padding: 3rem 2rem;
+  }
+
+  .custom-hero-image-frame {
+    width: 100%;
+    aspect-ratio: 1.45 / 1;
+  }
+
+  .custom-process-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  /* Hide connection arrows on smaller wrapped layouts to prevent overflow issues */
+  .process-arrow-indicator {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .customer-order-sec {
+    padding: 100px 0 80px;
+  }
+
+  .process-header {
+    margin-bottom: 4rem;
+  }
+
+  .custom-process-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}

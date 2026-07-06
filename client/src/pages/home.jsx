@@ -3,15 +3,16 @@ import { Section } from '../layout/shared';
 
 
 // Import Homepage Components
-import Hero from '../components/Hero/Hero';
-import Philosophy from '../components/Philosophy/Philosophy';
-import Collections from '../components/Collections/Collections';
-import FeaturedProducts from '../components/FeaturedProducts/FeaturedProducts';
-import HowItWorks from '../components/HowItWorks/HowItWorks';
-import BrandStory from '../components/BrandStories/BrandStories';
-import CustomerStories from '../components/CustomerStories/CustomerStories';
-import CustomOrderCTA from '../components/CustomerOrders/CustomerOrderCTA';
-import InstagramShowcase from '../components/InstagramShowcase/InstagramShowcase';
+import Hero from '../components/Homepage/Hero/Hero';
+import Philosophy from '../components/Homepage/Philosophy/Philosophy';
+import Collections from '../components/Homepage/Collections/Collections';
+import FeaturedProducts from '../components/Homepage/FeaturedProducts/FeaturedProducts';
+import HowItWorks from '../components/Homepage/HowItWorks/HowItWorks';
+import BrandStory from '../components/Homepage/BrandStories/BrandStories';
+// import CustomerStories from '../components/CustomerStories/CustomerStories';
+import CustomOrderCTA from '../components/Homepage/CustomerOrders/CustomerOrderCTA';
+import FAQ from '../components/Homepage/FAQ/FAQ';
+// import InstagramShowcase from '../components/InstagramShowcase/InstagramShowcase';
 
 function Home() {
   return (
@@ -46,19 +47,26 @@ function Home() {
       </Section>
 
       {/* 7. Social Proof (Collector Timelines & Verification) */}
-      <Section>
+      {/* <Section>
         <CustomerStories />
-      </Section>
+      </Section> */}
 
+
+      
       {/* 8. Conversion Point (Bespoke Studio Invitation) */}
       <Section>
         <CustomOrderCTA />
       </Section>
 
-      {/* 9. Visual Trust Grid */}
       <Section>
-        <InstagramShowcase />
+        <FAQ />
       </Section>
+
+
+      {/* 9. Visual Trust Grid */}
+      {/* <Section>
+        <InstagramShowcase />
+      </Section> */}
 
     </div>
   );

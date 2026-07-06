@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mrs+Saint+Delafield&family=Montserrat:wght@300;400;500&display=swap');
+
+:root {
+  --kovv-canvas-linen: #F4EFE6;    /* Warm parchment cream (cohesive with brand colors) */
+  --kovv-paper-warm: #FAF7F2;      /* Off-white fine cotton paper texture */
+  --kovv-solid-paper: #FCFAF7;     /* Bright alabaster mount background for images */
+  --kovv-ink-printed: #3F3025;     /* Deep warm charcoal espresso ink (softer than black) */
+  --kovv-gold-bronze: #B89C72;     /* Muted luxury brand gold */
+  --kovv-text-poetic: #6E5D52;     /* Delicate hazel description text */
+  --kovv-border-soft: rgba(184, 156, 114, 0.18); /* Gentle golden-bronze border styling */
+  
+  --kovv-slow-ease: cubic-bezier(0.25, 1, 0.3, 1);
+  --kovv-ex-transition: 800ms cubic-bezier(0.25, 1, 0.3, 1);
+  
+  --font-serif-display: 'Cormorant Garamond', serif;
+  --font-sans-editorial: 'Montserrat', sans-serif;
+  --font-signature-cursive: 'Mrs Saint Delafield', cursive;
+}
+
+/* Base custom container scoped */
+.custom-creations-sec {
+  position: relative;
+  background-color: var(--kovv-canvas-linen) !important;
+  padding: 160px 0 120px !important;
+  overflow: hidden;
+  border-top: 1px solid var(--kovv-border-soft) !important;
+}
+
+/* Luxury card shadow overlays */
+.custom-creations-sec::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background-image: 
+    radial-gradient(rgba(184, 156, 114, 0.04) 1px, transparent 0),
+    radial-gradient(rgba(184, 156, 114, 0.04) 1px, transparent 0);
+  background-size: 14px 14px;
+  background-position: 0 0, 7px 7px;
+  opacity: 0.95;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.custom-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ==========================================
+   PART 1: HERO CONTAINER SPREAD (Journal Style)
+========================================== */
+.custom-hero-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 520px; 
+  height: auto;
+  
+  background-color: var(--kovv-paper-warm) !important;
+  border-radius: 12px !important; /* Slightly tighter, premium radius */
+  border: 1px solid var(--kovv-border-soft) !important;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 50px rgba(62, 48, 37, 0.05),
+    inset 0 0 40px rgba(255, 255, 255, 0.6) !important;
+  margin-bottom: 8rem !important;
+}
+
+/* Inset stationery line border overlay */
+.custom-hero-card::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--kovv-border-soft) !important;
+  border-radius: 8px !important;
+  pointer-events: none;
+  z-index: 4;
+  transition: border-color var(--kovv-slow-ease) !important;
+}
+
+.custom-hero-card:hover::after {
+  border-color: var(--kovv-gold-bronze) !important;
+}
+
+/* Content spacing & alignment */
+.custom-hero-content {
+  width: 44%;
+  flex: 0 0 44% !important; 
+  padding: 4.5rem 3.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: 24px !important;
+  box-sizing: border-box !important;
+  position: relative;
+  z-index: 3;
+  text-align: left;
+}
+
+.custom-emblem {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.emblem-icon svg {
+  color: var(--kovv-gold-bronze) !important;
+}
+
+.custom-subtitle {
+  font-family: var(--font-sans-editorial) !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.22em !important;
+  color: var(--kovv-gold-bronze) !important;
+  text-transform: uppercase !important;
+}
+
+.custom-hero-title {
+  font-family: var(--font-serif-display) !important;
+  font-size: 2.3rem !important;
+  font-weight: 300 !important;
+  color: var(--kovv-ink-printed) !important;
+  line-height: 1.15 !important;
+  margin: 0 !important;
+  letter-spacing: -0.015em !important;
+}
+
+.serif-italic {
+  font-family: var(--font-serif-display) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+
+.custom-hero-desc {
+  font-family: var(--font-serif-display) !important;
+  font-size: 1.05rem !important;
+  line-height: 1.65 !important;
+  color: var(--kovv-text-poetic) !important;
+  margin: 0 !important;
+  max-width: 42ch !important;
+}
+
+/* Premium Gold-Caramel Button */
+.custom-shop-btn {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+  background-color: var(--kovv-gold-bronze) !important; 
+  color: #FFFFFF !important;
+  border-radius: 4px !important;
+  font-family: var(--font-sans-editorial) !important;
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.15em !important;
+  padding: 1.1rem 2.4rem !important;
+  text-decoration: none !important;
+  width: fit-content !important;
+  border: 1px solid var(--kovv-gold-bronze) !important;
+  box-shadow: 0 4px 15px rgba(184, 156, 114, 0.15) !important;
+  transition: all var(--kovv-ex-transition) !important;
+}
+
+.custom-shop-btn:hover {
+  background-color: #A38258 !important; 
+  border-color: #A38258 !important;
+  color: #FFFFFF !important;
+  letter-spacing: 0.18em !important; 
+  box-shadow: 0 6px 20px rgba(184, 156, 114, 0.25) !important;
+}
+
+.btn-heart {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.btn-arrow {
+  font-size: 1rem !important;
+}
+
+/* Image containment */
+.custom-hero-image-frame {
+  width: 56%;
+  flex: 0 0 56% !important; 
+  position: relative !important;
+  align-self: stretch !important;        
+  overflow: hidden !important;
+}
+
+.custom-hero-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  filter: saturate(0.96) contrast(1.01) brightness(0.98) !important;
+  transition: transform var(--kovv-ex-transition), filter var(--kovv-ex-transition) !important;
+}
+
+.custom-hero-card:hover .custom-hero-img {
+  transform: scale(1.02) !important;
+}
+
+/* ==========================================
+   PART 2: THE 5-COLUMN CHRONOLOGY GRID
+========================================== */
+.process-header {
+  text-align: center !important;
+  max-width: 580px !important;
+  margin: 0 auto 5rem !important;
+  opacity: 1 !important; 
+}
+
+.process-subtitle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1.25rem !important;
+  margin-bottom: 1rem !important;
+  font-family: var(--font-sans-editorial) !important;
+  font-size: 0.7rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.28em !important;
+  color: var(--kovv-gold-bronze) !important;
+  text-transform: uppercase !important;
+}
+
+.process-subtitle svg {
+  color: rgba(184, 156, 114, 0.3) !important;
+}
+
+.process-title {
+  font-family: var(--font-serif-display) !important;
+  font-size: clamp(2.3rem, 4.2vw, 3rem) !important;
+  font-weight: 300 !important;
+  color: var(--kovv-ink-printed) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.015em !important;
+  margin: 0 !important;
+}
+
+.custom-process-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 1.5rem !important;
+  margin-bottom: 8rem !important;
+}
+
+/* Chronology Step Card */
+.process-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Fine Art Passpartout Frame for Process Images */
+.process-image-passpartout {
+  position: relative !important;
+  width: 100% !important;
+  background-color: var(--kovv-solid-paper) !important; /* Fixed missing unstyled white frame */
+  padding: 10px !important; 
+  border-radius: 4px !important;
+  border: 1px solid var(--kovv-border-soft) !important;
+  box-shadow: 0 10px 30px rgba(62, 47, 37, 0.02) !important;
+  overflow: visible !important; 
+}
+
+.process-image-passpartout::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 8px !important;
+  border: 0.5px solid rgba(184, 156, 114, 0.18) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+.process-img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1.15 / 1 !important; 
+  object-fit: cover !important;
+  border-radius: 2px !important;
+  display: block !important;
+}
+
+/* Circular connection indicators */
+.process-arrow-indicator {
+  position: absolute !important;
+  right: -21px !important; 
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 26px !important;
+  height: 26px !important;
+  border-radius: 50% !important;
+  border: 1px solid var(--kovv-border-soft) !important;
+  background-color: var(--kovv-solid-paper) !important;
+  color: var(--kovv-gold-bronze) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10 !important;
+  box-shadow: 0 4px 10px rgba(62, 47, 37, 0.04) !important;
+}
+
+/* Process Card Text */
+.process-content {
+  padding: 1.5rem 0.5rem 0.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: left !important;
+}
+
+.process-num-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.process-num {
+  font-family: var(--font-serif-display) !important;
+  font-size: 0.95rem !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  color: var(--kovv-gold-bronze) !important;
+  border: 1px solid rgba(184, 156, 114, 0.3) !important;
+  border-radius: 50% !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.process-line-spacer {
+  flex-grow: 1 !important;
+  height: 0.5px !important;
+  background-color: rgba(184, 156, 114, 0.18) !important;
+}
+
+.process-card-title {
+  font-family: var(--font-sans-editorial) !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  color: var(--kovv-ink-printed) !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.75rem !important;
+  text-transform: uppercase !important;
+}
+
+.process-card-desc {
+  font-family: var(--font-serif-display) !important;
+  font-size: 0.96rem !important;
+  font-weight: 400 !important;
+  line-height: 1.60 !important;
+  color: var(--kovv-text-poetic) !important;
+  margin: 0 !important;
+}
+
+/* ==========================================
+   PART 3: EMBLEMATIC CORE FOOTER
+========================================== */
+.custom-creations-footer {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  border-top: 1px solid var(--kovv-border-soft) !important;
+  padding-top: 4.5rem !important;
+  opacity: 1 !important;
+}
+
+.footer-line-upper {
+  font-family: var(--font-sans-editorial) !important;
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: var(--kovv-ink-printed) !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.footer-line-cursive {
+  font-family: var(--font-signature-cursive) !important; 
+  font-size: 4.5rem !important;
+  color: var(--kovv-gold-bronze) !important;
+  line-height: 0.9 !important;
+  margin: 0 0 1.5rem 0 !important;
+}
+
+.footer-heart-icon svg {
+  color: var(--kovv-gold-bronze) !important;
+}
+
+/* Scroll Fade Animations */
+@keyframes kovvCustomFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-hero-card,
+.process-header,
+.process-card,
+.custom-creations-footer {
+  animation: kovvCustomFade 1.4s var(--kovv-slow-ease) forwards;
+}
+
+.custom-hero-card { animation-delay: 0.1s !important; }
+.process-header { animation-delay: 0.22s !important; }
+.process-card { animation-delay: 0.35s !important; }
+.custom-creations-footer { animation-delay: 0.5s !important; }
+
+/* ==========================================
+   RESPONSIVENESS (FLUID WRAPPING SYSTEM)
+========================================== */
+@media (max-width: 1024px) {
+  .custom-hero-card {
+    flex-direction: column-reverse !important;
+    height: auto !important;
+  }
+
+  .custom-hero-content {
+    width: 100% !important;
+    padding: 3.5rem 2rem !important;
+  }
+
+  .custom-hero-image-frame {
+    width: 100% !important;
+    aspect-ratio: 1.45 / 1 !important;
+  }
+
+  .custom-process-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+  }
+
+  .process-arrow-indicator {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-creations-sec {
+    padding: 100px 0 80px !important;
+  }
+
+  .process-header {
+    margin-bottom: 4rem !important;
+  }
+
+  .custom-process-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+}
