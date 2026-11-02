@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-categories-start: #FAF6F1;
+  --bg-categories-end: #EFE6DB;
+  --mat-board-white: #FCFAF7;
+  
+  --text-dark: #3F3025;
+  --text-muted: #6B5B50;
+  --accent-gold: #B89A6A;
+  --champagne-glow: rgba(184, 154, 106, 0.12);
+  --champagne-glow-hover: rgba(184, 154, 106, 0.45);
+  
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif;
+  
+  --luxury-bezier: cubic-bezier(0.25, 1, 0.2, 1);
+  --luxury-transition: 1200ms var(--luxury-bezier);
+}
+
+/* ==========================================
+   CATEGORIES SECTION BASE CANVASES
+========================================== */
+.categories-sec {
+  position: relative;
+  background: radial-gradient(circle at center, var(--bg-categories-start) 0%, var(--bg-categories-end) 100%);
+  padding: 160px 0 140px;
+  overflow: hidden;
+  border-top: 1px solid rgba(184, 154, 106, 0.12);
+}
+
+/* Tactile cotton paper fibers overlay */
+.categories-sec::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(182, 154, 113, 0.03) 1px, transparent 0),
+    radial-gradient(rgba(182, 154, 113, 0.03) 1px, transparent 0);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+  opacity: 0.98;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.categories-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ------------------------------------------
+   REVEAL STAGGERED SYSTEM (Scroll animations)
+========================================== */
+.categories-header, 
+.category-portal-card {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: 
+    opacity var(--luxury-transition), 
+    transform var(--luxury-transition);
+}
+
+.categories-header.is-revealed,
+.category-portal-card.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+.categories-header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 6.5rem;
+}
+
+.categories-subtitle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--accent-gold);
+}
+
+.categories-subtitle svg {
+  color: rgba(184, 154, 106, 0.3);
+}
+
+.categories-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.categories-title-divider {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* ==========================================
+   THE PORTALS GRID
+========================================== */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem; /* Spacious whitespace frames the cards */
+}
+
+/* ------------------------------------------
+   MUSEUM MAT-BOARD DOUBLE BEVEL FRAME
+------------------------------------------ */
+.portal-image-passpartout {
+  position: relative;
+  width: 100%;
+  background-color: var(--mat-board-white); /* Thick mat board padding */
+  padding: 14px; 
+  border-radius: 4px; /* Softly refined rectangular corners */
+  border: 1px solid var(--champagne-glow);
+  box-shadow: 
+    0 15px 40px rgba(62, 47, 37, 0.02),
+    inset 0 0 20px rgba(118, 96, 70, 0.01);
+  overflow: hidden;
+  transition: 
+    transform var(--luxury-transition), 
+    box-shadow var(--luxury-transition);
+}
+
+/* Inner Bevel Line Cut on the Photo */
+.portal-image-passpartout::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 0.5px solid var(--champagne-glow);
+  pointer-events: none;
+  z-index: 2;
+  transition: border-color var(--luxury-transition);
+}
+
+/* Whisper-soft classic Roman index watermark behind photo */
+.portal-roman-index {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--accent-gold);
+  opacity: 0.08; /* Delicate 8% overlay */
+  z-index: 3;
+  pointer-events: none;
+  line-height: 1;
+  transition: opacity var(--luxury-transition);
+}
+
+.category-portal-card:hover .portal-image-passpartout {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 25px 60px rgba(62, 47, 37, 0.05),
+    inset 0 0 20px rgba(118, 96, 70, 0.02);
+}
+
+.category-portal-card:hover .portal-image-passpartout::before {
+  border-color: var(--champagne-glow-hover);
+}
+
+.category-portal-card:hover .portal-roman-index {
+  opacity: 0.15;
+}
+
+.portal-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.1 / 1; /* Beautiful wide ratio */
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+  filter: sepia(0.04) contrast(1.01) brightness(0.99); /* Vintage warm wash */
+  transition: 
+    transform var(--luxury-transition), 
+    filter var(--luxury-transition);
+}
+
+.category-portal-card:hover .portal-img {
+  transform: scale(1.025); /* Slow, liquid zoom */
+  filter: sepia(0.08) contrast(1.03) brightness(1.01);
+}
+
+/* ------------------------------------------
+   CONTENT METADATA & TYPOGRAPHY
+------------------------------------------ */
+.portal-content {
+  padding: 1.75rem 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.portal-num {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--accent-gold);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.portal-card-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+  transition: transform var(--luxury-transition);
+}
+
+/* 4px Dior upward text shift */
+.category-portal-card:hover .portal-card-title {
+  transform: translateY(-4px);
+}
+
+.portal-desc {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  max-width: 34ch; /* Short luxury margin limits */
+}
+
+/* Editorial CTA Link */
+.portal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.portal-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--accent-gold);
+  transition: width var(--luxury-transition);
+}
+
+.category-portal-card:hover .portal-link::after {
+  width: 100%;
+}
+
+.link-arrow {
+  font-size: 1rem;
+  font-style: normal;
+  display: inline-block;
+  transition: transform var(--luxury-transition);
+}
+
+.category-portal-card:hover .link-arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   RESPONSIVENESS (FLUID COLLAPSE)
+========================================== */
+@media (max-width: 1024px) {
+  .categories-sec {
+    padding: 120px 0;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .categories-sec {
+    padding: 100px 0 80px;
+  }
+
+  .categories-header {
+    margin-bottom: 4rem;
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
