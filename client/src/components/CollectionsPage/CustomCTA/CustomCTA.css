@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mrs+Saint+Delafield&family=Montserrat:wght@300;400;500&display=swap');
 
 :root {
-  --kovv-canvas-linen: #F4EFE6;    /* Warm parchment cream (cohesive with brand colors) */
-  --kovv-paper-warm: #FAF7F2;      /* Off-white fine cotton paper texture */
-  --kovv-solid-paper: #FCFAF7;     /* Bright alabaster mount background for images */
-  --kovv-ink-printed: #3F3025;     /* Deep warm charcoal espresso ink (softer than black) */
-  --kovv-gold-bronze: #B89C72;     /* Muted luxury brand gold */
-  --kovv-text-poetic: #6E5D52;     /* Delicate hazel description text */
-  --kovv-border-soft: rgba(184, 156, 114, 0.18); /* Gentle golden-bronze border styling */
+  --elnor-canvas-linen: #F4EFE6;    /* Warm parchment cream (cohesive with brand colors) */
+  --elnor-paper-warm: #FAF7F2;      /* Off-white fine cotton paper texture */
+  --elnor-solid-paper: #FCFAF7;     /* Bright alabaster mount background for images */
+  --elnor-ink-printed: #3F3025;     /* Deep warm charcoal espresso ink (softer than black) */
+  --elnor-gold-bronze: #B89C72;     /* Muted luxury brand gold */
+  --elnor-text-poetic: #6E5D52;     /* Delicate hazel description text */
+  --elnor-border-soft: rgba(184, 156, 114, 0.18); /* Gentle golden-bronze border styling */
   
-  --kovv-slow-ease: cubic-bezier(0.25, 1, 0.3, 1);
-  --kovv-ex-transition: 800ms cubic-bezier(0.25, 1, 0.3, 1);
+  --elnor-slow-ease: cubic-bezier(0.25, 1, 0.3, 1);
+  --elnor-ex-transition: 800ms cubic-bezier(0.25, 1, 0.3, 1);
   
   --font-serif-display: 'Cormorant Garamond', serif;
   --font-sans-editorial: 'Montserrat', sans-serif;
@@ -20,10 +20,10 @@
 /* Base custom container scoped */
 .custom-creations-sec {
   position: relative;
-  background-color: var(--kovv-canvas-linen) !important;
+  background-color: var(--elnor-canvas-linen) !important;
   padding: 160px 0 120px !important;
   overflow: hidden;
-  border-top: 1px solid var(--kovv-border-soft) !important;
+  border-top: 1px solid var(--elnor-border-soft) !important;
 }
 
 /* Luxury card shadow overlays */
@@ -60,9 +60,9 @@
   min-height: 520px; 
   height: auto;
   
-  background-color: var(--kovv-paper-warm) !important;
+  background-color: var(--elnor-paper-warm) !important;
   border-radius: 12px !important; /* Slightly tighter, premium radius */
-  border: 1px solid var(--kovv-border-soft) !important;
+  border: 1px solid var(--elnor-border-soft) !important;
   overflow: hidden;
   box-shadow: 
     0 20px 50px rgba(62, 48, 37, 0.05),
@@ -75,15 +75,15 @@
   content: '';
   position: absolute;
   inset: 12px;
-  border: 1px solid var(--kovv-border-soft) !important;
+  border: 1px solid var(--elnor-border-soft) !important;
   border-radius: 8px !important;
   pointer-events: none;
   z-index: 4;
-  transition: border-color var(--kovv-slow-ease) !important;
+  transition: border-color var(--elnor-slow-ease) !important;
 }
 
 .custom-hero-card:hover::after {
-  border-color: var(--kovv-gold-bronze) !important;
+  border-color: var(--elnor-gold-bronze) !important;
 }
 
 /* Content spacing & alignment */
@@ -109,7 +109,7 @@
 }
 
 .emblem-icon svg {
-  color: var(--kovv-gold-bronze) !important;
+  color: var(--elnor-gold-bronze) !important;
 }
 
 .custom-subtitle {
@@ -117,7 +117,7 @@
   font-size: 0.68rem !important;
   font-weight: 500 !important;
   letter-spacing: 0.22em !important;
-  color: var(--kovv-gold-bronze) !important;
+  color: var(--elnor-gold-bronze) !important;
   text-transform: uppercase !important;
 }
 
@@ -125,7 +125,7 @@
   font-family: var(--font-serif-display) !important;
   font-size: 2.3rem !important;
   font-weight: 300 !important;
-  color: var(--kovv-ink-printed) !important;
+  color: var(--elnor-ink-printed) !important;
   line-height: 1.15 !important;
   margin: 0 !important;
   letter-spacing: -0.015em !important;
@@ -141,7 +141,7 @@
   font-family: var(--font-serif-display) !important;
   font-size: 1.05rem !important;
   line-height: 1.65 !important;
-  color: var(--kovv-text-poetic) !important;
+  color: var(--elnor-text-poetic) !important;
   margin: 0 !important;
   max-width: 42ch !important;
 }
@@ -152,7 +152,7 @@
   justify-content: center !important;
   align-items: center !important;
   gap: 10px !important;
-  background-color: var(--kovv-gold-bronze) !important; 
+  background-color: var(--elnor-gold-bronze) !important; 
   color: #FFFFFF !important;
   border-radius: 4px !important;
   font-family: var(--font-sans-editorial) !important;
@@ -162,9 +162,9 @@
   padding: 1.1rem 2.4rem !important;
   text-decoration: none !important;
   width: fit-content !important;
-  border: 1px solid var(--kovv-gold-bronze) !important;
+  border: 1px solid var(--elnor-gold-bronze) !important;
   box-shadow: 0 4px 15px rgba(184, 156, 114, 0.15) !important;
-  transition: all var(--kovv-ex-transition) !important;
+  transition: all var(--elnor-ex-transition) !important;
 }
 
 .custom-shop-btn:hover {
@@ -199,7 +199,7 @@
   object-fit: cover !important;
   display: block !important;
   filter: saturate(0.96) contrast(1.01) brightness(0.98) !important;
-  transition: transform var(--kovv-ex-transition), filter var(--kovv-ex-transition) !important;
+  transition: transform var(--elnor-ex-transition), filter var(--elnor-ex-transition) !important;
 }
 
 .custom-hero-card:hover .custom-hero-img {
@@ -226,7 +226,7 @@
   font-size: 0.7rem !important;
   font-weight: 500 !important;
   letter-spacing: 0.28em !important;
-  color: var(--kovv-gold-bronze) !important;
+  color: var(--elnor-gold-bronze) !important;
   text-transform: uppercase !important;
 }
 
@@ -238,7 +238,7 @@
   font-family: var(--font-serif-display) !important;
   font-size: clamp(2.3rem, 4.2vw, 3rem) !important;
   font-weight: 300 !important;
-  color: var(--kovv-ink-printed) !important;
+  color: var(--elnor-ink-printed) !important;
   line-height: 1.1 !important;
   letter-spacing: -0.015em !important;
   margin: 0 !important;
@@ -261,10 +261,10 @@
 .process-image-passpartout {
   position: relative !important;
   width: 100% !important;
-  background-color: var(--kovv-solid-paper) !important; /* Fixed missing unstyled white frame */
+  background-color: var(--elnor-solid-paper) !important; /* Fixed missing unstyled white frame */
   padding: 10px !important; 
   border-radius: 4px !important;
-  border: 1px solid var(--kovv-border-soft) !important;
+  border: 1px solid var(--elnor-border-soft) !important;
   box-shadow: 0 10px 30px rgba(62, 47, 37, 0.02) !important;
   overflow: visible !important; 
 }
@@ -296,9 +296,9 @@
   width: 26px !important;
   height: 26px !important;
   border-radius: 50% !important;
-  border: 1px solid var(--kovv-border-soft) !important;
-  background-color: var(--kovv-solid-paper) !important;
-  color: var(--kovv-gold-bronze) !important;
+  border: 1px solid var(--elnor-border-soft) !important;
+  background-color: var(--elnor-solid-paper) !important;
+  color: var(--elnor-gold-bronze) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -326,7 +326,7 @@
   font-size: 0.95rem !important;
   font-style: italic !important;
   font-weight: 400 !important;
-  color: var(--kovv-gold-bronze) !important;
+  color: var(--elnor-gold-bronze) !important;
   border: 1px solid rgba(184, 156, 114, 0.3) !important;
   border-radius: 50% !important;
   width: 24px !important;
@@ -347,7 +347,7 @@
   font-size: 0.75rem !important;
   font-weight: 500 !important;
   letter-spacing: 0.08em !important;
-  color: var(--kovv-ink-printed) !important;
+  color: var(--elnor-ink-printed) !important;
   margin-top: 0 !important;
   margin-bottom: 0.75rem !important;
   text-transform: uppercase !important;
@@ -358,7 +358,7 @@
   font-size: 0.96rem !important;
   font-weight: 400 !important;
   line-height: 1.60 !important;
-  color: var(--kovv-text-poetic) !important;
+  color: var(--elnor-text-poetic) !important;
   margin: 0 !important;
 }
 
@@ -370,7 +370,7 @@
   flex-direction: column !important;
   align-items: center !important;
   text-align: center !important;
-  border-top: 1px solid var(--kovv-border-soft) !important;
+  border-top: 1px solid var(--elnor-border-soft) !important;
   padding-top: 4.5rem !important;
   opacity: 1 !important;
 }
@@ -381,24 +381,24 @@
   font-weight: 500 !important;
   letter-spacing: 0.15em !important;
   text-transform: uppercase !important;
-  color: var(--kovv-ink-printed) !important;
+  color: var(--elnor-ink-printed) !important;
   margin-bottom: 0.4rem !important;
 }
 
 .footer-line-cursive {
   font-family: var(--font-signature-cursive) !important; 
   font-size: 4.5rem !important;
-  color: var(--kovv-gold-bronze) !important;
+  color: var(--elnor-gold-bronze) !important;
   line-height: 0.9 !important;
   margin: 0 0 1.5rem 0 !important;
 }
 
 .footer-heart-icon svg {
-  color: var(--kovv-gold-bronze) !important;
+  color: var(--elnor-gold-bronze) !important;
 }
 
 /* Scroll Fade Animations */
-@keyframes kovvCustomFade {
+@keyframes elnorCustomFade {
   from {
     opacity: 0;
     transform: translateY(12px);
@@ -413,7 +413,7 @@
 .process-header,
 .process-card,
 .custom-creations-footer {
-  animation: kovvCustomFade 1.4s var(--kovv-slow-ease) forwards;
+  animation: elnorCustomFade 1.4s var(--elnor-slow-ease) forwards;
 }
 
 .custom-hero-card { animation-delay: 0.1s !important; }

@@ -51,7 +51,7 @@ function Navbar() {
         <div className="navbar-inner">
           {/* Logo */}
           <NavLink to="/" className="navbar-logo">
-            KOVV
+            ELNOR
           </NavLink>
 
           {/* Desktop Navigation */}

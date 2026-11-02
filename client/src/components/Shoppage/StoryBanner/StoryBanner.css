@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --story-bg-beige: #F3EEE8;       /* Warm background tone (never pure white) */
+  --story-ink-brown: #2D241D;      /* Deep dark editorial heading color */
+  --story-body-text: #5F544B;      /* Highly readable soft warm gray-brown */
+  --story-accent-bronze: #B38A63;  /* Accent brand bronze-gold */
+  --story-btn-dark: #33271F;       /* Solid dark walnut for the luxury button */
+  
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', sans-serif;
+  --story-slow-bezier: cubic-bezier(0.25, 1, 0.3, 1);
+  --story-slow-transition: 1000ms var(--story-slow-bezier);
+}
+
+.story-banner-sec {
+  position: relative;
+  background-color: var(--story-bg-beige) !important;
+  padding: 120px 0 !important;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Faint tactile plaster/linen canvas textures */
+.story-plaster-texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.05;
+  background-image: 
+    radial-gradient(rgba(45, 36, 29, 0.18) 0.5px, transparent 0.5px),
+    radial-gradient(rgba(255, 255, 255, 0.6) 0.8px, transparent 0.8px);
+  background-size: 14px 14px;
+  background-position: 0 0, 7px 7px;
+}
+
+.story-banner-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px; /* Spacious, centered display constraints */
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Asymmetric 55% to 45% split layout layout */
+  gap: 80px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   LEFT COLUMN: WORKSPACE COMPOSITION
+========================================== */
+.story-visual-column {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5.2; /* Cinematic vertical layout frame */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 
+    0 30px 70px rgba(45, 36, 29, 0.06),
+    inset 0 0 20px rgba(0, 0, 0, 0.02) !important;
+}
+
+.story-image-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #EBE5DF;
+}
+
+.story-workspace-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.96) contrast(1.02) brightness(0.98);
+  transition: transform 2s var(--story-slow-bezier) !important;
+}
+
+.story-visual-column:hover .story-workspace-photo {
+  transform: scale(1.02);
+}
+
+/* Soft morning golden hour lighting overlay */
+.story-golden-light-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(179, 138, 99, 0.06) 50%, rgba(45, 36, 29, 0.1) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* Vector Fallback design frame styling */
+.story-vector-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EAE3DC;
+}
+
+.story-vector-fallback svg {
+  width: 80%;
+  height: 80%;
+}
+
+/* ==========================================
+   RIGHT COLUMN: STORY COPY
+========================================== */
+.story-content-column {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.story-content-wrapper {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.story-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 14px; /* EXACT 14px Label */
+  font-weight: 500;
+  letter-spacing: 4px; /* EXACT 4px Letter spacing */
+  color: var(--story-accent-bronze);
+  margin-bottom: 24px;
+}
+
+.story-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 4.8vw, 4.2rem); /* Renders EXACTLY 60-72px on large desktops */
+  font-weight: 600; /* EXACT 600 Weight */
+  line-height: 1.15; /* Generous breathing line-height */
+  letter-spacing: -1px; /* EXACT -1px Letter spacing */
+  color: var(--story-ink-brown);
+  margin: 0 0 36px 0;
+}
+
+.story-paragraph-1,
+.story-paragraph-2 {
+  font-family: var(--font-sans);
+  font-size: 18px; /* EXACT 18px */
+  font-weight: 300;
+  line-height: 1.9; /* EXACT 190% line height */
+  color: var(--story-body-text);
+  margin: 0 0 28px 0;
+}
+
+.story-paragraph-2 {
+  margin-bottom: 40px; /* Generous margin before the luxury button */
+}
+
+/* Large luxury walnut button */
+.story-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--story-btn-dark) !important; /* EXACT dark walnut color */
+  color: #FFFFFF !important;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 18px 42px;
+  border-radius: 40px; /* Rounded Button */
+  box-shadow: 0 10px 30px rgba(51, 39, 31, 0.15) !important;
+  border: 1px solid var(--story-btn-dark) !important;
+  
+  transition: 
+    transform 450ms var(--story-slow-bezier), 
+    background-color 450ms var(--story-slow-bezier), 
+    box-shadow 450ms var(--story-slow-bezier) !important; /* EXACT 0.45s Transition */
+}
+
+.story-cta-btn:hover {
+  transform: translateY(-2px) !important; /* Gently rises 2px */
+  background-color: #4D3C31 !important; /* Gently lightens */
+  box-shadow: 0 15px 35px rgba(51, 39, 31, 0.2) !important; /* Shadow becomes softer */
+}
+
+/* ==========================================
+   SCROLL REVEAL TIMING (FADES SEQUENTIALLY)
+========================================== */
+.story-visual-column,
+.story-label,
+.story-heading,
+.story-paragraph-1,
+.story-paragraph-2,
+.story-cta-btn {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: 
+    opacity var(--story-slow-transition),
+    transform var(--story-slow-transition) !important;
+}
+
+/* Timed delay cascading sequences */
+.story-visual-column.is-revealed { opacity: 1; transform: translateY(0); } /* 1. Workspace */
+.story-label.is-revealed         { opacity: 1; transform: translateY(0); transition-delay: 150ms !important; } /* 2. Label */
+.story-heading.is-revealed       { opacity: 1; transform: translateY(0); transition-delay: 300ms !important; } /* 3. Heading */
+.story-paragraph-1.is-revealed   { opacity: 1; transform: translateY(0); transition-delay: 450ms !important; } /* 4. Para 1 */
+.story-paragraph-2.is-revealed   { opacity: 1; transform: translateY(0); transition-delay: 600ms !important; } /* 5. Para 2 */
+.story-cta-btn.is-revealed       { opacity: 1; transform: translateY(0); transition-delay: 750ms !important; } /* 6. CTA Button */
+
+/* ==========================================
+   RESPONSIVENESS (FLUID COLLAPSE)
+========================================== */
+@media (max-width: 1100px) {
+  .story-banner-container {
+    grid-template-columns: 1fr; /* Fully transitions to stacked vertical columns */
+    gap: 60px;
+    padding: 0 32px;
+  }
+  
+  .story-visual-column {
+    aspect-ratio: 1.45 / 1; /* Beautiful wide aspect ratio on tablets */
+    min-height: auto;
+  }
+  
+  .story-content-wrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .story-banner-sec {
+    padding: 80px 0 !important;
+  }
+  
+  .story-banner-container {
+    padding: 0 24px;
+    gap: 40px;
+  }
+  
+  .story-heading {
+    margin-bottom: 24px;
+  }
+
+  .story-paragraph-1,
+  .story-paragraph-2 {
+    font-size: 16px;
+  }
+  
+  .story-cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

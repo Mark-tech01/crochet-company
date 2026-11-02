@@ -3,22 +3,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap');
 
 :root {
-  --kovv-canvas-linen: #f3eee9;    /* Soft, low-contrast workbench linen backdrop */
-  --kovv-solid-paper: #fffcf8;
-  --kovv-ink-dark: #2C211A;      /* Rich high-contrast editorial charcoal */
-  --kovv-gold-muted: #9A7E64;    /* Muted gold with warm terracotta undertones */
-  --kovv-text-muted: #4E4239;    /* Refined description hazel */
-  --kovv-slow-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --elnor-canvas-linen: #f3eee9;    /* Soft, low-contrast workbench linen backdrop */
+  --elnor-solid-paper: #fffcf8;
+  --elnor-ink-dark: #2C211A;      /* Rich high-contrast editorial charcoal */
+  --elnor-gold-muted: #9A7E64;    /* Muted gold with warm terracotta undertones */
+  --elnor-text-muted: #4E4239;    /* Refined description hazel */
+  --elnor-slow-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --font-serif-display: 'Cormorant Garamond', serif;
   --font-sans-editorial: 'Montserrat', sans-serif;
 }
 
 /* Scoped root wrapper */
-.kovv-collections-hero {
-  --kovv-mouse-x: 0;
-  --kovv-mouse-y: 0;
-  --kovv-cursor-x: 50%;
-  --kovv-cursor-y: 50%;
+.elnor-collections-hero {
+  --elnor-mouse-x: 0;
+  --elnor-mouse-y: 0;
+  --elnor-cursor-x: 50%;
+  --elnor-cursor-y: 50%;
 
   position: relative;
   isolation: isolate;
@@ -31,14 +31,14 @@
   
   box-sizing: border-box;
   overflow: hidden;
-  background-color: var(--kovv-canvas-linen);
+  background-color: var(--elnor-canvas-linen);
   
   /* Keeps the comfortable visual offset down from your navigation bar */
   padding-top: clamp(6rem, 9vw, 8.5rem); 
 }
 
 /* Mimics soft window shadows across the flat-lay composition */
-.kovv-collections-hero .kovv-studio-lighting {
+.elnor-collections-hero .elnor-studio-lighting {
   position: absolute;
   inset: 0;
   background: 
@@ -49,7 +49,7 @@
   z-index: 2;
 }
 
-.kovv-collections-hero .kovv-grain {
+.elnor-collections-hero .elnor-grain {
   position: absolute;
   inset: 0;
   z-index: 6;
@@ -63,10 +63,10 @@
 }
 
 /* Soft, slow-moving glow */
-.kovv-collections-hero .kovv-cursor-glow {
+.elnor-collections-hero .elnor-cursor-glow {
   position: absolute;
-  left: var(--kovv-cursor-x);
-  top: var(--kovv-cursor-y);
+  left: var(--elnor-cursor-x);
+  top: var(--elnor-cursor-y);
   width: 46rem;
   height: 46rem;
   border-radius: 50%;
@@ -78,18 +78,18 @@
   z-index: 3;
 }
 
-.kovv-collections-hero .kovv-bg-image-container {
+.elnor-collections-hero .elnor-bg-image-container {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   z-index: -2;
   overflow: hidden;
-  transform: scale(1.015) translate(calc(var(--kovv-mouse-x) * -2.5px), calc(var(--kovv-mouse-y) * -2.5px));
+  transform: scale(1.015) translate(calc(var(--elnor-mouse-x) * -2.5px), calc(var(--elnor-mouse-y) * -2.5px));
   will-change: transform;
 }
 
-.kovv-collections-hero .kovv-bg-image {
+.elnor-collections-hero .elnor-bg-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -99,7 +99,7 @@
 }
 
 /* Horizontal Centering container */
-.kovv-collections-hero .kovv-container {
+.elnor-collections-hero .elnor-container {
   position: relative;
   z-index: 8;
   display: flex;
@@ -113,7 +113,7 @@
 }
 
 /* Consolidated typography block */
-.kovv-collections-hero .kovv-content {
+.elnor-collections-hero .elnor-content {
   max-width: 680px;
   width: 100%;
   display: flex;
@@ -121,12 +121,12 @@
   align-items: center;
   text-align: center;
   margin-top: 0;
-  transform: translate(calc(var(--kovv-mouse-x) * 1px), calc(var(--kovv-mouse-y) * 1px));
+  transform: translate(calc(var(--elnor-mouse-x) * 1px), calc(var(--elnor-mouse-y) * 1px));
   will-change: transform;
 }
 
 /* 1. Botanical Eyebrow elements */
-.kovv-collections-hero .kovv-eyebrow-wrapper {
+.elnor-collections-hero .elnor-eyebrow-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,53 +134,53 @@
   margin-bottom: 18px;           
 }
 
-.kovv-collections-hero .kovv-botanical-stem {
-  color: var(--kovv-gold-muted);
+.elnor-collections-hero .elnor-botanical-stem {
+  color: var(--elnor-gold-muted);
   margin-bottom: 12px;
 }
 
-.kovv-collections-hero .kovv-eyebrow-row {
+.elnor-collections-hero .elnor-eyebrow-row {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
 
-.kovv-collections-hero .kovv-eyebrow-line {
+.elnor-collections-hero .elnor-eyebrow-line {
   height: 1px;
-  background-color: var(--kovv-gold-muted);
+  background-color: var(--elnor-gold-muted);
   width: 65px;
   opacity: 0.3;
 }
 
-.kovv-collections-hero .kovv-eyebrow-text {
+.elnor-collections-hero .elnor-eyebrow-text {
   font-family: var(--font-sans-editorial);
   font-size: 0.72rem;
   letter-spacing: 0.28em;
   font-weight: 400;
-  color: var(--kovv-ink-dark);
+  color: var(--elnor-ink-dark);
   margin: 0 14px 0 calc(14px + 0.28em);
   text-transform: uppercase;
 }
 
 /* 2. Headline: Increased display scale, tight leading */
-.kovv-collections-hero .kovv-title {
+.elnor-collections-hero .elnor-title {
   font-family: var(--font-serif-display);
   font-size: clamp(3.5rem, 6.2vw, 5.2rem); 
   font-weight: 300;
-  color: var(--kovv-ink-dark);
+  color: var(--elnor-ink-dark);
   margin: 0;
   line-height: 1.05;             
   letter-spacing: -0.012em;
   text-transform: none;
 }
 
-.kovv-collections-hero .kovv-title-line {
+.elnor-collections-hero .elnor-title-line {
   display: block;
 }
 
 /* 3. Decorative Heart Line Divider */
-.kovv-collections-hero .kovv-heart-divider {
+.elnor-collections-hero .elnor-heart-divider {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -188,21 +188,21 @@
   margin: 20px 0;                
 }
 
-.kovv-collections-hero .kovv-line {
+.elnor-collections-hero .elnor-line {
   height: 1px;
-  background-color: var(--kovv-gold-muted);
+  background-color: var(--elnor-gold-muted);
   width: 40px;
   opacity: 0.3;
 }
 
-.kovv-collections-hero .kovv-heart-icon {
+.elnor-collections-hero .elnor-heart-icon {
   margin: 0 10px;
-  color: var(--kovv-gold-muted);
+  color: var(--elnor-gold-muted);
   opacity: 0.7;
 }
 
 /* 4. Supporting Description (Comfortable reading lines) */
-.kovv-collections-hero .kovv-description-wrapper {
+.elnor-collections-hero .elnor-description-wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;                     
@@ -211,66 +211,66 @@
   margin-bottom: 38px;           
 }
 
-.kovv-collections-hero .kovv-description {
+.elnor-collections-hero .elnor-description {
   font-family: var(--font-serif-display);
   font-size: clamp(1.05rem, 1.35vw, 1.22rem); 
   font-weight: 400;
   line-height: 1.6;
-  color: var(--kovv-text-muted);
+  color: var(--elnor-text-muted);
   margin: 0;
   letter-spacing: 0.015em;
 }
 
 /* 5. Minimal Scroll Indicator */
-.kovv-collections-hero .kovv-scroll-indicator {
+.elnor-collections-hero .elnor-scroll-indicator {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.kovv-collections-hero .kovv-scroll-link {
+.elnor-collections-hero .elnor-scroll-link {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  color: var(--kovv-ink-dark);
-  transition: transform 0.6s var(--kovv-slow-ease);
+  color: var(--elnor-ink-dark);
+  transition: transform 0.6s var(--elnor-slow-ease);
 }
 
-.kovv-collections-hero .kovv-scroll-link:hover {
+.elnor-collections-hero .elnor-scroll-link:hover {
   transform: translateY(3px);
 }
 
-.kovv-collections-hero .kovv-scroll-circle {
+.elnor-collections-hero .elnor-scroll-circle {
   width: 34px;
   height: 34px;
-  border: 1px solid var(--kovv-gold-muted);
+  border: 1px solid var(--elnor-gold-muted);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--kovv-gold-muted);
+  color: var(--elnor-gold-muted);
   margin-bottom: 8px;
-  transition: all 0.5s var(--kovv-slow-ease);
+  transition: all 0.5s var(--elnor-slow-ease);
 }
 
-.kovv-collections-hero .kovv-scroll-link:hover .kovv-scroll-circle {
-  background-color: var(--kovv-gold-muted);
-  color: var(--kovv-solid-paper);
+.elnor-collections-hero .elnor-scroll-link:hover .elnor-scroll-circle {
+  background-color: var(--elnor-gold-muted);
+  color: var(--elnor-solid-paper);
 }
 
-.kovv-collections-hero .kovv-scroll-text {
+.elnor-collections-hero .elnor-scroll-text {
   font-family: var(--font-sans-editorial);
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-weight: 400;
-  color: var(--kovv-text-muted);
+  color: var(--elnor-text-muted);
   margin-left: 0.18em;
 }
 
 /* Sequential museum-style animations */
-@keyframes kovvFadeUp {
+@keyframes elnorFadeUp {
   from {
     opacity: 0;
     transform: translateY(12px);
@@ -281,35 +281,35 @@
   }
 }
 
-.kovv-collections-hero .kovv-eyebrow-wrapper,
-.kovv-collections-hero .kovv-title,
-.kovv-collections-hero .kovv-heart-divider,
-.kovv-collections-hero .kovv-description-wrapper,
-.kovv-collections-hero .kovv-scroll-indicator {
+.elnor-collections-hero .elnor-eyebrow-wrapper,
+.elnor-collections-hero .elnor-title,
+.elnor-collections-hero .elnor-heart-divider,
+.elnor-collections-hero .elnor-description-wrapper,
+.elnor-collections-hero .elnor-scroll-indicator {
   opacity: 0;
-  animation: kovvFadeUp 1.2s var(--kovv-slow-ease) forwards;
+  animation: elnorFadeUp 1.2s var(--elnor-slow-ease) forwards;
 }
 
-.kovv-collections-hero .kovv-eyebrow-wrapper { animation-delay: 0.12s; }
-.kovv-collections-hero .kovv-title { animation-delay: 0.28s; }
-.kovv-collections-hero .kovv-heart-divider { animation-delay: 0.4s; }
-.kovv-collections-hero .kovv-description-wrapper { animation-delay: 0.52s; }
-.kovv-collections-hero .kovv-scroll-indicator { animation-delay: 0.68s; }
+.elnor-collections-hero .elnor-eyebrow-wrapper { animation-delay: 0.12s; }
+.elnor-collections-hero .elnor-title { animation-delay: 0.28s; }
+.elnor-collections-hero .elnor-heart-divider { animation-delay: 0.4s; }
+.elnor-collections-hero .elnor-description-wrapper { animation-delay: 0.52s; }
+.elnor-collections-hero .elnor-scroll-indicator { animation-delay: 0.68s; }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .kovv-collections-hero {
+  .elnor-collections-hero {
     height: auto;
     min-height: 100vh;
     padding: 100px 0 50px;
   }
 
-  .kovv-collections-hero .kovv-container {
+  .elnor-collections-hero .elnor-container {
     padding: 0 1rem;
   }
   
   /* Protective layout panel card on mobile touch screens */
-  .kovv-collections-hero .kovv-content {
+  .elnor-collections-hero .elnor-content {
     background-color: rgba(247, 244, 239, 0.94);
     padding: 36px 20px;
     border-radius: 16px;
@@ -318,35 +318,35 @@
     margin-top: 0;
   }
   
-  .kovv-collections-hero .eyebrow-line {
+  .elnor-collections-hero .eyebrow-line {
     width: 40px;
   }
   
-  .kovv-collections-hero .kovv-title {
+  .elnor-collections-hero .elnor-title {
     font-size: 2.85rem;
   }
   
-  .kovv-collections-hero .kovv-description {
+  .elnor-collections-hero .elnor-description {
     font-size: 1.05rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .kovv-collections-hero::after,
-  .kovv-collections-hero .kovv-bg-image,
-  .kovv-collections-hero .kovv-eyebrow-wrapper,
-  .kovv-collections-hero .kovv-title,
-  .kovv-collections-hero .kovv-heart-divider,
-  .kovv-collections-hero .kovv-description-wrapper,
-  .kovv-collections-hero .kovv-scroll-indicator {
+  .elnor-collections-hero::after,
+  .elnor-collections-hero .elnor-bg-image,
+  .elnor-collections-hero .elnor-eyebrow-wrapper,
+  .elnor-collections-hero .elnor-title,
+  .elnor-collections-hero .elnor-heart-divider,
+  .elnor-collections-hero .elnor-description-wrapper,
+  .elnor-collections-hero .elnor-scroll-indicator {
     animation: none;
   }
 
-  .kovv-collections-hero .kovv-eyebrow-wrapper,
-  .kovv-collections-hero .kovv-title,
-  .kovv-collections-hero .kovv-heart-divider,
-  .kovv-collections-hero .kovv-description-wrapper,
-  .kovv-collections-hero .kovv-scroll-indicator {
+  .elnor-collections-hero .elnor-eyebrow-wrapper,
+  .elnor-collections-hero .elnor-title,
+  .elnor-collections-hero .elnor-heart-divider,
+  .elnor-collections-hero .elnor-description-wrapper,
+  .elnor-collections-hero .elnor-scroll-indicator {
     opacity: 1;
   }
 }

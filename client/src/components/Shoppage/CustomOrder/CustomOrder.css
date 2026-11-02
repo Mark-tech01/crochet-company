@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --co-bg-sand: #F2ECE5;           /* Primary sand background (never pure white) */
+  --co-bg-paper: #FAF8F4;          /* Secondary highlighted paper cream */
+  --co-ink-dark: #2E241C;          /* Deep rich walnut brown for headings */
+  --co-body-coffee: #61554C;       /* Soft readable charcoal-coffee tone */
+  --co-accent-champagne: #B89169;  /* Muted brand gold/champagne tone */
+  --co-btn-walnut: #33271F;        /* Walnut brown button base */
+  
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', sans-serif;
+  --co-slow-bezier: cubic-bezier(0.25, 1, 0.3, 1);
+  --co-reveal-transition: 1000ms var(--co-slow-bezier);
+}
+
+.custom-order-sec {
+  position: relative;
+  background-color: var(--co-bg-sand) !important;
+  padding: 140px 0 !important;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Subtle stucco plaster grain texture */
+.custom-order-plaster {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.04;
+  background-image: 
+    radial-gradient(rgba(46, 36, 28, 0.2) 0.5px, transparent 0.5px),
+    radial-gradient(rgba(255, 255, 255, 0.8) 0.8px, transparent 0.8px);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+}
+
+.custom-order-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1450px; /* Cinematic, generous max-width bounds */
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1.16fr 0.84fr; /* Asymmetric 58% to 42% split layout */
+  gap: 80px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   LEFT COLUMN: HANDCRAFTED VISUAL COLLAGE
+========================================== */
+.custom-order-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.8; /* Generous vertical frame canvas */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 
+    0 40px 80px rgba(46, 36, 28, 0.05),
+    inset 0 0 30px rgba(0, 0, 0, 0.02) !important;
+}
+
+.visual-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #E6DDD5;
+}
+
+.custom-order-photography {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.96) contrast(1.01) brightness(0.99);
+  transition: transform 2.5s var(--co-slow-bezier) !important;
+}
+
+.custom-order-visual:hover .custom-order-photography {
+  transform: scale(1.015); /* Soft, subtle scale interaction */
+}
+
+/* Soft morning lighting branch shadow simulation */
+.window-shadow-cast-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(184, 145, 105, 0.04) 50%, rgba(46, 36, 28, 0.08) 100%),
+    radial-gradient(circle at 80% 20%, transparent 40%, rgba(46, 36, 28, 0.12) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* ------------------------------------------
+   ARTISTIC COLLAGE PLACEHOLDER FRAME
+------------------------------------------ */
+.visual-artistic-collage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #E2D9CF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collage-oak-surface {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #DFD4C9 0%, #D4C7BB 100%);
+  z-index: 1;
+}
+
+.collage-linen-runner {
+  position: absolute;
+  inset: 0 40px;
+  background-color: #EAE3D9;
+  border-left: 0.5px dashed rgba(184, 156, 114, 0.15);
+  border-right: 0.5px dashed rgba(184, 156, 114, 0.15);
+  z-index: 2;
+}
+
+/* Physical Order Card Replica */
+.collage-physical-order-card {
+  position: relative;
+  z-index: 10;
+  width: 260px;
+  background-color: var(--co-bg-paper);
+  border: 1px solid rgba(184, 156, 114, 0.2);
+  border-radius: 4px;
+  padding: 24px;
+  box-shadow: 
+    0 15px 35px rgba(46, 36, 28, 0.06), 
+    inset 0 0 25px rgba(255, 255, 255, 0.8);
+  box-sizing: border-box;
+}
+
+.card-texture-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: radial-gradient(rgba(0,0,0,0.5) 0.5px, transparent 0.5px);
+  background-size: 8px 8px;
+}
+
+.card-hanging-thread {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 30px;
+  background-color: var(--co-accent-champagne);
+  opacity: 0.5;
+}
+
+.card-header-atelier {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--co-accent-champagne);
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.card-divider-line {
+  height: 0.5px;
+  background-color: rgba(184, 156, 114, 0.2);
+  margin-bottom: 16px;
+}
+
+.card-metadata-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.meta-row {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.meta-label {
+  font-family: var(--font-sans);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--co-accent-champagne);
+  margin-bottom: 2px;
+}
+
+.meta-value {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: var(--co-ink-dark);
+}
+
+.meta-value.italic-status {
+  font-style: italic;
+  color: var(--co-accent-champagne);
+}
+
+.card-wax-seal-emblem {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  transform: rotate(8deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  border-radius: 50%;
+}
+
+/* Micro illustrative collage detail placeholders */
+.collage-eucalyptus-leaf {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  width: 40px;
+  height: 80px;
+  border-radius: 50% 0 50% 0;
+  background-color: #AFBDB4;
+  opacity: 0.15;
+  transform: rotate(35deg);
+  z-index: 5;
+}
+
+.collage-loose-yarn-skein {
+  position: absolute;
+  bottom: 50px;
+  left: 60px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px dashed rgba(184, 156, 114, 0.25);
+  opacity: 0.25;
+  z-index: 5;
+}
+
+/* ==========================================
+   RIGHT COLUMN: ATELIER STORY SCROLL
+========================================== */
+.custom-order-details {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.co-details-wrapper {
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.co-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 14px; /* EXACT small label dimensions */
+  font-weight: 500;
+  letter-spacing: 3px; /* EXACT 3px letter-spacing bounds */
+  color: var(--co-accent-champagne); /* EXACT champagne gold color */
+  margin-bottom: 24px;
+}
+
+.co-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3.2rem, 5.2vw, 4.4rem); /* Renders as EXACTLY 68-76px on large screens */
+  font-weight: 600; /* EXACT 600 weight */
+  line-height: 1.1; /* Generous letterpress multi-line breathing heights */
+  letter-spacing: -1.2px;
+  color: var(--co-ink-dark); /* EXACT color palette code */
+  margin: 0 0 36px 0;
+}
+
+.co-paragraph-1,
+.co-paragraph-2 {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.85; /* Soft, readable multi-paragraph spacing */
+  color: var(--co-body-coffee); /* EXACT #61554C color palette */
+  margin: 0 0 24px 0;
+}
+
+.co-paragraph-2 {
+  margin-bottom: 36px;
+}
+
+/* Premium Rounded walnut button */
+.co-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--co-btn-walnut) !important; /* EXACT walnut background */
+  color: #FFFFFF !important;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 18px 42px;
+  border-radius: 40px; /* EXACT fully rounded geometry limits */
+  box-shadow: 0 10px 30px rgba(51, 39, 31, 0.12) !important;
+  border: 1px solid var(--co-btn-walnut) !important;
+  
+  transition: 
+    transform 450ms var(--co-slow-bezier), 
+    background-color 450ms var(--co-slow-bezier), 
+    box-shadow 450ms var(--co-slow-bezier) !important; /* EXACT 450ms curves transition */
+}
+
+.co-cta-btn:hover {
+  transform: translateY(-2px) !important; /* Gently raises 2px */
+  background-color: #4D3C31 !important; /* Gently lightens */
+  box-shadow: 0 15px 35px rgba(51, 39, 31, 0.18) !important; /* Shadow becomes softer */
+}
+
+/* trust indicators */
+.co-trust-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 32px 0 0 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid rgba(184, 156, 114, 0.15);
+  padding-top: 24px;
+  width: 100%;
+}
+
+.co-trust-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: var(--co-body-coffee);
+}
+
+.trust-check-icon {
+  color: var(--co-accent-champagne);
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   SCROLL REVEAL TIMING FLOWS (SEQUENTIAL FADE)
+========================================== */
+.custom-order-visual,
+.co-label,
+.co-title,
+.co-paragraph-1,
+.co-paragraph-2,
+.co-cta-btn,
+.co-trust-list {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: 
+    opacity var(--co-reveal-transition),
+    transform var(--co-reveal-transition) !important;
+}
+
+/* Timed delay cascading reveal offsets */
+.custom-order-visual.is-revealed { opacity: 1; transform: translateY(0); } /* 1. Image Fades upward */
+.co-label.is-revealed           { opacity: 1; transform: translateY(0); transition-delay: 150ms !important; } /* 2. Label Fades */
+.co-title.is-revealed           { opacity: 1; transform: translateY(0); transition-delay: 300ms !important; } /* 3. Heading Appears */
+.co-paragraph-1.is-revealed     { opacity: 1; transform: translateY(0); transition-delay: 450ms !important; } /* 4. Paragraph Fades */
+.co-paragraph-2.is-revealed     { opacity: 1; transform: translateY(0); transition-delay: 600ms !important; } /* 5. Para 2 Fades */
+.co-cta-btn.is-revealed         { opacity: 1; transform: translateY(0); transition-delay: 850ms !important; } /* 6. Button Appears last */
+.co-trust-list.is-revealed      { opacity: 1; transform: translateY(0); transition-delay: 750ms !important; } /* 7. Trust badges Appear */
+
+/* ==========================================
+   RESPONSIVENESS (FLUID COLLAPSE)
+========================================== */
+@media (max-width: 1100px) {
+  .custom-order-container {
+    grid-template-columns: 1fr; /* Stack layout on tablets and laptops */
+    gap: 60px;
+    padding: 0 32px;
+  }
+  
+  .custom-order-visual {
+    aspect-ratio: 1.45 / 1; /* Retains cinema landscape framing format */
+    min-height: auto;
+  }
+  
+  .co-details-wrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-order-sec {
+    padding: 100px 0 !important;
+  }
+  
+  .custom-order-container {
+    padding: 0 24px;
+    gap: 40px;
+  }
+  
+  .co-title {
+    margin-bottom: 24px;
+  }
+
+  .co-paragraph-1,
+  .co-paragraph-2 {
+    font-size: 15px;
+  }
+  
+  .co-cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

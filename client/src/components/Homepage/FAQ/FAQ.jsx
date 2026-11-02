@@ -227,7 +227,7 @@ function FAQ() {
           <div className="banner-divider-line" aria-hidden="true"></div>
 
           {/* 3. Contact Card: Email */}
-          <a href="mailto:contact@kovv.com" className="contact-card">
+          <a href="mailto:contact@elnor.com" className="contact-card">
             <span className="contact-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
                 <rect x="2" y="4" width="20" height="16" rx="2" />

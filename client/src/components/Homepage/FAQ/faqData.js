@@ -35,7 +35,7 @@ export const faqAccordionData = [
   {
     id: 'gift-wrapping',
     question: 'Do you offer gift wrapping and notes?',
-    answer: 'Every KOVV creation is beautifully wrapped with care and can include a hand-written premium parchment card with your personalized message.',
+    answer: 'Every elnor creation is beautifully wrapped with care and can include a hand-written premium parchment card with your personalized message.',
     iconKey: 'gift'
   },
   {

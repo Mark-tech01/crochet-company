@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-wash-tint: rgba(250, 247, 242, 0.7); /* Luminous ivory warm vignette tint */
+  --text-dark-coffee: #2F241D;              /* Warm deep espresso */
+  --text-muted-taupe: #5A4E45;              /* Balanced mid-tone brown */
+  --accent-bronze: #8B6A52;                 /* Subtle gold/bronze label accent */
+  
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', sans-serif;
+  --luxury-bezier: cubic-bezier(0.25, 1, 0.3, 1);
+  --luxury-transition: 1000ms var(--luxury-bezier);
+}
+
+/* Scoped full-bleed shop hero section */
+.shop-hero-sec {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+/* Left-aligned gradient vignette to blend text into any background shot */
+.hero-wash-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(to right, var(--bg-wash-tint) 0%, rgba(250, 247, 242, 0.45) 45%, rgba(250, 247, 242, 0) 100%);
+}
+
+.shop-hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  width: 100%;
+  height: calc(100vh - 160px); /* Fill screen minus vertical section padding */
+  margin: 0 auto;
+  padding: 0 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   1. TOP ROW: EDITORIAL COLLECTION LABELS
+========================================== */
+.hero-eyebrow-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+}
+
+.eyebrow-line {
+  width: 48px;
+  height: 1px;
+  background-color: var(--text-dark-coffee);
+  opacity: 0.6;
+  margin-top: 10px; /* Aligns with uppercase lettering */
+}
+
+.label-collection {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: var(--text-dark-coffee);
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   2. CENTER ROW: LARGE EDITORIAL HEADLINE
+========================================== */
+.hero-headline-row {
+  text-align: left;
+  margin: auto 0; /* Keeps headline vertically centered within viewport height */
+}
+
+.hero-title-serif {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(3.2rem, 7.5vw, 5.8rem) !important; /* EXACT large editorial scale (around 96px) */
+  font-weight: 400 !important;
+  line-height: 1.05 !important;
+  color: var(--text-dark-coffee) !important;
+  letter-spacing: -1.5px !important;
+  margin: 0 !important;
+}
+
+.serif-italic {
+  font-family: var(--font-serif) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+
+/* ==========================================
+   3. BOTTOM ROW: DESCRIPTION & CALL TO ACTION
+========================================== */
+.hero-footer-row {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px; /* Separates paragraph and custom button link */
+}
+
+.hero-description-text {
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  color: var(--text-muted-taupe) !important;
+  max-width: 48ch !important; /* Keeps paragraph narrow and neat */
+  margin: 0 !important;
+}
+
+.hero-cta-btn-wrapper {
+  display: flex;
+}
+
+/* Refined minimal text-only underline button */
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent !important;
+  border-bottom: 1px solid var(--text-dark-coffee) !important;
+  padding-bottom: 6px;
+  font-family: var(--font-sans) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  color: var(--text-dark-coffee) !important;
+  transition: color var(--luxury-transition), border-color var(--luxury-transition) !important;
+}
+
+.hero-cta-btn:hover {
+  color: var(--accent-bronze) !important;
+  border-color: var(--accent-bronze) !important;
+}
+
+.btn-arrow {
+  transition: transform var(--luxury-transition);
+}
+
+.hero-cta-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   SCROLL REVEAL STAGGERED TRANSITIONS
+========================================== */
+.hero-eyebrow-row,
+.hero-title-serif,
+.hero-description-text,
+.hero-cta-btn {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: 
+    opacity var(--luxury-transition), 
+    transform var(--luxury-transition) !important;
+}
+
+.hero-eyebrow-row.is-revealed,
+.hero-title-serif.is-revealed,
+.hero-description-text.is-revealed,
+.hero-cta-btn.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-eyebrow-row { transition-delay: 150ms !important; }
+.hero-title-serif { transition-delay: 350ms !important; }
+.hero-description-text { transition-delay: 550ms !important; }
+.hero-cta-btn { transition-delay: 750ms !important; }
+
+/* ==========================================
+   RESPONSIVE LAYOUT SYSTEM
+========================================== */
+@media (max-width: 1024px) {
+  .shop-hero-sec {
+    min-height: auto;
+    padding: 100px 0;
+  }
+
+  .shop-hero-container {
+    height: auto;
+    padding: 0 2.5rem;
+    gap: 80px;
+  }
+
+  .hero-headline-row {
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .shop-hero-sec {
+    padding: 80px 0;
+  }
+
+  .shop-hero-container {
+    padding: 0 1.5rem;
+    gap: 60px;
+  }
+
+  .hero-title-serif {
+    line-height: 1.15 !important;
+  }
+
+  .eyebrow-line {
+    display: none !important; /* Cleans visual density on small viewports */
+  }
+}

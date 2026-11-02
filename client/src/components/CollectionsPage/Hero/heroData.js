@@ -9,5 +9,5 @@ export const heroData = {
     "Every bouquet, companion, and keepsake is designed to preserve a different kind of memory.\nHandmade with love, meant to be cherished forever.",
   scrollText: "Scroll",
   image: collectionsFlatlay,
-  imageAlt: "KOVV premium handcrafted collections layout"
+  imageAlt: "elnor premium handcrafted collections layout"
 };

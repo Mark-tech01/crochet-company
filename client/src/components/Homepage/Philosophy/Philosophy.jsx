@@ -49,7 +49,7 @@ function Philosophy() {
           <p className="philosophy-description">
             In a world filled with things that are quickly made and quickly forgotten,
             we create keepsakes that are meant to be gifted, cherished and remembered.
-            Every KOVV creation carries patience, craftsmanship and emotion.
+            Every elnor creation carries patience, craftsmanship and emotion.
           </p>
         </div>
 

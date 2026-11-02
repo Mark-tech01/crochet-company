@@ -7,9 +7,9 @@ import step4Img from './assets/story-step4.jpg';
 import promiseImg from './assets/story-promise.jpg';
 
 export const storyHeroData = {
-  subtitle: 'THE HEART OF KOVV',
+  subtitle: 'THE HEART OF elnor',
   title: "We don't make gifts.\nWe create keepsakes.",
-  description: "Some moments deserve more than a photograph. They deserve something you can hold, gift, and treasure for years. That's why every KOVV piece is handcrafted slowly—with patience, purpose, and love.",
+  description: "Some moments deserve more than a photograph. They deserve something you can hold, gift, and treasure for years. That's why every elnor piece is handcrafted slowly—with patience, purpose, and love.",
   tagline: 'Made slowly. Loved forever.',
   image: storyHeroImg
 };
@@ -49,6 +49,6 @@ export const storyPromiseData = {
   title: 'A Promise In Every Stitch',
   description: "We believe the most meaningful gifts aren't measured by their price. They're measured by the smile they create, the memories they preserve, and the people they bring closer. That's the promise we make—every single time.",
   tagline: 'With love,',
-  signature: 'Kovv',
+  signature: 'elnor',
   image: promiseImg
 };

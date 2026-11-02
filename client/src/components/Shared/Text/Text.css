@@ -1,9 +1,9 @@
 /* ======================================================
-   KOVV TEXT SYSTEM
+   elnor TEXT SYSTEM
    Version 1.0
 ====================================================== */
 
-.kovv-text{
+.elnor-text{
     margin:0;
     font-family:"Manrope",sans-serif;
     color:var(--color-text-light);
@@ -11,7 +11,7 @@
 
 /* Large */
 
-.kovv-text-body-large{
+.elnor-text-body-large{
 
     font-size:1.2rem;
 
@@ -21,7 +21,7 @@
 
 /* Default */
 
-.kovv-text-body{
+.elnor-text-body{
 
     font-size:1rem;
 
@@ -31,7 +31,7 @@
 
 /* Small */
 
-.kovv-text-small{
+.elnor-text-small{
 
     font-size:.9rem;
 
@@ -43,7 +43,7 @@
 
 /* Label */
 
-.kovv-text-label{
+.elnor-text-label{
 
     font-size:.78rem;
 

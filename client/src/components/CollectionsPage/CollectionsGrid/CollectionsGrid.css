@@ -3,30 +3,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap');
 
 :root {
-  --kovv-grid-canvas: #F4EFE6;    /* Rich, warm studio linen cream-beige backdrop */
-  --kovv-grid-paper: #FAF7F2;     /* Cotton-soft alabaster white for mat boards */
-  --kovv-grid-ink: #3F3025;       /* Warm deep espresso ink instead of harsh charcoal */
-  --kovv-grid-muted: #6E5D52;     /* Refined poetic hazel description text */
-  --kovv-grid-gold: #B89C72;      /* Premium brand gold matching CTA and Footer */
-  --kovv-grid-border: rgba(184, 156, 114, 0.18); /* Soft gold-bronze outline */
+  --elnor-grid-canvas: #F4EFE6;    /* Rich, warm studio linen cream-beige backdrop */
+  --elnor-grid-paper: #FAF7F2;     /* Cotton-soft alabaster white for mat boards */
+  --elnor-grid-ink: #3F3025;       /* Warm deep espresso ink instead of harsh charcoal */
+  --elnor-grid-muted: #6E5D52;     /* Refined poetic hazel description text */
+  --elnor-grid-gold: #B89C72;      /* Premium brand gold matching CTA and Footer */
+  --elnor-grid-border: rgba(184, 156, 114, 0.18); /* Soft gold-bronze outline */
   
-  --kovv-grid-bezier: cubic-bezier(0.25, 1, 0.3, 1);
-  --kovv-grid-transition: 1500ms var(--kovv-grid-bezier);
+  --elnor-grid-bezier: cubic-bezier(0.25, 1, 0.3, 1);
+  --elnor-grid-transition: 1500ms var(--elnor-grid-bezier);
   --font-serif-display: 'Cormorant Garamond', serif;
   --font-sans-editorial: 'Montserrat', sans-serif;
 }
 
 /* Base scoped section container */
-.kovv-grid-section {
+.elnor-grid-section {
   position: relative;
-  background-color: var(--kovv-grid-canvas);
+  background-color: var(--elnor-grid-canvas);
   padding: 120px 0;
   overflow: hidden;
-  border-top: 1px solid var(--kovv-grid-border);
+  border-top: 1px solid var(--elnor-grid-border);
 }
 
 /* Studio window lighting overlay matching hero layout */
-.kovv-grid-section .kovv-grid-lighting {
+.elnor-grid-section .elnor-grid-lighting {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(255, 252, 247, 0.15) 0%, rgba(34, 26, 21, 0.02) 65%, rgba(0, 0, 0, 0.05) 100%);
@@ -35,7 +35,7 @@
   z-index: 1;
 }
 
-.kovv-grid-section .kovv-grid-grain {
+.elnor-grid-section .elnor-grid-grain {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -48,7 +48,7 @@
   background-size: 14px 14px, 18px 18px;
 }
 
-.kovv-grid-container {
+.elnor-grid-container {
   position: relative;
   z-index: 2;
   max-width: 1440px;             
@@ -59,20 +59,20 @@
 /* ==========================================
    THE PASSEPARTOUT GALLERY FRAMING & CORNERS
 ========================================== */
-.kovv-image-frame {
+.elnor-image-frame {
   position: relative;
   width: 100%;
-  background-color: var(--kovv-grid-paper);
+  background-color: var(--elnor-grid-paper);
   border-radius: 6px;
-  border: 1px solid var(--kovv-grid-border);
+  border: 1px solid var(--elnor-grid-border);
   box-shadow: 
     0 15px 40px rgba(62, 47, 37, 0.03),
     inset 0 0 25px rgba(118, 96, 70, 0.01);
   overflow: hidden;
-  transition: transform var(--kovv-grid-transition), box-shadow var(--kovv-grid-transition);
+  transition: transform var(--elnor-grid-transition), box-shadow var(--elnor-grid-transition);
 }
 
-.kovv-image-frame-hero {
+.elnor-image-frame-hero {
   position: relative;
   width: 100%;
   border-radius: 12px;
@@ -81,32 +81,32 @@
 }
 
 /* Custom editorial dome arches matching your layout precisely */
-.kovv-dome-top-left {
+.elnor-dome-top-left {
   border-top-left-radius: 260px;
 }
 
-.kovv-dome-top-right {
+.elnor-dome-top-right {
   border-top-right-radius: 260px;
 }
 
-.kovv-dome-craft {
+.elnor-dome-craft {
   border-top-left-radius: 180px;
 }
 
 .passpartout-intimate { padding: 14px; }
 .passpartout-landscape { padding: 22px; }
 
-.kovv-img {
+.elnor-img {
   width: 100%;
   height: auto;
   object-fit: cover;
   display: block;
   filter: sepia(0.01) saturate(0.96) contrast(1.01) brightness(0.99);
-  transition: transform var(--kovv-grid-transition), filter var(--kovv-grid-transition);
+  transition: transform var(--elnor-grid-transition), filter var(--elnor-grid-transition);
 }
 
-.kovv-image-frame:hover .kovv-img,
-.kovv-image-frame-hero:hover .kovv-img {
+.elnor-image-frame:hover .elnor-img,
+.elnor-image-frame-hero:hover .elnor-img {
   transform: scale(1.015);
   filter: sepia(0.04) saturate(1) contrast(1.02) brightness(1.01);
 }
@@ -114,39 +114,39 @@
 /* ==========================================
    METADATA & SECTION HEADERS
 ========================================== */
-.kovv-section-num {
+.elnor-section-num {
   display: flex;
   align-items: center;
   gap: 1.25rem;
   margin-bottom: 1.25rem;
   font-family: var(--font-sans-editorial);
   font-size: 0.8rem;
-  color: var(--kovv-grid-gold);
+  color: var(--elnor-grid-gold);
 }
 
 .num-line {
   height: 1px;
-  background-color: var(--kovv-grid-gold);
+  background-color: var(--elnor-grid-gold);
   width: 60px;
   opacity: 0.3;
 }
 
-.kovv-section-title {
+.elnor-section-title {
   font-family: var(--font-serif-display);
   font-size: clamp(2.2rem, 3.5vw, 3rem);
   font-weight: 300;
-  color: var(--kovv-grid-ink);
+  color: var(--elnor-grid-ink);
   line-height: 1.15;
   margin: 0 0 1rem 0;
   letter-spacing: -0.01em;
 }
 
-.kovv-section-tagline {
+.elnor-section-tagline {
   font-family: var(--font-serif-display);
   font-style: italic;
   font-size: 1.05rem;
   line-height: 1.6;
-  color: var(--kovv-grid-muted);
+  color: var(--elnor-grid-muted);
   margin: 0 0 2rem 0;
   white-space: pre-line;
 }
@@ -154,7 +154,7 @@
 /* ==========================================================
    EDITORIAL SECTION OPENING PRELUDE (Before any grids start)
 ========================================================== */
-.kovv-grid-header {
+.elnor-grid-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -168,7 +168,7 @@
 /* ==========================================
    EDITORIAL TRANSITION BREAK PAUSES
 ========================================== */
-.kovv-editorial-pause {
+.elnor-editorial-pause {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -177,38 +177,38 @@
   text-align: center;
 }
 
-.kovv-pause-quote {
+.elnor-pause-quote {
   font-family: var(--font-serif-display);
   font-style: italic;
   font-size: clamp(1.4rem, 2.5vw, 1.95rem);
-  color: var(--kovv-grid-muted);
+  color: var(--elnor-grid-muted);
   margin: 0 0 1.5rem 0;
 }
 
-.kovv-pause-divider {
+.elnor-pause-divider {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
 
-.kovv-pause-line {
+.elnor-pause-line {
   height: 1px;
-  background-color: var(--kovv-grid-gold);
+  background-color: var(--elnor-grid-gold);
   width: 80px;
   opacity: 0.25;
 }
 
-.kovv-pause-icon {
+.elnor-pause-icon {
   margin: 0 14px;
-  color: var(--kovv-grid-gold);
+  color: var(--elnor-grid-gold);
   opacity: 0.8;
 }
 
 /* ==========================================
    SECTION 1: EVERLASTING FLORALS (HERO)
 ========================================== */
-.kovv-section-florals {
+.elnor-section-florals {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
   align-items: center;
@@ -216,65 +216,65 @@
   margin-bottom: clamp(6rem, 10vw, 10rem); 
 }
 
-.kovv-section-florals .kovv-img {
+.elnor-section-florals .elnor-img {
   aspect-ratio: 1.22 / 1;
 }
 
-.kovv-thumbnail-slider {
+.elnor-thumbnail-slider {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   width: 100%;
 }
 
-.kovv-thumbnails-track {
+.elnor-thumbnails-track {
   display: flex;
   gap: 1.25rem;
 }
 
 /* Option A: Softly rounded rectangular previews */
-.kovv-thumb-card {
+.elnor-thumb-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.kovv-thumb-img-wrapper {
+.elnor-thumb-img-wrapper {
   width: 80px;
   height: 95px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(62, 47, 37, 0.04);
-  border: 1px solid var(--kovv-grid-border);
+  border: 1px solid var(--elnor-grid-border);
   margin-bottom: 0.6rem;
 }
 
-.kovv-thumb-img {
+.elnor-thumb-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--kovv-grid-transition);
+  transition: transform var(--elnor-grid-transition);
 }
 
-.kovv-thumb-card:hover .kovv-thumb-img {
+.elnor-thumb-card:hover .elnor-thumb-img {
   transform: scale(1.04);
 }
 
-.kovv-thumb-name {
+.elnor-thumb-name {
   font-family: var(--font-sans-editorial);
   font-size: 0.65rem;
   letter-spacing: 0.05em;
-  color: var(--kovv-grid-muted);
+  color: var(--elnor-grid-muted);
 }
 
-.kovv-slider-arrow {
+.elnor-slider-arrow {
   width: 32px;
   height: 32px;
   border-radius: 50%;
   border: 1px solid rgba(184, 156, 114, 0.35);
   background: transparent;
-  color: var(--kovv-grid-gold);
+  color: var(--elnor-grid-gold);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -282,16 +282,16 @@
   transition: all 0.3s ease;
 }
 
-.kovv-slider-arrow:hover {
-  background-color: var(--kovv-grid-gold);
-  color: var(--kovv-grid-paper);
-  border-color: var(--kovv-grid-gold);
+.elnor-slider-arrow:hover {
+  background-color: var(--elnor-grid-gold);
+  color: var(--elnor-grid-paper);
+  border-color: var(--elnor-grid-gold);
 }
 
 /* ==========================================
    SECTION 2: PERSONALIZED KEEPSAKES
 ========================================== */
-.kovv-section-keepsakes {
+.elnor-section-keepsakes {
   display: grid;
   grid-template-columns: 0.75fr 1.05fr 0.75fr;
   align-items: center;
@@ -299,69 +299,69 @@
   margin-bottom: 12rem;
 }
 
-.kovv-section-keepsakes .kovv-img {
+.elnor-section-keepsakes .elnor-img {
   aspect-ratio: 0.95 / 1;
 }
 
-.kovv-icons-grid {
+.elnor-icons-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-bottom: 2.2rem;
-  border-top: 1px solid var(--kovv-grid-border);
+  border-top: 1px solid var(--elnor-grid-border);
   padding-top: 1.5rem;
 }
 
-.kovv-icon-item {
+.elnor-icon-item {
   display: flex;
   align-items: center;
   gap: 0.8rem;
 }
 
-.kovv-icon-item svg {
-  color: var(--kovv-grid-gold);
+.elnor-icon-item svg {
+  color: var(--elnor-grid-gold);
   opacity: 0.85;
 }
 
-.kovv-icon-item span {
+.elnor-icon-item span {
   font-family: var(--font-sans-editorial);
   font-size: 0.7rem;
   font-weight: 400;
   letter-spacing: 0.05em;
-  color: var(--kovv-grid-muted);
+  color: var(--elnor-grid-muted);
 }
 
-.kovv-editorial-cta {
+.elnor-editorial-cta {
   font-family: var(--font-sans-editorial);
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.18em;
-  color: var(--kovv-grid-gold);
+  color: var(--elnor-grid-gold);
   text-decoration: none;
   border-bottom: 1px solid rgba(184, 156, 114, 0.35);
   padding-bottom: 4px;
-  transition: color var(--kovv-grid-transition), border-color var(--kovv-grid-transition);
+  transition: color var(--elnor-grid-transition), border-color var(--elnor-grid-transition);
 }
 
-.kovv-editorial-cta:hover {
-  color: var(--kovv-grid-ink);
-  border-color: var(--kovv-grid-ink);
+.elnor-editorial-cta:hover {
+  color: var(--elnor-grid-ink);
+  border-color: var(--elnor-grid-ink);
 }
 
-.kovv-col-right-stacked {
+.elnor-col-right-stacked {
   display: flex;
   flex-direction: column;
   gap: 2.2rem;
 }
 
-.kovv-col-right-stacked .kovv-img {
+.elnor-col-right-stacked .elnor-img {
   aspect-ratio: 1.25 / 1;
 }
 
 /* ==========================================
    SECTION 3: HOME & LIFESTYLE
 ========================================== */
-.kovv-section-lifestyle {
+.elnor-section-lifestyle {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr 0.7fr;
   align-items: center;
@@ -369,32 +369,32 @@
   margin-bottom: 12rem;
 }
 
-.kovv-section-lifestyle .kovv-col-left .kovv-img {
+.elnor-section-lifestyle .elnor-col-left .elnor-img {
   aspect-ratio: 1.1 / 1;
 }
 
 .mt-slider {
   margin-bottom: 2.2rem;
-  border-top: 1px solid var(--kovv-grid-border);
+  border-top: 1px solid var(--elnor-grid-border);
   padding-top: 1.5rem;
 }
 
-.kovv-col-right.flex-column {
+.elnor-col-right.flex-column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1.5rem;
 }
 
-.kovv-col-right.flex-column .kovv-img {
+.elnor-col-right.flex-column .elnor-img {
   aspect-ratio: 1.2 / 1;
 }
 
-.kovv-handwritten-note {
+.elnor-handwritten-note {
   font-family: var(--font-serif-display);
   font-style: italic;
   font-size: 1.15rem;
-  color: var(--kovv-grid-muted);
+  color: var(--elnor-grid-muted);
   line-height: 1.4;
   margin: 0;
   padding-left: 0.5rem;
@@ -403,7 +403,7 @@
 /* ==========================================
    SECTION 4: SEASONAL & EXCLUSIVE
 ========================================== */
-.kovv-section-seasonal {
+.elnor-section-seasonal {
   display: grid;
   grid-template-columns: 0.75fr 1.65fr;
   align-items: center;
@@ -411,14 +411,14 @@
   margin-bottom: 6rem;
 }
 
-.kovv-col-right-wide .kovv-img {
+.elnor-col-right-wide .elnor-img {
   aspect-ratio: 1.48 / 1;
 }
 
 /* ==========================================
    ENDING STATEMENT
 ========================================== */
-.kovv-grid-ending {
+.elnor-grid-ending {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -427,32 +427,32 @@
   text-align: center;
 }
 
-.kovv-ending-statement {
+.elnor-ending-statement {
   font-family: var(--font-serif-display);
   font-style: italic;
   font-size: clamp(1.4rem, 2.5vw, 1.95rem);
-  color: var(--kovv-grid-muted);
+  color: var(--elnor-grid-muted);
   margin: 0 0 1.5rem 0;
 }
 
 /* ==========================================
    SCROLL REVEAL STAGGERED MOTION
 ========================================== */
-.kovv-grid-header, 
-.kovv-editorial-pause, 
-.kovv-section, 
-.kovv-grid-ending {
+.elnor-grid-header, 
+.elnor-editorial-pause, 
+.elnor-section, 
+.elnor-grid-ending {
   opacity: 0;
   transform: translateY(22px);
   transition: 
-    opacity var(--kovv-grid-transition), 
-    transform var(--kovv-grid-transition);
+    opacity var(--elnor-grid-transition), 
+    transform var(--elnor-grid-transition);
 }
 
-.kovv-grid-header.kovv-revealed,
-.kovv-editorial-pause.kovv-revealed,
-.kovv-section.kovv-revealed,
-.kovv-grid-ending.kovv-revealed {
+.elnor-grid-header.elnor-revealed,
+.elnor-editorial-pause.elnor-revealed,
+.elnor-section.elnor-revealed,
+.elnor-grid-ending.elnor-revealed {
   opacity: 1;
   transform: translateY(0);
 }
@@ -461,92 +461,92 @@
    RESPONSIVENESS (FLUID COLLAPSE)
 ========================================== */
 @media (max-width: 1200px) {
-  .kovv-grid-container {
+  .elnor-grid-container {
     padding: 0 2.5rem;
   }
 
-  .kovv-section-florals,
-  .kovv-section-keepsakes,
-  .kovv-section-lifestyle,
-  .kovv-section-seasonal {
+  .elnor-section-florals,
+  .elnor-section-keepsakes,
+  .elnor-section-lifestyle,
+  .elnor-section-seasonal {
     gap: 3.5rem;
   }
 }
 
 @media (max-width: 1024px) {
-  .kovv-grid-section {
+  .elnor-grid-section {
     padding: 100px 0;
   }
 
-  .kovv-section-florals {
+  .elnor-section-florals {
     grid-template-columns: 1.1fr 0.9fr;
   }
 
-  .kovv-section-keepsakes {
+  .elnor-section-keepsakes {
     grid-template-columns: 1fr 1fr;
   }
 
-  .kovv-col-right-stacked {
+  .elnor-col-right-stacked {
     grid-column: span 2;
     flex-direction: row;
   }
 
-  .kovv-col-right-stacked .kovv-image-frame {
+  .elnor-col-right-stacked .elnor-image-frame {
     flex: 1;
   }
 
-  .kovv-section-lifestyle {
+  .elnor-section-lifestyle {
     grid-template-columns: 1.1fr 0.9fr;
   }
 
-  .kovv-col-right.flex-column {
+  .elnor-col-right.flex-column {
     grid-column: span 2;
     flex-direction: row;
     align-items: center;
   }
 
-  .kovv-col-right.flex-column .kovv-image-frame {
+  .elnor-col-right.flex-column .elnor-image-frame {
     flex: 1;
   }
 
-  .kovv-section-seasonal {
+  .elnor-section-seasonal {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .kovv-grid-section {
+  .elnor-grid-section {
     padding: 80px 0 50px;
   }
 
-  .kovv-grid-container {
+  .elnor-grid-container {
     padding: 0 1.5rem;
   }
 
-  .kovv-section-florals,
-  .kovv-section-keepsakes,
-  .kovv-section-lifestyle {
+  .elnor-section-florals,
+  .elnor-section-keepsakes,
+  .elnor-section-lifestyle {
     grid-template-columns: 1fr;
     gap: 4rem;
   }
 
-  .kovv-col-right-stacked,
-  .kovv-col-right.flex-column {
+  .elnor-col-right-stacked,
+  .elnor-col-right.flex-column {
     grid-column: span 1;
     flex-direction: column;
   }
 
-  .kovv-thumbnails-track {
+  .elnor-thumbnails-track {
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .kovv-thumbnail-slider {
+  .elnor-thumbnail-slider {
     flex-direction: column;
     gap: 1.5rem;
   }
 
-  .kovv-slider-arrow {
+  .elnor-slider-arrow {
     align-self: center;
   }
 }

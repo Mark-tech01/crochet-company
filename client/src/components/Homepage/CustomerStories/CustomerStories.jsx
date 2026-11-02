@@ -54,7 +54,7 @@ function CustomerStories() {
           <p className="cust-stories-lead">
             The most meaningful feedback arrives months and years later.
             These stories come from customers who continue to live with
-            their KOVV creations long after they first arrived.
+            their elnor creations long after they first arrived.
           </p>
 
         </div>

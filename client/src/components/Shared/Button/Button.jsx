@@ -12,9 +12,9 @@ function Button({
   fullWidth = false,
 }) {
   const classes = [
-    "kovv-btn",
-    `kovv-btn--${variant}`,
-    fullWidth ? "kovv-btn--full" : "",
+    "elnor-btn",
+    `elnor-btn--${variant}`,
+    fullWidth ? "elnor-btn--full" : "",
     className,
   ]
     .filter(Boolean)
@@ -27,7 +27,7 @@ function Button({
         className={classes}
         aria-disabled={disabled}
       >
-        <span className="kovv-btn-text">
+        <span className="elnor-btn-text">
           {children}
         </span>
       </Link>
@@ -41,7 +41,7 @@ function Button({
       onClick={onClick}
       disabled={disabled}
     >
-      <span className="kovv-btn-text">
+      <span className="elnor-btn-text">
         {children}
       </span>
     </button>

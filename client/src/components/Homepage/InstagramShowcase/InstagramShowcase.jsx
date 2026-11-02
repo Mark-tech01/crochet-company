@@ -47,7 +47,7 @@ function InstagramShowcase() {
           </span>
 
           <h2 className="insta-showcase-title">
-            A glimpse inside the KOVV studio.
+            A glimpse inside the elnor studio.
           </h2>
 
           <p className="insta-showcase-lead">
@@ -96,7 +96,7 @@ function InstagramShowcase() {
             rel="noopener noreferrer"
             className="insta-handle-link"
           >
-            Follow @kovv
+            Follow @elnor
           </a>
 
         </div>

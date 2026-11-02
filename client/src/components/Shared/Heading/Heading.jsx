@@ -10,7 +10,7 @@ function Heading({
 
   return (
     <Tag
-      className={`kovv-heading kovv-heading-${level} ${className}`}
+      className={`elnor-heading elnor-heading-${level} ${className}`}
     >
       {children}
     </Tag>

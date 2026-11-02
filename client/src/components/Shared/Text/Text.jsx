@@ -8,7 +8,7 @@ function Text({
 
   return (
     <p
-      className={`kovv-text kovv-text-${variant} ${className}`}
+      className={`elnor-text elnor-text-${variant} ${className}`}
     >
       {children}
     </p>
